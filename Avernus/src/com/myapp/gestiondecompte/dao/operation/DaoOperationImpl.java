@@ -12,6 +12,7 @@ public class DaoOperationImpl implements IDaoOperation{
 	/*
 	 * ATTRIBUTS
 	 */
+	
 	private Logger logger = Logger.getLogger("DaoOperationImpl");
 	private SessionFactory sf = Singleton.getSf();
 
