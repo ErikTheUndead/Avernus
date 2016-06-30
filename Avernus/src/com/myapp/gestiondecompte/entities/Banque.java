@@ -17,7 +17,6 @@ import javax.persistence.OneToMany;
  * Date: 30/06/2016
  * V 1.0.0
  */
-
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="nomBanque", discriminatorType=DiscriminatorType.STRING)
 @Entity
