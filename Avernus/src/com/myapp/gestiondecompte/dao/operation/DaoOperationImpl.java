@@ -7,6 +7,13 @@ import org.hibernate.Session;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Operation;
 
+/*
+ * AUTEUR : ERIK DUHEM
+ * DATE : 30/06/2016
+ * VERSION : 1
+ * 
+ */
+
 public class DaoOperationImpl implements IDaoOperation{
 	
 	/*
