@@ -1,6 +1,7 @@
 package com.myapp.gestiondecompte.metier.banque;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.myapp.gestiondecompte.dao.banque.IDaoBanque;
 import com.myapp.gestiondecompte.entities.Banque;
@@ -17,6 +18,7 @@ public class MetierBanqueImpl implements IMetierBanque{
 	//Attributs
 	
 	private IDaoBanque dao;
+	Logger logger = Logger.getLogger("MetierBanqueImpl");
 	
 	//Méthode
 	
@@ -48,6 +50,7 @@ public class MetierBanqueImpl implements IMetierBanque{
 
 	public void setDao(IDaoBanque dao) {
 		this.dao = dao;
+		logger.info("<----------daoBanque injected-------->");
 	}
 
 	

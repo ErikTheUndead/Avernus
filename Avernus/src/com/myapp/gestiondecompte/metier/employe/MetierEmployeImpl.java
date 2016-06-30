@@ -1,6 +1,7 @@
 package com.myapp.gestiondecompte.metier.employe;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.myapp.gestiondecompte.dao.employe.IDaoEmploye;
 import com.myapp.gestiondecompte.entities.Employe;
@@ -15,6 +16,7 @@ public class MetierEmployeImpl implements IMetierEmploye{
 	//Attributs 
 	
 	private IDaoEmploye dao;
+	Logger logger = Logger.getLogger("MetierEmployeImpl");
 	
 	//Méthode
 	
@@ -34,5 +36,6 @@ public class MetierEmployeImpl implements IMetierEmploye{
 	
 	public void setDao(IDaoEmploye dao) {
 		this.dao = dao;
+		logger.info("<----------daoEmploye injected-------->");
 	}
 }
