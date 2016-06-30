@@ -1,6 +1,7 @@
 package com.myapp.gestiondecompte.metier.client;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.myapp.gestiondecompte.dao.client.IDaoClient;
 import com.myapp.gestiondecompte.entities.Client;
@@ -18,11 +19,13 @@ public class MetierClientImpl implements IMetierClient{
 	
 	/*Injection*/
 	private IDaoClient idao;
-	
+	Logger logger = Logger.getLogger("MetierClientImpl");
+
 	/*Setter*/
 
 	public void setIdao(IDaoClient idao) {
 		this.idao = idao;
+		logger.info("la dao Client a bien été injecté");
 	}
 
 	

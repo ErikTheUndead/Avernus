@@ -1,6 +1,7 @@
 package com.myapp.gestiondecompte.metier.groupe;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import com.myapp.gestiondecompte.dao.groupe.IDaoGroupe;
 import com.myapp.gestiondecompte.entities.Employe;
@@ -17,11 +18,14 @@ public class MetierGroupeImpl implements IMetierGroupe{
 
 	/*injection*/
 	private IDaoGroupe idao;
+	Logger logger = Logger.getLogger("MetierGroupeImpl");
 
 	/*Setter*/
 	
 	public void setIdao(IDaoGroupe idao) {
 		this.idao = idao;
+		logger.info("la dao Groupe a bien été injecté");
+
 	}
 	
 	/*Methode*/

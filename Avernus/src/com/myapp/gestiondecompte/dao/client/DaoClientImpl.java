@@ -22,7 +22,7 @@ import com.myapp.gestiondecompte.entities.Client;
 public class DaoClientImpl implements IDaoClient {
 	
 	//Attribut
-	Logger logger = Logger.getLogger("DaoImpl") ;
+	Logger logger = Logger.getLogger("DaoClientImpl") ;
 	private SessionFactory sf = Singleton.getSf();
 	
 	//Methode

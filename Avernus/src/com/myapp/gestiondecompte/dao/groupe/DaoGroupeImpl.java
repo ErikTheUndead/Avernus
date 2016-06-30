@@ -24,7 +24,7 @@ import com.myapp.gestiondecompte.entities.Groupe;
 public class DaoGroupeImpl implements IDaoGroupe {
 
 	
-	Logger logger = Logger.getLogger("DaoImpl") ;
+	Logger logger = Logger.getLogger("DaoGroupeImpl") ;
 	private SessionFactory sf = Singleton.getSf();
 	
 	
