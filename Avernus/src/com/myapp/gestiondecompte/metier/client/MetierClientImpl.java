@@ -5,6 +5,14 @@ import java.util.List;
 import com.myapp.gestiondecompte.dao.client.IDaoClient;
 import com.myapp.gestiondecompte.entities.Client;
 
+/*
+ *  author : BERNARD Thomas
+ *   class : MetierClientImpl
+ *    date : 30/06/2016
+ * version : 1.0
+ * 
+ */
+
 public class MetierClientImpl implements IMetierClient{
 
 	

@@ -6,6 +6,13 @@ import com.myapp.gestiondecompte.dao.groupe.IDaoGroupe;
 import com.myapp.gestiondecompte.entities.Employe;
 import com.myapp.gestiondecompte.entities.Groupe;
 
+/*
+ *  author : BERNARD Thomas
+ *   class : MetierGroupeImpl
+ *    date : 30/06/2016
+ * version : 1.0
+ * 
+ */
 public class MetierGroupeImpl implements IMetierGroupe{
 
 	/*injection*/

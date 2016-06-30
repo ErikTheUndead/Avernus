@@ -4,6 +4,13 @@ import java.util.List;
 
 import com.myapp.gestiondecompte.entities.Client;
 
+/*
+ *  author : BERNARD Thomas
+ *   interface : IMetierClient
+ *    date : 30/06/2016
+ * version : 1.0
+ * 
+ */
 public interface IMetierClient {
 
 	public Client addClient(Client c);
