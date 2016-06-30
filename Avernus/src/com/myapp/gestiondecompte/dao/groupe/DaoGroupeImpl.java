@@ -36,7 +36,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 		session.saveOrUpdate(g);
 		session.getTransaction().commit();
 		session.close();
-		logger.info("le groupe "+g.getNomGroupe()+ "  avec l'id "+g.getIdGroupe()+" a bien ete enregistrer");
+		logger.info("le groupe "+g.getNomGroupe()+ "  avec l'id "+g.getIdGroupe()+" a bien été enregistré");
 		
 		return g;
 	}
@@ -51,7 +51,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 		Employe e = session.get(Employe.class, idE);
 		e.getTabGroupe().add(g);
 		session.update(e);
-		logger.info("On ajoute l'employe d'id : "+e.getIdEmploye() + " au groupe d'id : " + g.getIdGroupe());
+		logger.info("On ajoute l'employé d'id : "+e.getIdEmploye() + " au groupe d'id : " + g.getIdGroupe());
 
 		session.getTransaction().commit();
 		session.close();
@@ -61,7 +61,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 	public List<Groupe> getGroupe() {
 		
 		
-		logger.info("on recuper la liste des groupes");
+		logger.info("on recupère la liste des groupes");
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
@@ -80,7 +80,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 	public List<Employe> getEmployesGroupe(Long idG) {
 	
 		
-		logger.info("on recuper une liste d'employe du groupe d'id : "+idG);
+		logger.info("on recupère une liste d'employe du groupe d'id : "+idG);
 		Session session = sf.openSession();
 		session.beginTransaction();
 		

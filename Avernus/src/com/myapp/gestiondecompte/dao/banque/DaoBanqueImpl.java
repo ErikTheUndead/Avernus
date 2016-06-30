@@ -13,7 +13,7 @@ import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Employe;
 /*
- * Author: Julie Brouqué
+ * Author: Julie Brouquï¿½
  * Date: 30/06/2016
  * V 1.0.0
  */
@@ -25,7 +25,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 	Logger logger=Logger.getLogger("DaoBanqueImpl");  
 		
 	
-	//Méthodes
+	//Mï¿½thodes
 	
 	@Override
 	public Banque addBanque(Banque b) {
@@ -33,7 +33,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		ss.beginTransaction();
 		ss.save(b);
 		ss.getTransaction().commit();
-		logger.info("La banque "+b.getNomBanque()+ " a bien été ajoutée");
+		logger.info("La banque "+b.getIdBanque()+ " a bien ï¿½tï¿½ ajoutï¿½e");
 		ss.close();
 		return b;
 	}
@@ -45,7 +45,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Query req=ss.createQuery("select from Employe e, Compte s, Banque b where (b.idbanque=s.idBanque and e.idEmploye=s.idEmploye and b.idBanque=:x)");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
-		logger.info("La liste d'employés a été chargée");
+		logger.info("La liste d'employï¿½s a ï¿½tï¿½ chargï¿½e");
 		return req.list();
 	}
 
@@ -56,7 +56,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Query req=ss.createQuery("select from Client c, Compte s, Banque b where (b.idbanque=s.idBanque and c.idClient=s.idClient and b.idBanque=:x)");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
-		logger.info("La liste de client a été chargée");
+		logger.info("La liste de client a ï¿½tï¿½ chargï¿½e");
 		return req.list();
 	}
 
@@ -67,7 +67,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Query req=ss.createQuery("select tabCompte from Banque b where b.idBanque=:x");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
-		logger.info("La liste de compte a été chargée");
+		logger.info("La liste de compte a ï¿½tï¿½ chargï¿½e");
 		return req.list();
 	}
 }

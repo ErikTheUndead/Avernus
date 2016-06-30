@@ -3,16 +3,22 @@ package com.myapp.gestiondecompte.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 /*
- * Author: Julie Brouqué
+ * Author: Julie Brouquï¿½
  * Date: 30/06/2016
  * V 1.0.0
  */
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="nomBanque", discriminatorType=DiscriminatorType.STRING)
 @Entity
 public class Banque {
 	
@@ -21,7 +27,6 @@ public class Banque {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idBanque;
-	private String nomBanque;
 	private String adresseBanque;
 	private int codePostalBanque;
 	
@@ -37,12 +42,13 @@ public class Banque {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Banque(String nomBanque, String adresseBanque, int codePostalBanque) {
+	
+	public Banque(String adresseBanque, int codePostalBanque) {
 		super();
-		this.nomBanque = nomBanque;
 		this.adresseBanque = adresseBanque;
 		this.codePostalBanque = codePostalBanque;
 	}
+
 
 	//Get and Set
 	
@@ -54,13 +60,7 @@ public class Banque {
 		this.idBanque = idBanque;
 	}
 
-	public String getNomBanque() {
-		return nomBanque;
-	}
-
-	public void setNomBanque(String nomBanque) {
-		this.nomBanque = nomBanque;
-	}
+	
 
 	public String getAdresseBanque() {
 		return adresseBanque;

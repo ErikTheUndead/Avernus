@@ -14,13 +14,6 @@ import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Employe;
 
-/*
- * AUTEUR : ERIK DUHEM
- * DATE : 30/06/2016
- * VERSION : 1
- * 
- */
-
 public class DaoCompteImpl implements IDaoCompte {
 
 	// ATTRIBUTS
