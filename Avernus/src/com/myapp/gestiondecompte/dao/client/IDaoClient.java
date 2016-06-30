@@ -11,6 +11,7 @@ import com.myapp.gestiondecompte.entities.Client;
  * version : 1.0
  * 
  */
+
 public interface IDaoClient {
 
 		public Client addClient(Client c);
