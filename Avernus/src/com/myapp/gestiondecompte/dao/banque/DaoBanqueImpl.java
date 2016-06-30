@@ -36,6 +36,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Query req=ss.createQuery("select from Employe e, Compte s, Banque b where (b.idbanque=s.idBanque and e.idEmploye=s.idEmploye and b.idBanque=:x)");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
+		logger.info("La liste d'employés a été chargée");
 		return req.list();
 	}
 
@@ -46,6 +47,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Query req=ss.createQuery("select from Client c, Compte s, Banque b where (b.idbanque=s.idBanque and c.idClient=s.idClient and b.idBanque=:x)");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
+		logger.info("La liste de client a été chargée");
 		return req.list();
 	}
 
@@ -56,6 +58,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Query req=ss.createQuery("select tabCompte from Banque b where b.idBanque=:x");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
+		logger.info("La liste de compte a été chargée");
 		return req.list();
 	}
 }
