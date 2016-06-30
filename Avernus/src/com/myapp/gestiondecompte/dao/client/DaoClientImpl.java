@@ -87,7 +87,7 @@ public class DaoClientImpl implements IDaoClient {
 
 	@Override
 	public List<Client> getClientsByMc(String mc) {
-		logger.info("on recuper une liste d'etudiants par mot cle");
+		logger.info("on recuper une liste dde clients par mot cle");
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
