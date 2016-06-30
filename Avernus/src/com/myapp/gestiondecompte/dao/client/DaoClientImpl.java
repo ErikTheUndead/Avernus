@@ -34,7 +34,7 @@ public class DaoClientImpl implements IDaoClient {
 		session.saveOrUpdate(c);
 		session.getTransaction().commit();
 		session.close();
-		logger.info("le client "+c.getNomClient()+ "  avec l'id "+c.getIdClient()+" a bien ete enregistrer");
+		logger.info("le client "+c.getNomClient()+ "  avec l'id "+c.getIdClient()+" a bien été enregistré ");
 		return c;
 	}
 
@@ -57,7 +57,7 @@ public class DaoClientImpl implements IDaoClient {
 	@Override
 	public Client updateClient(Client c) {
 		
-		logger.info("on modifie l'etudiant  d'id : "+ c.getIdClient());
+		logger.info("on modifie l'étudiant  d'id : "+ c.getIdClient());
 		Session session = sf.openSession();
 		session.beginTransaction();
 
@@ -70,7 +70,7 @@ public class DaoClientImpl implements IDaoClient {
 	@Override
 	public List<Client> getClients() {
 		
-		logger.info("on recuper la liste des clients");
+		logger.info("on recupère la liste des clients");
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
@@ -88,7 +88,7 @@ public class DaoClientImpl implements IDaoClient {
 
 	@Override
 	public List<Client> getClientsByMc(String mc) {
-		logger.info("on recuper une liste dde clients par mot cle");
+		logger.info("on recupère une liste de clients par mot clé");
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
