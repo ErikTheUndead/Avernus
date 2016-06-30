@@ -7,13 +7,14 @@ import com.myapp.gestiondecompte.entities.Groupe;
 
 /*
  *  author : BERNARD Thomas
- *   class : IDaoGroupe
+ *   Interface : IDaoGroupe
  *    date : 30/06/2016
  * version : 1.0
  * 
  */
 public interface IDaoGroupe {
 
+	
 	public Groupe addGroupe(Groupe g);
 	public void addEmployeGroupe(Long idG,Long idE);
 	public List<Groupe> getGroupe();

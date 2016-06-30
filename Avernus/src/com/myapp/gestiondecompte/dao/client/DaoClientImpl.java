@@ -20,11 +20,12 @@ import com.myapp.gestiondecompte.entities.Client;
  */
 
 public class DaoClientImpl implements IDaoClient {
-
+	
+	//Attribut
 	Logger logger = Logger.getLogger("DaoImpl") ;
 	private SessionFactory sf = Singleton.getSf();
 	
-	
+	//Methode
 	@Override
 	public Client addClient(Client c) {
 	
