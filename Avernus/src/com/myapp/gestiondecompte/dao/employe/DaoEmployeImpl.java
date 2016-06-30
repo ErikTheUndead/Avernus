@@ -9,12 +9,19 @@ import org.hibernate.SessionFactory;
 
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Employe;
-
+/*
+ * Author: Julie Brouqué
+ * Date: 30/06/2016
+ * V 1.0.0
+ */
 public class DaoEmployeImpl implements IDaoEmploye{
 
+	//Attributs
 	
 	SessionFactory sf=Singleton.getSf();
 	Logger logger=Logger.getLogger("DaoEmployeImpl");  
+	
+	//Methodes
 	
 	@Override
 	public Employe addEmploye(Employe e) {

@@ -6,9 +6,14 @@ import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Employe;
-
+/*
+ * Author: Julie Brouqué
+ * Date: 30/06/2016
+ * V 1.0.0
+ */
 public interface IDaoBanque {
 
+	
 	public Banque addBanque(Banque b);
 	public List<Employe> getEmployeBanque(Long idBanque);
 	public List<Client> getClientBanque(Long idBanque);

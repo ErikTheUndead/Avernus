@@ -12,12 +12,21 @@ import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Employe;
-
+/*
+ * Author: Julie Brouqué
+ * Date: 30/06/2016
+ * V 1.0.0
+ */
 public class DaoBanqueImpl implements IDaoBanque{
+	
+	//Attributs
 	
 	SessionFactory sf=Singleton.getSf();
 	Logger logger=Logger.getLogger("DaoBanqueImpl");  
-			
+		
+	
+	//Méthodes
+	
 	@Override
 	public Banque addBanque(Banque b) {
 		Session ss=sf.openSession();
