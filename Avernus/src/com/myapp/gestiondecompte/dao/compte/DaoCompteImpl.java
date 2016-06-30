@@ -12,6 +12,13 @@ import org.hibernate.SessionFactory;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Compte;
 
+/*
+ * AUTEUR : ERIK DUHEM
+ * DATE : 30/06/2016
+ * VERSION : 1
+ * 
+ */
+
 public class DaoCompteImpl implements IDaoCompte {
 
 	// ATTRIBUTS
