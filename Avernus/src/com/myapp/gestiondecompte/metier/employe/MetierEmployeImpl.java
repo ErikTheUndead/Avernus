@@ -30,5 +30,9 @@ public class MetierEmployeImpl implements IMetierEmploye{
 		return dao.getEmploye();
 	}
 
+	//Set
 	
+	public void setDao(IDaoEmploye dao) {
+		this.dao = dao;
+	}
 }

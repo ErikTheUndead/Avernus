@@ -43,5 +43,12 @@ public class MetierBanqueImpl implements IMetierBanque{
 		// TODO Auto-generated method stub
 		return dao.getCompteBanque(idBanque);
 	}
+	
+	// Set
 
+	public void setDao(IDaoBanque dao) {
+		this.dao = dao;
+	}
+
+	
 }
