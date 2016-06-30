@@ -1,5 +1,9 @@
 package com.myapp.gestiondecompte.dao.operation;
 
-public interface IDaoOperation {
+import com.myapp.gestiondecompte.entities.Operation;
 
+public interface IDaoOperation {
+	
+	public Operation addOperation(Operation op);
+	
 }
