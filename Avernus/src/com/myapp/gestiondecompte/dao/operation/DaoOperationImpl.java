@@ -19,12 +19,12 @@ public class DaoOperationImpl implements IDaoOperation{
 	/*
 	 * ATTRIBUTS
 	 */
+	
 	private Logger logger = Logger.getLogger("DaoOperationImpl");
 	private SessionFactory sf = Singleton.getSf();
 
 	/*
-	 * (non-Javadoc)
-	 * @see com.myapp.gestiondecompte.dao.operation.IDaoOperation#addOperation(com.myapp.gestiondecompte.entities.Operation)
+	 * METHODES
 	 */
 	
 	@Override
