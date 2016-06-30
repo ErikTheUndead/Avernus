@@ -19,6 +19,13 @@ public class MetierClientImpl implements IMetierClient{
 	/*Injection*/
 	private IDaoClient idao;
 	
+	/*Setter*/
+
+	public void setIdao(IDaoClient idao) {
+		this.idao = idao;
+	}
+
+	
 	/*implémentation*/
 	@Override
 	public Client addClient(Client c) {

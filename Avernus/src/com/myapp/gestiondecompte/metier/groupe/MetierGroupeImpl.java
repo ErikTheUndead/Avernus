@@ -18,12 +18,20 @@ public class MetierGroupeImpl implements IMetierGroupe{
 	/*injection*/
 	private IDaoGroupe idao;
 
+	/*Setter*/
+	
+	public void setIdao(IDaoGroupe idao) {
+		this.idao = idao;
+	}
+	
 	/*Methode*/
 	@Override
 	public Groupe addGroupe(Groupe g) {
 		// TODO Auto-generated method stub
 		return idao.addGroupe(g);
 	}
+
+	
 
 	@Override
 	public void addEmployeGroupe(Long idG, Long idE) {
