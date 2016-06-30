@@ -13,7 +13,7 @@ import com.myapp.gestiondecompte.entities.Compte;
 
 public interface IDaoCompte {
 	
-	public Compte addCompte(Compte c);
+	public Compte addCompte(Compte c, Long idClient, Long idEmploye, Long idBanque);
 	
 	public void deleteCompte (Long idCompte);
 	

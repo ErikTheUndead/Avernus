@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
+import com.myapp.gestiondecompte.entities.Banque;
+import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
+import com.myapp.gestiondecompte.entities.Employe;
 
 /*
  * AUTEUR : ERIK DUHEM
@@ -32,9 +34,18 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 	
 	@Override
-	public Compte addCompte(Compte c) {
+	public Compte addCompte(Compte c, Long idClient, Long idEmploye, Long idBanque) {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
+		Employe e = null;
+		Client cl = null;
+		Banque b = null;
+		cl = ss.get(Client.class, idClient);
+		e = ss.get(Employe.class, idEmploye);
+		b = ss.get(Banque.class, idBanque);
+		c.setBanque(b);
+		c.setClient(cl);
+		c.setEmploye(e);
 		ss.save(c);
 		ss.getTransaction().commit();
 		ss.close();
