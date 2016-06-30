@@ -1,5 +1,6 @@
 package com.myapp.gestiondecompte.dao.compte;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -65,7 +66,7 @@ public class DaoCompteImpl implements IDaoCompte {
 		ss.update(c1); 
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c.getIdCompte()+" a bien ete modifie");
+		logger.info("le compte "+c1.getIdCompte()+" a bien ete modifie");
 		return c1;
 	}
 
@@ -79,10 +80,12 @@ public class DaoCompteImpl implements IDaoCompte {
 	public List<Compte> getCompte() {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
+		List<Compte> tab = new ArrayList<>();
 		Query req = ss.createQuery("from Compte");
-		logger.info("<------ liste des comptes recupere : "+req.list().size()+" ------>");
+		tab = req.list();
+		logger.info("<------ liste des comptes recupere : "+tab.size()+" ------>");
 		ss.close();
-		return req.list();
+		return tab;
 	}
 	
 	/*
@@ -95,11 +98,13 @@ public class DaoCompteImpl implements IDaoCompte {
 	public List<Compte> getCompteEmploye(Long idEmploye) {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
+		List<Compte> tab = new ArrayList<>();
 		Query req = ss.createQuery("from Compte c where c.idEmploye =:l");
 		req.setParameter("l","%"+idEmploye+"%");
+		tab = req.list();
 		ss.close();
-		logger.info("<------ Le nombre de compte trouve par idEmploye trouve :"+idEmploye+" est : "+req.list().size()+" ------>");
-		return req.list();
+		logger.info("<------ Le nombre de compte trouve par idEmploye trouve :"+idEmploye+" est : "+tab.size()+" ------>");
+		return tab;
 	}
 
 }
