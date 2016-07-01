@@ -12,7 +12,7 @@
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost/SpringMvcProject</property>
+		<property name="connection.url">jdbc:mysql://localhost/gestionCompte</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password"></property>
 
@@ -33,9 +33,20 @@
 
 		<!-- Names the annotated entity class -->
 		<!-- <mapping class="org.metier.Persson"/> -->
-		<mapping class="com.myapp.entitis.Client" />
-		<mapping class="com.myapp.entitis.Voiture"/>
-
+		<mapping class="com.myapp.gestiondecompte.entities.Banque" />
+				<mapping class="com.myapp.gestiondecompte.entities.Bnp" />
+				<mapping class="com.myapp.gestiondecompte.entities.Cic" />
+				<mapping class="com.myapp.gestiondecompte.entities.Client" />
+				<mapping class="com.myapp.gestiondecompte.entities.Compte" />
+				<mapping class="com.myapp.gestiondecompte.entities.CompteCourant" />
+				<mapping class="com.myapp.gestiondecompte.entities.CompteEpargne" />
+				<mapping class="com.myapp.gestiondecompte.entities.Employe" />
+				<mapping class="com.myapp.gestiondecompte.entities.Groupe" />
+				<mapping class="com.myapp.gestiondecompte.entities.Lcl" />
+				<mapping class="com.myapp.gestiondecompte.entities.Operation" />
+				<mapping class="com.myapp.gestiondecompte.entities.Retrait" />
+				<mapping class="com.myapp.gestiondecompte.entities.Versement" />
+		
 	</session-factory>
 
 </hibernate-configuration>
