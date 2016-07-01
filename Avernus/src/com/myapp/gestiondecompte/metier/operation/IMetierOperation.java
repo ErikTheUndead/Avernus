@@ -1,5 +1,8 @@
 package com.myapp.gestiondecompte.metier.operation;
 
+import java.util.Date;
+import java.util.List;
+
 import com.myapp.gestiondecompte.entities.Operation;
 
 /*
@@ -11,6 +14,11 @@ import com.myapp.gestiondecompte.entities.Operation;
 
 public interface IMetierOperation {
 	
-	public Operation addOperation(Operation op);
+//	public Operation addOperation(Operation op);
+	
+	public Operation retrait(Long idCompte, Long idEmploye, double montant,Date dateOperation);
 
+	public Operation versement(Long idCompte, Long idEmploye, double montant,Date dateOperation);
+	
+	public  List<Operation> virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation);
 }

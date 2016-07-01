@@ -3,6 +3,7 @@ package com.myapp.gestiondecompte.metier.compte;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.myapp.gestiondecompte.dao.compte.IDaoCompte;
 import com.myapp.gestiondecompte.entities.Compte;
 
 /*
@@ -18,14 +19,14 @@ public class MetierCompteImpl implements IMetierCompte {
 	 * ATTRIBUTS
 	 */
 	
-	private IMetierCompte daoCompte;
+	private IDaoCompte daoCompte;
 	Logger logger = Logger.getLogger("MetierCompteImpl");
 	
 	/*
 	 * GETTERS ET SETTERS
 	 */
 	
-	public void setDao(IMetierCompte daoCompte) {
+	public void setDao(IDaoCompte daoCompte) {
 		this.daoCompte = daoCompte;
 		logger.info("<----------daoCompte injected-------->");
 	}
@@ -35,8 +36,8 @@ public class MetierCompteImpl implements IMetierCompte {
 	 */
 
 	@Override
-	public Compte addCompte(Compte c) {
-		return daoCompte.addCompte(c);
+	public Compte addCompte(Compte c,Long idClient, Long idEmploye, Long idBanque) {
+		return daoCompte.addCompte(c, idClient, idEmploye, idBanque);
 	}
 
 	@Override
