@@ -26,6 +26,12 @@ public class CompteCourant extends Compte{
 		super(numCompte, soldeCompte, dateDeCreationCompte);
 		// TODO Auto-generated constructor stub
 	}
+	public CompteCourant(int numCompte, double soldeCompte,
+			Date dateDeCreationCompte , double decouvert) {
+		super(numCompte, soldeCompte, dateDeCreationCompte);
+		this.decouvert=decouvert;
+		// TODO Auto-generated constructor stub
+	}
 	/*Get and Set*/
 
 	public double getDecouvert() {
