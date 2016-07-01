@@ -38,5 +38,5 @@
 	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.operation.MetierOperationImpl">
 		<property name="daoOperation" ref="idDaoOperation"></property>
 	</bean>
-
+ 
 </beans>
