@@ -72,13 +72,11 @@ public class DaoCompteImpl implements IDaoCompte {
 	public Compte updateCompte(Compte c) {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
-		Compte c1 = null;
-		c1 = ss.get(Compte.class, c.getIdCompte());
-		ss.update(c1); 
+		ss.update(c); 
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c1.getIdCompte()+" a bien ete modifie");
-		return c1;
+		logger.info("le compte "+c.getIdCompte()+" a bien ete modifie");
+		return c;
 	}
 
 	/*
