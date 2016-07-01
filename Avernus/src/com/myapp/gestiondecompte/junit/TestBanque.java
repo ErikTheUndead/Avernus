@@ -29,7 +29,7 @@ public class TestBanque {
 		context.close();
 	}
 	
-	/*@Test
+	@Test
 	public void testAddBanque() {
 		Banque b1= new Bnp("2 rue des moines", 75013);
 		metier.addBanque(b1);
@@ -38,7 +38,7 @@ public class TestBanque {
 		Banque b3= new Lcl("95 rue Napoleon Bonaparte", 75016);
 		metier.addBanque(b3);
 		assertNotNull(b1.getIdBanque());
-	}*/
+	}
 
 	@Test
 	public void testGetEmployeBanque() {

@@ -29,7 +29,7 @@ public class TestEmploye {
 		context.close();
 	}
 	
-	/*@Test
+	@Test
 	public void testAddEmploye() {
 		Employe e1= new Employe("Brouque", "A");
 		metier.addEmploye(e1);
@@ -40,7 +40,7 @@ public class TestEmploye {
 		Employe e4=new Employe("Martin","D");
 		metier.addEmploye(e4);
 		assertNotNull(e1.getIdEmploye());
-	}*/
+	}
 
 	@Test
 	public void testGetEmploye() {

@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.myapp.gestiondecompte.entities.Compte;
+import com.myapp.gestiondecompte.entities.CompteCourant;
 import com.myapp.gestiondecompte.metier.compte.IMetierCompte;
 
 public class TestCompte {
@@ -58,21 +59,25 @@ public class TestCompte {
 //		metier.deleteCompte(1L);
 //	}
 
-//	@Test
-//	public void testUpdateCompte() {
-//		Compte c = null;
-//		c = metier.getCompteId(1L);
-//		assert
-//	}
-//
-//	@Test
-//	public void testGetCompte() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testGetCompteEmploye() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void testUpdateCompte() {
+		Compte c1 = null;
+		c1 = metier.getCompteId(1L);
+		long id1 = (long) c1.getIdCompte();
+		Compte c2 = new CompteCourant(numCompte, soldeCompte, dateDeCreationCompte)
+		metier.updateCompte(c, idClient)
+		
+		assertNotEquals(id1	, id2);
+	}
+
+	@Test
+	public void testGetCompte() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCompteEmploye() {
+		fail("Not yet implemented");
+	}
 
 }
