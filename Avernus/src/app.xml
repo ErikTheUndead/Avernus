@@ -15,13 +15,13 @@
 		<property name="idao" ref="daoClient"></property>
 	</bean>
 	
-	<bean id="idDaoCompte" class=".com.myapp.gestiondecompte.dao.compte.DaoCompteImpl"></bean>
+	<bean id="idDaoCompte" class="com.myapp.gestiondecompte.dao.compte.DaoCompteImpl"></bean>
 	
 	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.compte.MetierCompteImpl">
 		<property name="daoCompte" ref="idDaoCompte"></property>
 	</bean>
 	
-	<bean id="idDaoEmploye" class=".com.myapp.gestiondecompte.dao.employe.DaoEmployeImpl"></bean>
+	<bean id="idDaoEmploye" class="com.myapp.gestiondecompte.dao.employe.DaoEmployeImpl"></bean>
 	
 	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.employe.MetierEmployeImpl">
 		<property name="dao" ref="idDaoEmploye"></property>
