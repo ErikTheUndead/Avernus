@@ -48,6 +48,7 @@ public class TestBanque {
 		assertNotNull(b1.getIdBanque());
 	}*/
 
+	
 	@Test
 	public void testGetEmployeBanque() {
 		List<Employe> tab=metier.getEmployeBanque(1L);
