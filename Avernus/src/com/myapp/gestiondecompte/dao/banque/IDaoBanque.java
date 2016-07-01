@@ -7,7 +7,7 @@ import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Employe;
 /*
- * Author: Julie Brouqué
+ * Author: Julie Brouquï¿½
  * Date: 30/06/2016
  * V 1.0.0
  */
