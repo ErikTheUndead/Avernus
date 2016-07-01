@@ -2,6 +2,8 @@ package com.myapp.gestiondecompte.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 /*
  *  author : BERNARD Thomas
  *   class : CompteCourant
@@ -9,7 +11,7 @@ import java.util.Date;
  * version : 1.0
  * 
  */
-
+@Entity
 public class CompteCourant extends Compte{
 
 	/*Attribut*/
