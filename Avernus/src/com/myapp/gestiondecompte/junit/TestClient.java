@@ -73,6 +73,7 @@ public class TestClient {
 //		assertTrue(c10.getNomClient()=="azerty");		
 //		
 //	}
+	
 
 //	@Test
 //	public void testGetClients() {
