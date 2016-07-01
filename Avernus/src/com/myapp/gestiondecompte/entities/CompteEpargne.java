@@ -27,6 +27,12 @@ public class CompteEpargne extends Compte{
 		super(numCompte, soldeCompte, dateDeCreationCompte);
 		// TODO Auto-generated constructor stub
 	}
+	public CompteEpargne(int numCompte, double soldeCompte,
+			Date dateDeCreationCompte, double tauxInteret) {
+		super(numCompte, soldeCompte, dateDeCreationCompte);
+		this.tauxInteret=tauxInteret;
+		// TODO Auto-generated constructor stub
+	}
 	/*get and set */
 
 	public double getTauxInteret() {
