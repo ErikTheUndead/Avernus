@@ -2,6 +2,9 @@ package com.myapp.gestiondecompte.junit;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+import java.util.logging.Logger;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,6 +13,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Bnp;
 import com.myapp.gestiondecompte.entities.Cic;
+import com.myapp.gestiondecompte.entities.Client;
+import com.myapp.gestiondecompte.entities.Compte;
+import com.myapp.gestiondecompte.entities.Employe;
 import com.myapp.gestiondecompte.entities.Lcl;
 import com.myapp.gestiondecompte.metier.banque.IMetierBanque;
 
@@ -29,6 +35,8 @@ public class TestBanque {
 		context.close();
 	}
 	
+	Logger logger=Logger.getLogger("TestBanque"); 
+	
 	/*@Test
 	public void testAddBanque() {
 		Banque b1= new Bnp("2 rue des moines", 75013);
@@ -42,17 +50,23 @@ public class TestBanque {
 
 	@Test
 	public void testGetEmployeBanque() {
-		fail("Not yet implemented");
+		List<Employe> tab=metier.getEmployeBanque(1L);
+		assertTrue(tab.size()>0);
 	}
 
-	@Test
+	/*@Test
 	public void testGetClientBanque() {
-		fail("Not yet implemented");
-	}
+		List<Client> tab=metier.getClientBanque(1L);
+		assertTrue(tab.size()>0);
+	}*/
 
-	@Test
+	/*@Test
 	public void testGetCompteBanque() {
-		fail("Not yet implemented");
-	}
+		List<Compte> tab=metier.getCompteBanque(1L);
+		for(Compte c:tab){
+			logger.info((c.getSoldeCompte());
+		}
+		assertTrue(tab.size()>0);
+	}*/
 
 }

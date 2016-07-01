@@ -1,5 +1,6 @@
 package com.myapp.gestiondecompte.dao.banque;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -42,22 +43,39 @@ public class DaoBanqueImpl implements IDaoBanque{
 	public List<Employe> getEmployeBanque(Long idBanque) {
 		Session ss=sf.openSession();
 		ss.beginTransaction();
-		Query req=ss.createQuery("select from Employe e, Compte s, Banque b where (b.idbanque=s.idBanque and e.idEmploye=s.idEmploye and b.idBanque=:x)");
-		req.setParameter("x", idBanque);
+		List<Employe> tab1=new ArrayList<Employe>();
+		Banque b=ss.get(Banque.class, idBanque);
+		List<Compte> tab=b.getTabCompte();
+		for(Compte c:tab){
+			if(tab1.contains(c.getEmploye())){
+				;
+			}else{
+				tab1.add(c.getEmploye());
+			}
+			
+		}
 		ss.getTransaction().commit();
-		logger.info("La liste d'employ�s a �t� charg�e");
-		return req.list();
+		logger.info("La liste de "+tab1.size() +"employ�s a �t� charg�e");
+		return tab1;
 	}
 
 	@Override
 	public List<Client> getClientBanque(Long idBanque) {
 		Session ss=sf.openSession();
 		ss.beginTransaction();
-		Query req=ss.createQuery("select from Client c, Compte s, Banque b where (b.idbanque=s.idBanque and c.idClient=s.idClient and b.idBanque=:x)");
-		req.setParameter("x", idBanque);
+		List<Client> tab1=new ArrayList<Client>();
+		Banque b=ss.get(Banque.class, idBanque);
+		List<Compte> tab=b.getTabCompte();
+		for(Compte c:tab){
+			if(tab1.contains(c.getClient())){
+				;
+			}else{
+			tab1.add(c.getClient());
+			}
+		}
 		ss.getTransaction().commit();
-		logger.info("La liste de client a �t� charg�e");
-		return req.list();
+		logger.info("La liste de "+tab1.size()+" clients a �t� charg�e");
+		return tab1;
 	}
 
 	@Override
