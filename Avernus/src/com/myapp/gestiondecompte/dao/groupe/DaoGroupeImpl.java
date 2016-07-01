@@ -82,19 +82,26 @@ public class DaoGroupeImpl implements IDaoGroupe {
 	public List<Employe> getEmployesGroupe(Long idG) {
 	
 		
-		logger.info("on recup�re une liste d'employe du groupe d'id : "+idG);
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql ="FROM Employe e, Groupe g Where g.idGroupe=:x";
+		/*String hql ="select tabEmploye FROM Groupe g Where g.idGroupe=:x";
 		Query rep = session.createQuery(hql);
 		rep.setParameter("x",idG);
 		List<Employe> list = new ArrayList<>();
-		list = rep.list();
-		session.getTransaction().commit();
-		session.close();
+		list = rep.list();*/
 		
-		return list;
+		
+		Groupe g=session.get(Groupe.class, idG);
+		List<Employe> tab= g.getTabEmploye();
+		session.getTransaction().commit();
+		
+		
+		/*Query query =session.createQuery("from Employe e inner join e.tabGroupe f where f.idGroupe=:x");
+		query.setParameter("x", idG);*/
+		
+		logger.info("on recup�re une liste d'employe "+ tab.size()+ "du groupe d'id : "+idG);
+		return tab;
 	}
 	
 	

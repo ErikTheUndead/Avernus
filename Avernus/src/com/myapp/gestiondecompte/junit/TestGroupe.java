@@ -56,9 +56,9 @@ public class TestGroupe {
 		assertTrue(tab.size()>0);
 	}*/
 
-	/*@Test
+	@Test
 	public void testGetEmployesGroupe() {
-		List<Employe> tab = metier.getEmployesGroupe(1L);
+		List<Employe> tab = metier.getEmployesGroupe(3L);
 		assertTrue(tab.size()>0);
-	}*/
+	}
 }
