@@ -6,8 +6,8 @@ import com.myapp.gestiondecompte.entities.Compte;
 
 /*
  * AUTEUR : ERIK DUHEM
- * DATE : 30/06/2016
- * VERSION : 1
+ * DATE : 1/07/2016
+ * VERSION : 2
  * 
  */
 

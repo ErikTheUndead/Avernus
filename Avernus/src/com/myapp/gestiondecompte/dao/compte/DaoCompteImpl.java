@@ -79,7 +79,7 @@ public class DaoCompteImpl implements IDaoCompte {
 		ss.update(c); 
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c.getIdCompte()+" a bien ete modifie");
+		logger.info("le compte "+c.getIdCompte()+" a bien ete modifié");
 		return c;
 	}
 
