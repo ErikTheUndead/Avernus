@@ -42,7 +42,8 @@ public class DaoCompteImpl implements IDaoCompte {
 		ss.save(c);
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c.getIdCompte()+" á bien été enregistré");
+		logger.info("le compte "+c.getIdCompte()+" á bien été enregistré : "
+				+c.getClient().getIdClient() + "");
 		return c;
 	}
 	
