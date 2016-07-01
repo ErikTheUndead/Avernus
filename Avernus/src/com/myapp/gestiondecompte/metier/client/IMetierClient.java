@@ -18,4 +18,6 @@ public interface IMetierClient {
 	public Client updateClient(Client c);
 	public List<Client> getClients();
 	public List<Client> getClientsByMc(String mc);
+	public Client getClientById(Long id);
+
 }

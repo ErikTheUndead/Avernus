@@ -17,6 +17,7 @@ public interface IDaoClient {
 		public Client addClient(Client c);
 		public void deleteClient(Long idC);
 		public Client updateClient(Client c);
+		public Client getClientById(Long id);
 		public List<Client> getClients();
 		public List<Client> getClientsByMc(String mc);
 }
