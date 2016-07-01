@@ -10,7 +10,7 @@ public interface IMetierCompte {
 	
 	public void deleteCompte (Long idCompte);
 	
-	public Compte updateCompte (Compte c);
+	public Compte updateCompte (Compte c,Long idClient);
 	
 	public Compte getCompteId(Long idCompte);
 	

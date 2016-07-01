@@ -69,9 +69,11 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 
 	@Override
-	public Compte updateCompte(Compte c) {
+	public Compte updateCompte(Compte c, Long idClient) {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
+		Client cl = ss.get(Client.class, idClient);
+		c.setClient(cl);
 		ss.update(c); 
 		ss.getTransaction().commit();
 		ss.close();
