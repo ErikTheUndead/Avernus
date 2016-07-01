@@ -57,7 +57,7 @@ public class DaoClientImpl implements IDaoClient {
 	@Override
 	public Client updateClient(Client c) {
 		
-		logger.info("on modifie l'étudiant  d'id : "+ c.getIdClient());
+		logger.info("on modifie le client  d'id : "+ c.getIdClient());
 		Session session = sf.openSession();
 		session.beginTransaction();
 
