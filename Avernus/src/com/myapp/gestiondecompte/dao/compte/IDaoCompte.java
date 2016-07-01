@@ -19,6 +19,8 @@ public interface IDaoCompte {
 	
 	public Compte updateCompte (Compte c);
 	
+	public Compte getCompteId(Long idCompte);
+	
 	public List<Compte> getCompte ();
 	
 	public List<Compte> getCompteEmploye (Long idEmploye);

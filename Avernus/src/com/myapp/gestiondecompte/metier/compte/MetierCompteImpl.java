@@ -60,4 +60,9 @@ public class MetierCompteImpl implements IMetierCompte {
 		return daoCompte.getCompteEmploye(idEmploye);
 	}
 
+	@Override
+	public Compte getCompteId(Long idCompte) {
+		return daoCompte.getCompteId(idCompte);
+	}
+
 }
