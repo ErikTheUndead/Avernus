@@ -23,19 +23,19 @@
 	
 	<bean id="idDaoEmploye" class="com.myapp.gestiondecompte.dao.employe.DaoEmployeImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.employe.MetierEmployeImpl">
+	<bean id="metierEmploye" class="com.myapp.gestiondecompte.metier.employe.MetierEmployeImpl">
 		<property name="dao" ref="idDaoEmploye"></property>
 	</bean>
 	
 	<bean id="idDaoGroupe" class="com.myapp.gestiondecompte.dao.groupe.DaoGroupeImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.groupe.MetierGroupeImpl">
+	<bean id="metierGroupe" class="com.myapp.gestiondecompte.metier.groupe.MetierGroupeImpl">
 		<property name="idao" ref="idDaoGroupe"></property>
 	</bean>
 	
 	<bean id="idDaoOperation" class="com.myapp.gestiondecompte.dao.operation.DaoOperationImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.operation.MetierOperationImpl">
+	<bean id="metierOperation" class="com.myapp.gestiondecompte.metier.operation.MetierOperationImpl">
 		<property name="daoOperation" ref="idDaoOperation"></property>
 	</bean>
  
