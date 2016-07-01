@@ -2,11 +2,15 @@ package com.myapp.gestiondecompte.junit;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.myapp.gestiondecompte.entities.Employe;
 import com.myapp.gestiondecompte.entities.Groupe;
 import com.myapp.gestiondecompte.metier.banque.IMetierBanque;
 import com.myapp.gestiondecompte.metier.groupe.IMetierGroupe;
@@ -27,7 +31,7 @@ public class TestGroupe {
 		context.close();
 	}
 	
-	@Test
+	/*@Test
 	public void testAddGroupe() {
 		Groupe g1=new Groupe("LeGroupe1");
 		metier.addGroupe(g1);
@@ -36,21 +40,25 @@ public class TestGroupe {
 		Groupe g3=new Groupe("LeGroupe3");
 		metier.addGroupe(g3);
 		assertNotNull(g1.getIdGroupe());
-	}
-
+	}*/
+	/*
 	@Test
 	public void testAddEmployeGroupe() {
-		fail("Not yet implemented");
-	}
+		metier.addEmployeGroupe(3L, 3L);
+		List<Employe> tab=metier.getEmployesGroupe(3L);
+		assertTrue(tab.size()>0);
+		
+	}*/
 
-	@Test
+	/*@Test
 	public void testGetGroupe() {
-		fail("Not yet implemented");
-	}
+		List<Groupe> tab = metier.getGroupe();
+		assertTrue(tab.size()>0);
+	}*/
 
-	@Test
+	/*@Test
 	public void testGetEmployesGroupe() {
-		fail("Not yet implemented");
-	}
-
+		List<Employe> tab = metier.getEmployesGroupe(1L);
+		assertTrue(tab.size()>0);
+	}*/
 }
