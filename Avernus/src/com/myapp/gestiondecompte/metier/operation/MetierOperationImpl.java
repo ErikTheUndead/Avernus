@@ -35,7 +35,7 @@ public class MetierOperationImpl implements IMetierOperation{
 	 * GETTERS ET SETTERS
 	 */
 	
-	public void setDao(IDaoOperation daoOperation) {
+	public void setDaoOperation(IDaoOperation daoOperation) {
 		this.daoOperation = daoOperation;
 		logger.info("<----------daoOperation injected-------->");
 	}

@@ -26,7 +26,7 @@ public class MetierCompteImpl implements IMetierCompte {
 	 * GETTERS ET SETTERS
 	 */
 	
-	public void setDao(IDaoCompte daoCompte) {
+	public void setDaoCompte(IDaoCompte daoCompte) {
 		this.daoCompte = daoCompte;
 		logger.info("<----------daoCompte injected-------->");
 	}
