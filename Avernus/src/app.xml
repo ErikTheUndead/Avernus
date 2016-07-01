@@ -3,40 +3,40 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="daoBanque" class="com.myapp.com.myapp.gestiondecompte.dao.banque"></bean>
+	<bean id="daoBanque" class="com.myapp.gestiondecompte.dao.banque.DaoBanqueImpl"></bean>
 	
-	<bean id="metierBanque" class="com.myapp.com.myapp.gestiondecompte.metier.banque">
+	<bean id="metierBanque" class="com.myapp.gestiondecompte.metier.banque.MetierBanqueImpl">
 		<property name="dao" ref="daoBanque"></property>
 	</bean>
 	
-	<bean id="daoClient" class="com.myapp.com.myapp.gestiondecompte.dao.client"></bean>
+	<bean id="daoClient" class="com.myapp.gestiondecompte.dao.client.DaoClientImpl"></bean>
 	
-	<bean id="metierClient" class="com.myapp.com.myapp.gestiondecompte.metier.client">
+	<bean id="metierClient" class="com.myapp.gestiondecompte.metier.client.MetierClientImpl">
 		<property name="idao" ref="daoClient"></property>
 	</bean>
 	
-	<bean id="idDaoCompte" class="com.myapp.com.myapp.gestiondecompte.dao.compte"></bean>
+	<bean id="idDaoCompte" class="com.myapp.gestiondecompte.dao.compte.DaoCompteImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.com.myapp.gestiondecompte.metier.compte">
+	<bean id="metierCompte" class="com.myapp.gestiondecompte.metier.compte.MetierCompteImpl">
 		<property name="daoCompte" ref="idDaoCompte"></property>
 	</bean>
 	
-	<bean id="idDaoEmploye" class="com.myapp.com.myapp.gestiondecompte.dao.employe"></bean>
+	<bean id="idDaoEmploye" class="com.myapp.gestiondecompte.dao.employe.DaoEmployeImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.com.myapp.gestiondecompte.metier.employe">
+	<bean id="metierEmploye" class="com.myapp.gestiondecompte.metier.employe.MetierEmployeImpl">
 		<property name="dao" ref="idDaoEmploye"></property>
 	</bean>
 	
-	<bean id="idDaoGroupe" class="com.myapp.com.myapp.gestiondecompte.dao.groupe"></bean>
+	<bean id="idDaoGroupe" class="com.myapp.gestiondecompte.dao.groupe.DaoGroupeImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.com.myapp.gestiondecompte.metier.groupe">
+	<bean id="metierGroupe" class="com.myapp.gestiondecompte.metier.groupe.MetierGroupeImpl">
 		<property name="idao" ref="idDaoGroupe"></property>
 	</bean>
 	
-	<bean id="idDaoOperation" class="com.myapp.com.myapp.gestiondecompte.dao.operation"></bean>
+	<bean id="idDaoOperation" class="com.myapp.gestiondecompte.dao.operation.DaoOperationImpl"></bean>
 	
-	<bean id="metierCompte" class="com.myapp.com.myapp.gestiondecompte.metier.operation">
+	<bean id="metierOperation" class="com.myapp.gestiondecompte.metier.operation.MetierOperationImpl">
 		<property name="daoOperation" ref="idDaoOperation"></property>
 	</bean>
-
+ 
 </beans>
