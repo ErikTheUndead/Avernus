@@ -126,7 +126,6 @@ public class DaoCompteImpl implements IDaoCompte {
 		ss.beginTransaction();
 		Compte c1 = null;
 		c1 = ss.get(Compte.class, idCompte);
-//		ss.getTransaction().commit();
 		ss.close();
 		logger.info("le compte "+c1.getIdCompte()+" a bien ete recuperé");
 		return c1;

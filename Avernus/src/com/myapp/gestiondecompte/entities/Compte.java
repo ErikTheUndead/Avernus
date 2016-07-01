@@ -115,6 +115,11 @@ public class Compte {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	@Override
+	public String toString() {
+		return "Compte [idCompte=" + idCompte + ", numCompte=" + numCompte
+				+ ", soldeCompte=" + soldeCompte + ", dateDeCreationCompte="
+				+ dateDeCreationCompte + "]";
+	}
 	
 }
