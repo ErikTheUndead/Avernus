@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Employe;
 /*
- * Author: Julie Brouqué
+ * Author: Julie Brouquï¿½
  * Date: 30/06/2016
  * V 1.0.0
  */
@@ -29,7 +29,7 @@ public class DaoEmployeImpl implements IDaoEmploye{
 		ss.beginTransaction();
 		ss.save(e);
 		ss.getTransaction().commit();
-		logger.info("L'employé "+e.getNomEmploye()+ " a bien été ajouté");
+		logger.info("L'employï¿½ "+e.getNomEmploye()+ " a bien ï¿½tï¿½ ajoutï¿½");
 		ss.close();
 		return e;
 	}
@@ -38,8 +38,9 @@ public class DaoEmployeImpl implements IDaoEmploye{
 	public List<Employe> getEmploye() {
 		Session ss=sf.openSession();
 		ss.beginTransaction();
-		Query req=ss.createQuery("select from Employe e");
+		Query req=ss.createQuery("from Employe e");
 		ss.getTransaction().commit();
+		logger.info("ils existe"+req.list().size()+" employÃ©s");
 		return req.list();
 	}
 }
