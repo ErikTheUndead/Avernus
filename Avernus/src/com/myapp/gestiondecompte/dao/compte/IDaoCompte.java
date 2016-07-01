@@ -17,7 +17,7 @@ public interface IDaoCompte {
 	
 	public void deleteCompte (Long idCompte);
 	
-	public Compte updateCompte (Compte c, Long idClient);
+	public Compte updateCompte (Compte c, Long idClient,double solde);
 	
 	public Compte getCompteId(Long idCompte);
 	

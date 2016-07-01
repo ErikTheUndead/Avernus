@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -63,10 +64,10 @@ public class TestCompte {
 	public void testUpdateCompte() {
 		Compte c1 = null;
 		c1 = metier.getCompteId(1L);
-		long id1 = (long) c1.getIdCompte();
-		Compte c2 = new CompteCourant(numCompte, soldeCompte, dateDeCreationCompte)
-		metier.updateCompte(c, idClient)
-		
+		long id1 = (long) c1.getClient().getIdClient();
+//		Compte c2 = new CompteCourant(123467, 234, new Date(), -200);
+		metier.updateCompte(c1, 2L,200);
+		long id2 = (long) metier.getCompteId(1L).getClient().getIdClient();
 		assertNotEquals(id1	, id2);
 	}
 

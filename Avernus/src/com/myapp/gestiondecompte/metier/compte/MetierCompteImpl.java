@@ -46,8 +46,8 @@ public class MetierCompteImpl implements IMetierCompte {
 	}
 
 	@Override
-	public Compte updateCompte(Compte c,Long idClient) {
-		return daoCompte.updateCompte(c, idClient);
+	public Compte updateCompte(Compte c,Long idClient,double solde) {
+		return daoCompte.updateCompte(c, idClient, solde);
 	}
 
 	@Override
