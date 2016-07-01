@@ -9,4 +9,11 @@ public class Cic extends Banque{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public Cic(String adresseBanque, int codePostalBanque) {
+		super(adresseBanque, codePostalBanque);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 }

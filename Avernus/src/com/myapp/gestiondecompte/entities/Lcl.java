@@ -10,4 +10,11 @@ public class Lcl extends Banque{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public Lcl(String adresseBanque, int codePostalBanque) {
+		super(adresseBanque, codePostalBanque);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 }
