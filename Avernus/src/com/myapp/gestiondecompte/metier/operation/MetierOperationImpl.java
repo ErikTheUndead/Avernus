@@ -56,11 +56,13 @@ public class MetierOperationImpl implements IMetierOperation{
 		Compte c = null;
 		Employe e = null;
 		Operation op = null;
+		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
 		op = new Operation(dateOperation, -montant, e, c);
-//		ss.save(op);
-//		ss.getTransaction().commit();
+		solde = c.getSoldeCompte();
+		c.setSoldeCompte(solde-montant);
+		ss.saveOrUpdate(c);
 		ss.close();
 		daoOperation.addOperation(op);
 		return op;
@@ -73,41 +75,25 @@ public class MetierOperationImpl implements IMetierOperation{
 		Compte c = null;
 		Employe e = null;
 		Operation op = null;
+		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
 		op = new Operation(dateOperation, montant, e, c);
-//		ss.save(op);
-//		ss.getTransaction().commit();
+		solde = c.getSoldeCompte();
+		c.setSoldeCompte(solde+montant);
+		ss.saveOrUpdate(c);
+		ss.getTransaction().commit();
 		ss.close();
 		daoOperation.addOperation(op);
 		return op;
 	}
 
 	@Override
-	public List<Operation> virement(Long idCompte1, Long idCompte2, Long idEmploye,
+	public void virement(Long idCompte1, Long idCompte2, Long idEmploye,
 			double montant,Date dateOperation) {
-		Session ss = sf.openSession();
-		ss.beginTransaction();
-		List<Operation> tabOp = new ArrayList<>();
-		Compte c1 = null;
-		Compte c2 = null;
-		Employe e = null;
-		Operation op1 = null;
-		Operation op2 = null;
-		c1 = ss.get(Compte.class, idCompte1);
-		c2 = ss.get(Compte.class, idCompte2);
-		e = ss.get(Employe.class, idEmploye);
-		op1 = new Operation(dateOperation, -montant, e, c1);
-		op2 = new Operation(dateOperation, montant, e, c2);
-		tabOp.add(op1);
-		tabOp.add(op2);
-//		ss.save(op1);
-//		ss.save(op2);
-//		ss.getTransaction().commit();
-		ss.close();
-		daoOperation.addOperation(op1);
-		daoOperation.addOperation(op2);
-		return tabOp;
+		retrait(idCompte1, idEmploye, montant, dateOperation);
+		versement(idCompte2, idEmploye, montant, dateOperation);
+		
 	}
 	
 
