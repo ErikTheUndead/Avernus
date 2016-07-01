@@ -2,6 +2,8 @@ package com.myapp.gestiondecompte.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 /*
  *  author : BERNARD Thomas
  *   class : CompteCourant
@@ -9,7 +11,7 @@ import java.util.Date;
  * version : 1.0
  * 
  */
-
+@Entity
 public class CompteCourant extends Compte{
 
 	/*Attribut*/
@@ -24,6 +26,12 @@ public class CompteCourant extends Compte{
 	public CompteCourant(int numCompte, double soldeCompte,
 			Date dateDeCreationCompte) {
 		super(numCompte, soldeCompte, dateDeCreationCompte);
+		// TODO Auto-generated constructor stub
+	}
+	public CompteCourant(int numCompte, double soldeCompte,
+			Date dateDeCreationCompte , double decouvert) {
+		super(numCompte, soldeCompte, dateDeCreationCompte);
+		this.decouvert=decouvert;
 		// TODO Auto-generated constructor stub
 	}
 	/*Get and Set*/

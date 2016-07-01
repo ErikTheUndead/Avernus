@@ -42,7 +42,8 @@ public class DaoCompteImpl implements IDaoCompte {
 		ss.save(c);
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c.getIdCompte()+" á bien été enregistré");
+		logger.info("le compte "+c.getIdCompte()+" á bien été enregistré : "
+				+c.getClient().getIdClient() + "");
 		return c;
 	}
 	
@@ -69,13 +70,16 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 
 	@Override
-	public Compte updateCompte(Compte c) {
+	public Compte updateCompte(Compte c, Long idClient,double solde) {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
+		Client cl = ss.get(Client.class, idClient);
+		c.setClient(cl);
+		c.setSoldeCompte(solde);
 		ss.update(c); 
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c.getIdCompte()+" a bien ete modifie");
+		logger.info("le compte "+c.getIdCompte()+" a bien ete modifié");
 		return c;
 	}
 
@@ -122,7 +126,6 @@ public class DaoCompteImpl implements IDaoCompte {
 		ss.beginTransaction();
 		Compte c1 = null;
 		c1 = ss.get(Compte.class, idCompte);
-//		ss.getTransaction().commit();
 		ss.close();
 		logger.info("le compte "+c1.getIdCompte()+" a bien ete recuperé");
 		return c1;

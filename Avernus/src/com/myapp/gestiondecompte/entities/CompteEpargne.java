@@ -2,6 +2,8 @@ package com.myapp.gestiondecompte.entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 /*
  *  author : BERNARD Thomas
  *   class : CompteCourant
@@ -9,7 +11,7 @@ import java.util.Date;
  * version : 1.0
  * 
  */
-
+@Entity
 public class CompteEpargne extends Compte{
 
 	/*Attibut*/
@@ -25,6 +27,12 @@ public class CompteEpargne extends Compte{
 	public CompteEpargne(int numCompte, double soldeCompte,
 			Date dateDeCreationCompte) {
 		super(numCompte, soldeCompte, dateDeCreationCompte);
+		// TODO Auto-generated constructor stub
+	}
+	public CompteEpargne(int numCompte, double soldeCompte,
+			Date dateDeCreationCompte, double tauxInteret) {
+		super(numCompte, soldeCompte, dateDeCreationCompte);
+		this.tauxInteret=tauxInteret;
 		// TODO Auto-generated constructor stub
 	}
 	/*get and set */
