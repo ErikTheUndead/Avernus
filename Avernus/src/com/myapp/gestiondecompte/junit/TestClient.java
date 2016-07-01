@@ -30,7 +30,7 @@ public class TestClient {
 	}
 	@Test
 	public void testAddClient() {
-		
+		System.out.println("ezfafeaeafzafzaefaazfafa");
 		Client c = new Client("Thomas", "Bernard", new Date(),"5 avenue de la liberté" );
 		metier.addClient(c);
 		Client c2 = new Client("Erik", "Dunheim", new Date(), "25 division leclerc");
@@ -46,10 +46,22 @@ public class TestClient {
 		
 		
 	}
-/*
+
+	@Test
+	public void testGetClientById(){
+		
+		Client c8 = metier.getClientById(1L);
+		assertNotNull(c8);
+	}
+	
 	@Test
 	public void testDeleteClient() {
-		fail("Not yet implemented");
+		Client c6 = new Client("Joel", "Eden", new Date(),"25 rue victorien Sardoue");
+		c6=metier.addClient(c6);
+		metier.deleteClient(c6.getIdClient());
+		Client c7 = metier.getClientById(c6.getIdClient());
+		assertNull(c7);
+
 	}
 
 	@Test
@@ -66,5 +78,5 @@ public class TestClient {
 	public void testGetClientsByMc() {
 		fail("Not yet implemented");
 	}
-*/
+
 }

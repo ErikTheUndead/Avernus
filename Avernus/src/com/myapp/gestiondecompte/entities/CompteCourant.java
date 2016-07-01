@@ -13,7 +13,7 @@ import java.util.Date;
 public class CompteCourant extends Compte{
 
 	/*Attribut*/
-	private double tauxInteret;
+	private double decouvert;
 
 	/*Contructors*/
 	public CompteCourant() {
@@ -28,13 +28,15 @@ public class CompteCourant extends Compte{
 	}
 	/*Get and Set*/
 
-	public double getTauxInteret() {
-		return tauxInteret;
+	public double getDecouvert() {
+		return decouvert;
 	}
 
-	public void setTauxInteret(double tauxInteret) {
-		this.tauxInteret = tauxInteret;
+	public void setDecouvert(double decouvert) {
+		this.decouvert = decouvert;
 	}
+
+
 	
 	
 }

@@ -13,7 +13,8 @@ import java.util.Date;
 public class CompteEpargne extends Compte{
 
 	/*Attibut*/
-	private double decouvert;
+	
+	private double tauxInteret;
 	/*Constructors*/
 
 	public CompteEpargne() {
@@ -28,12 +29,14 @@ public class CompteEpargne extends Compte{
 	}
 	/*get and set */
 
-	public double getDecouvert() {
-		return decouvert;
+	public double getTauxInteret() {
+		return tauxInteret;
 	}
 
-	public void setDecouvert(double decouvert) {
-		this.decouvert = decouvert;
+	public void setTauxInteret(double tauxInteret) {
+		this.tauxInteret = tauxInteret;
 	}
+
+	
 	
 }
