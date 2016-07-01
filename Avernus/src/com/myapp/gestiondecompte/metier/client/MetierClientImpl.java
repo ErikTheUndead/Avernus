@@ -25,11 +25,11 @@ public class MetierClientImpl implements IMetierClient{
 
 	public void setIdao(IDaoClient idao) {
 		this.idao = idao;
-		logger.info("la dao Client a bien été injecté");
+		logger.info("la dao Client a bien ï¿½tï¿½ injectï¿½");
 	}
 
 	
-	/*implémentation*/
+	/*implï¿½mentation*/
 	@Override
 	public Client addClient(Client c) {
 		// TODO Auto-generated method stub
@@ -58,5 +58,12 @@ public class MetierClientImpl implements IMetierClient{
 	public List<Client> getClientsByMc(String mc) {
 		// TODO Auto-generated method stub
 		return idao.getClientsByMc(mc);
+	}
+
+
+	@Override
+	public Client getClientById(Long id) {
+		// TODO Auto-generated method stub
+		return idao.getClientById(id);
 	}
 }

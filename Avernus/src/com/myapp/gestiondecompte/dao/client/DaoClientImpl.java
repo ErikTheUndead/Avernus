@@ -104,4 +104,23 @@ public class DaoClientImpl implements IDaoClient {
 		return list;
 	}
 
+	@Override
+	public Client getClientById(Long id) {
+		
+		
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		String hql ="FROM Client WHERE idClient = ?";
+		Query rep = session.createQuery(hql);
+		rep.setLong(0, id);
+		
+		Client c =(Client) rep.list().get(0);
+		session.getTransaction().commit();
+		session.close();
+		logger.info("on recupere le client d'id : "+id);
+		return c;	
+		
+	}
+
 }
