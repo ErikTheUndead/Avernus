@@ -3,6 +3,7 @@ package com.myapp.gestiondecompte.metier.operation;
 import java.util.Date;
 import java.util.List;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Operation;
 
 /*
@@ -16,9 +17,9 @@ public interface IMetierOperation {
 	
 //	public Operation addOperation(Operation op);
 	
-	public Operation retrait(Long idCompte, Long idEmploye, double montant,Date dateOperation);
+	public Operation retrait(Long idCompte, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 
-	public Operation versement(Long idCompte, Long idEmploye, double montant,Date dateOperation);
+	public Operation versement(Long idCompte, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 	
-	public void virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation);
+	public void virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 }

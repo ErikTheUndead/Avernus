@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
@@ -16,7 +17,8 @@ import com.myapp.gestiondecompte.entities.Employe;
 /*
  * Author: Julie Brouqu�
  * Date: 30/06/2016
- * V 1.0.0
+ * V 1.0.1
+ * log v1.0.1 02/07/2016 : ajout exception , ss.close() manquant ?
  */
 
 public class DaoBanqueImpl implements IDaoBanque{
@@ -41,11 +43,15 @@ public class DaoBanqueImpl implements IDaoBanque{
 	}
 
 	@Override
-	public List<Employe> getEmployeBanque(Long idBanque) {
+	public List<Employe> getEmployeBanque(Long idBanque) throws ExceptionPerso {
 		Session ss=sf.openSession();
 		ss.beginTransaction();
 		List<Employe> tab1=new ArrayList<Employe>();
 		Banque b=ss.get(Banque.class, idBanque);
+		if (b == null){
+			ss.close();
+			throw new ExceptionPerso("getEmployeBanque : Il n'y a pas de banque de cette identifiant.");
+		}
 		List<Compte> tab=b.getTabCompte();
 		for(Compte c:tab){
 			if(tab1.contains(c.getEmploye())){
@@ -56,16 +62,23 @@ public class DaoBanqueImpl implements IDaoBanque{
 			
 		}
 		ss.getTransaction().commit();
+		if (tab.size()==0){	
+			ss.close();
+			throw new ExceptionPerso("getEmployBanque : Cette Banque ne possède aucun employé");
+		}
+		ss.close();
 		logger.info("La liste de "+tab1.size() +"employ�s a �t� charg�e");
 		return tab1;
 	}
 
 	@Override
-	public List<Client> getClientBanque(Long idBanque) {
+	public List<Client> getClientBanque(Long idBanque) throws ExceptionPerso {
 		Session ss=sf.openSession();
 		ss.beginTransaction();
 		List<Client> tab1=new ArrayList<Client>();
 		Banque b=ss.get(Banque.class, idBanque);
+		if (b == null)
+			throw new ExceptionPerso("getClientBanque : Il n'y a pas de banque de cette identifiant.");
 		List<Compte> tab=b.getTabCompte();
 		for(Compte c:tab){
 			if(tab1.contains(c.getClient())){
@@ -74,19 +87,30 @@ public class DaoBanqueImpl implements IDaoBanque{
 			tab1.add(c.getClient());
 			}
 		}
+		
 		ss.getTransaction().commit();
-		logger.info("La liste de "+tab1.size()+" clients a �t� charg�e");
+		ss.close();
+		if (tab1.size()==0){	
+			throw new ExceptionPerso("getEmployBanque : Cette Banque ne possède aucun employé");
+		}
+		logger.info("La liste de "+tab1.size()+" clients a été chargée");
 		return tab1;
 	}
 
 	@Override
-	public List<Compte> getCompteBanque(Long idBanque) {
+	public List<Compte> getCompteBanque(Long idBanque) throws ExceptionPerso {
 		Session ss=sf.openSession();
 		ss.beginTransaction();
 		Query req=ss.createQuery("select tabCompte from Banque b where b.idBanque=:x");
 		req.setParameter("x", idBanque);
 		ss.getTransaction().commit();
-		logger.info("La liste de compte a �t� charg�e");
-		return req.list();
+		List<Compte> list=req.list();
+		ss.close();
+		if (list.size()==0){
+			
+			throw new ExceptionPerso(" getCompteBanque :Il n'y a pas de banque de ctte identifiant ou elle ne possede aucun compte");
+		}
+		logger.info("La liste de compte a é té chargée");
+		return list;
 	}
 }

@@ -8,15 +8,17 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
+import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
 
 /*
  *  author : BERNARD Thomas
  *   class : DaoClientImpl
  *    date : 30/06/2016
- * version : 1.0
- * 
+ * version : 1.0.1
+ * log v1.0.1 02/07/2016 : ajout exception
  */
 
 public class DaoClientImpl implements IDaoClient {
@@ -39,12 +41,16 @@ public class DaoClientImpl implements IDaoClient {
 	}
 
 	@Override
-	public void deleteClient(Long idC) {
+	public void deleteClient(Long idC) throws ExceptionPerso {
 		
 		Session session = sf.openSession();
 
 		session.beginTransaction();
 		Client c = session.get(Client.class, idC);
+		if (c==null){
+			session.close();
+			throw new ExceptionPerso("deleteClient : il n'y a aucun client de cette identifiant");
+		}
 		session.delete(c);
 		logger.info("on supprime le client d'id : " + c.getIdClient());
 
@@ -73,21 +79,18 @@ public class DaoClientImpl implements IDaoClient {
 		logger.info("on recupère la liste des clients");
 		Session session = sf.openSession();
 		session.beginTransaction();
-		
 		String hql ="FROM Client ";
 		Query rep = session.createQuery(hql);
 		List<Client> list = new ArrayList<>();
 		list = rep.list();
 		session.getTransaction().commit();
-		session.close();
-		
+		session.close();	
 		return list;
-		
 		
 	}
 
 	@Override
-	public List<Client> getClientsByMc(String mc) {
+	public List<Client> getClientsByMc(String mc) throws ExceptionPerso {
 		logger.info("on recupère une liste de clients par mot clé");
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -100,24 +103,25 @@ public class DaoClientImpl implements IDaoClient {
 		list = rep.list();
 		session.getTransaction().commit();
 		session.close();
-		
+		if (list.size()== 0 ){
+			throw new ExceptionPerso("getClientsByMc : il n'y a pas de client comportant ce mot clé : "+mc);
+		}
 		return list;
 	}
 
 	@Override
-	public Client getClientById(Long id) {
+	public Client getClientById(Long id) throws ExceptionPerso {
 		
 		
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
-		String hql ="FROM Client WHERE idClient = ?";
-		Query rep = session.createQuery(hql);
-		rep.setLong(0, id);
-		
-		Client c =(Client) rep.list().get(0);
+		Client c=session.get(Client.class, id);
+
 		session.getTransaction().commit();
 		session.close();
+		if (c == null)
+			throw new ExceptionPerso("il n'y aucun client de cette identifiant");
 		logger.info("on recupere le client d'id : "+id);
 		return c;	
 		

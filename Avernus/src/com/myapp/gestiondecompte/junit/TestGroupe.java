@@ -10,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Employe;
 import com.myapp.gestiondecompte.entities.Groupe;
 import com.myapp.gestiondecompte.metier.banque.IMetierBanque;
@@ -57,7 +58,7 @@ public class TestGroupe {
 	}*/
 
 	@Test
-	public void testGetEmployesGroupe() {
+	public void testGetEmployesGroupe() throws ExceptionPerso {
 		List<Employe> tab = metier.getEmployesGroupe(3L);
 		assertTrue(tab.size()>0);
 	}

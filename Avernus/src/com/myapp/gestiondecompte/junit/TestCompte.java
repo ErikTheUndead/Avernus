@@ -13,6 +13,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.CompteCourant;
 import com.myapp.gestiondecompte.entities.CompteEpargne;
@@ -84,7 +85,7 @@ public class TestCompte {
 	// }
 
 	@Test
-	public void testGetCompteEmploye() {
+	public void testGetCompteEmploye() throws ExceptionPerso {
 		Iterator<Compte> iteCo = metier.getCompteEmploye(1L).iterator();
 		// logger.info("<------ la liste des comptes est ------>");
 		while (iteCo.hasNext()) {
