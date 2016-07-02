@@ -12,7 +12,8 @@ import com.myapp.gestiondecompte.entities.Employe;
 /*
  * Author: Julie Brouqu�
  * Date: 30/06/2016
- * V 1.0.0
+ * V 1.0.1
+ * log v1.0.1 02/07/2016:ajout session close ?
  */
 public class DaoEmployeImpl implements IDaoEmploye{
 
@@ -29,7 +30,7 @@ public class DaoEmployeImpl implements IDaoEmploye{
 		ss.beginTransaction();
 		ss.save(e);
 		ss.getTransaction().commit();
-		logger.info("L'employ� "+e.getNomEmploye()+ " a bien �t� ajout�");
+		logger.info("L'employé "+e.getNomEmploye()+ " a bien été ajouté");
 		ss.close();
 		return e;
 	}
@@ -41,6 +42,8 @@ public class DaoEmployeImpl implements IDaoEmploye{
 		Query req=ss.createQuery("from Employe e");
 		ss.getTransaction().commit();
 		logger.info("ils existe"+req.list().size()+" employés");
-		return req.list();
+		List<Employe> list = req.list();
+		ss.close();
+		return list;
 	}
 }

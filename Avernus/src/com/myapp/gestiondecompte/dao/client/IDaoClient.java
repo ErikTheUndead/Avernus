@@ -2,6 +2,7 @@ package com.myapp.gestiondecompte.dao.client;
 
 import java.util.List;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Client;
 
 /*
@@ -15,9 +16,9 @@ import com.myapp.gestiondecompte.entities.Client;
 public interface IDaoClient {
 
 		public Client addClient(Client c);
-		public void deleteClient(Long idC);
+		public void deleteClient(Long idC) throws ExceptionPerso;
 		public Client updateClient(Client c);
-		public Client getClientById(Long id);
+		public Client getClientById(Long id) throws ExceptionPerso;
 		public List<Client> getClients();
-		public List<Client> getClientsByMc(String mc);
+		public List<Client> getClientsByMc(String mc) throws ExceptionPerso;
 }

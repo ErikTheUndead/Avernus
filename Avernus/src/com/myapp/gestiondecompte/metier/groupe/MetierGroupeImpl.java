@@ -3,6 +3,7 @@ package com.myapp.gestiondecompte.metier.groupe;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.groupe.IDaoGroupe;
 import com.myapp.gestiondecompte.entities.Employe;
 import com.myapp.gestiondecompte.entities.Groupe;
@@ -24,7 +25,7 @@ public class MetierGroupeImpl implements IMetierGroupe{
 	
 	public void setIdao(IDaoGroupe idao) {
 		this.idao = idao;
-		logger.info("la dao Groupe a bien été injecté");
+		logger.info("la dao Groupe a bien ï¿½tï¿½ injectï¿½");
 
 	}
 	
@@ -38,7 +39,7 @@ public class MetierGroupeImpl implements IMetierGroupe{
 	
 
 	@Override
-	public void addEmployeGroupe(Long idG, Long idE) {
+	public void addEmployeGroupe(Long idG, Long idE) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		idao.addEmployeGroupe(idG, idE);
 	}
@@ -50,7 +51,7 @@ public class MetierGroupeImpl implements IMetierGroupe{
 	}
 
 	@Override
-	public List<Employe> getEmployesGroupe(Long idG) {
+	public List<Employe> getEmployesGroupe(Long idG) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		return idao.getEmployesGroupe(idG);
 	}
