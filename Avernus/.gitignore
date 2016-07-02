@@ -1,6 +1,7 @@
 /build/
 .gitignore
-/C:\log\logigng.log
+.classpath
+C:\log\logigng.log
 app.xml
 hibernate.cfg.xml
 log4j.properties
