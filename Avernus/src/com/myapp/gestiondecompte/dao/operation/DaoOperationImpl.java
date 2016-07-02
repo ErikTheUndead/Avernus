@@ -34,7 +34,7 @@ public class DaoOperationImpl implements IDaoOperation{
 		ss.save(op);
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("l'operation "+op.getIdOperation()+" á bien été enregistré");
+		logger.info("l'operation "+op.getIdOperation()+" a bien été enregistré");
 		return op;
 	}
 

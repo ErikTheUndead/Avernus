@@ -15,11 +15,16 @@ import com.myapp.gestiondecompte.entities.Operation;
 
 public interface IMetierOperation {
 	
-//	public Operation addOperation(Operation op);
 	
 	public Operation retrait(Long idCompte, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 
 	public Operation versement(Long idCompte, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
+<<<<<<< HEAD
 	
 	public void virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
+=======
+	
+	public List<Operation> virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation);
+	
+>>>>>>> AbbadonErik
 }

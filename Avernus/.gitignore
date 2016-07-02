@@ -1,2 +1,8 @@
 /build/
 .gitignore
+.classpath
+.project
+log4j.log
+src/hibernate.cfg.xml
+src/log4j.properties
+**/Test*
