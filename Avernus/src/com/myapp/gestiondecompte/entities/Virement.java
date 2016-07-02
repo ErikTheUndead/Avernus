@@ -6,24 +6,23 @@ import javax.persistence.Entity;
 
 /*
  * AUTEUR : ERIK DUHEM
- * VERSION : 1
- * DATE : 30/06/2016
- * 
+ * DATE : 02/07/2016
+ * VERSION : 1.0
  */
 
 @Entity
-public class Retrait extends Operation{
+public class Virement extends Operation{
 
 	/*
 	 * CONSTRUCTEURS
 	 */
 	
-	public Retrait() {
+	public Virement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Retrait(Date dateOperation, double montantOperation, Employe employe, Compte compte) {
+
+	public Virement(Date dateOperation, double montantOperation, Employe employe, Compte compte) {
 		super(dateOperation, montantOperation, employe, compte);
 		// TODO Auto-generated constructor stub
 	}
@@ -35,11 +34,7 @@ public class Retrait extends Operation{
 
 	@Override
 	public String toString() {
-		return "Retrait []";
+		return "Virement []";
 	}
 	
-	
-	
-	
-
 }

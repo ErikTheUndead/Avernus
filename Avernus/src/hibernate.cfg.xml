@@ -26,13 +26,12 @@
 		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
 
 		<!-- Echo all executed SQL to stdout -->
-		<property name="show_sql">true</property>
+		<property name="show_sql">false</property>
 
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hbm2ddl.auto">update</property>
 
 		<!-- Names the annotated entity class -->
-		<!-- <mapping class="org.metier.Persson"/> -->
 		<mapping class="com.myapp.gestiondecompte.entities.Banque" />
 		<mapping class="com.myapp.gestiondecompte.entities.Bnp" />
 		<mapping class="com.myapp.gestiondecompte.entities.Cic" />
@@ -46,6 +45,7 @@
 		<mapping class="com.myapp.gestiondecompte.entities.Operation" />
 		<mapping class="com.myapp.gestiondecompte.entities.Retrait" />
 		<mapping class="com.myapp.gestiondecompte.entities.Versement" />
+		<mapping class="com.myapp.gestiondecompte.entities.Virement" />
 		
 	</session-factory>
 

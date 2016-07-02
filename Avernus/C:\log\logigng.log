@@ -1,0 +1,158 @@
+2016-07-02 20:14:22 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:14:22 CEST 2016]; root of context hierarchy
+2016-07-02 20:14:22 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:14:23 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:14:23 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:14:23 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:14:24 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:14:24 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:14:24 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:14:24 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:14:24 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:14:24 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:14:24 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:14:24 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:14:24 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:14:25 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 1 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 2 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 3 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 4 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 5 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 6 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 7 á bien été enregistré
+2016-07-02 20:14:26 INFO  DaoOperationImpl:37 - l'operation 8 á bien été enregistré
+2016-07-02 20:14:26 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:14:22 CEST 2016]; root of context hierarchy
+2016-07-02 20:32:29 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:32:29 CEST 2016]; root of context hierarchy
+2016-07-02 20:32:29 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:32:29 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:32:29 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:32:29 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:32:29 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:32:29 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:32:29 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:32:29 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:32:29 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:32:29 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:32:30 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:32:30 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:32:30 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:32:30 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:32:31 WARN  SqlExceptionHelper:127 - SQL Error: 1364, SQLState: HY000
+2016-07-02 20:32:31 ERROR SqlExceptionHelper:129 - Field 'DTYPE' doesn't have a default value
+2016-07-02 20:32:31 WARN  SqlExceptionHelper:127 - SQL Error: 1364, SQLState: HY000
+2016-07-02 20:32:31 ERROR SqlExceptionHelper:129 - Field 'DTYPE' doesn't have a default value
+2016-07-02 20:32:31 WARN  SqlExceptionHelper:127 - SQL Error: 1364, SQLState: HY000
+2016-07-02 20:32:31 ERROR SqlExceptionHelper:129 - Field 'DTYPE' doesn't have a default value
+2016-07-02 20:32:31 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:32:29 CEST 2016]; root of context hierarchy
+2016-07-02 20:37:22 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:37:22 CEST 2016]; root of context hierarchy
+2016-07-02 20:37:22 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:37:22 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:37:22 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:37:22 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:37:22 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:37:22 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:37:22 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:37:22 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:37:22 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:37:22 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:37:23 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:37:23 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:37:23 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:37:23 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:37:24 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: Operation
+2016-07-02 20:37:24 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: Operation
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 1 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 2 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 3 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 4 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 5 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 6 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 7 á bien été enregistré
+2016-07-02 20:37:24 INFO  DaoOperationImpl:37 - l'operation 8 á bien été enregistré
+2016-07-02 20:37:24 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:37:22 CEST 2016]; root of context hierarchy
+2016-07-02 20:52:35 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:52:35 CEST 2016]; root of context hierarchy
+2016-07-02 20:52:35 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:52:36 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:52:36 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:52:36 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:52:36 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:52:36 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:52:36 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:52:36 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:52:36 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:52:36 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:52:36 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:52:36 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:52:36 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:52:37 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:52:37 INFO  DaoOperationImpl:37 - l'operation 9 á bien été enregistré
+2016-07-02 20:52:37 INFO  DaoOperationImpl:37 - l'operation 10 á bien été enregistré
+2016-07-02 20:52:37 INFO  DaoOperationImpl:37 - l'operation 11 á bien été enregistré
+2016-07-02 20:52:37 INFO  DaoOperationImpl:37 - l'operation 12 á bien été enregistré
+2016-07-02 20:52:37 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:52:35 CEST 2016]; root of context hierarchy
+2016-07-02 20:53:46 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:53:46 CEST 2016]; root of context hierarchy
+2016-07-02 20:53:46 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:53:46 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:53:46 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:53:46 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:53:46 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:53:46 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:53:46 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:53:46 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:53:46 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:53:46 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:53:47 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:53:47 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:53:47 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:53:47 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:53:48 INFO  DaoOperationImpl:37 - l'operation 13 á bien été enregistré
+2016-07-02 20:53:48 INFO  DaoOperationImpl:37 - l'operation 14 á bien été enregistré
+2016-07-02 20:53:48 INFO  DaoOperationImpl:37 - l'operation 15 á bien été enregistré
+2016-07-02 20:53:48 INFO  DaoOperationImpl:37 - l'operation 16 á bien été enregistré
+2016-07-02 20:53:48 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:53:46 CEST 2016]; root of context hierarchy
+2016-07-02 20:54:41 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:54:40 CEST 2016]; root of context hierarchy
+2016-07-02 20:54:41 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:54:41 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:54:41 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:54:41 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:54:41 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:54:41 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:54:41 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:54:41 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:54:41 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:54:41 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:54:41 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:54:41 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:54:41 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:54:42 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:54:42 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: Operation
+2016-07-02 20:54:42 INFO  InformationExtractorJdbcDatabaseMetaDataImpl:365 - HHH000262: Table not found: Operation
+2016-07-02 20:54:42 INFO  DaoOperationImpl:37 - l'operation 1 á bien été enregistré
+2016-07-02 20:54:43 INFO  DaoOperationImpl:37 - l'operation 2 á bien été enregistré
+2016-07-02 20:54:43 INFO  DaoOperationImpl:37 - l'operation 3 á bien été enregistré
+2016-07-02 20:54:43 INFO  DaoOperationImpl:37 - l'operation 4 á bien été enregistré
+2016-07-02 20:54:43 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:54:40 CEST 2016]; root of context hierarchy
+2016-07-02 20:55:42 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:55:42 CEST 2016]; root of context hierarchy
+2016-07-02 20:55:42 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 20:55:43 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 20:55:43 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 20:55:43 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 20:55:43 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 20:55:43 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 20:55:43 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 20:55:43 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 20:55:43 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 20:55:43 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 20:55:43 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 20:55:43 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 20:55:43 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 20:55:44 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 5 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 6 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 7 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 8 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 9 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 10 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 11 á bien été enregistré
+2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 12 á bien été enregistré
+2016-07-02 20:55:44 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:55:42 CEST 2016]; root of context hierarchy

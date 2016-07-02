@@ -1,5 +1,7 @@
 package com.myapp.gestiondecompte.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 
 /*
@@ -18,6 +20,11 @@ public class Versement extends Operation{
 
 	public Versement() {
 		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Versement(Date dateOperation, double montantOperation, Employe employe, Compte compte) {
+		super(dateOperation, montantOperation, employe, compte);
 		// TODO Auto-generated constructor stub
 	}
 	
