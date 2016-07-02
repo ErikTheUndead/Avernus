@@ -21,8 +21,7 @@ import com.myapp.gestiondecompte.entities.Virement;
 /*
  * AUTEUR : ERIK DUHEM
  * DATE : 30/06/2016
- * VERSION : 1
- * V 1.0.1
+ * VERSION : 1.1
  * log v1.0.1 02/07/2016 : ajout exception 
  */
 
@@ -60,15 +59,12 @@ public class MetierOperationImpl implements IMetierOperation{
 		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
-<<<<<<< HEAD
 		op = new Retrait(dateOperation, montant, e, c);
-=======
 		if (c == null || e == null){
 			ss.close();
 			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
 		}
 		op = new Operation(dateOperation, -montant, e, c);
->>>>>>> origin/testMerge
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde-montant);
 		ss.saveOrUpdate(c);
@@ -88,15 +84,12 @@ public class MetierOperationImpl implements IMetierOperation{
 		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
-<<<<<<< HEAD
 		op = new Versement(dateOperation, montant, e, c);
-=======
 		if (c == null || e == null){
 			ss.close();
 			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
 		}
 		op = new Operation(dateOperation, montant, e, c);
->>>>>>> origin/testMerge
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde+montant);
 		ss.saveOrUpdate(c);
@@ -108,7 +101,6 @@ public class MetierOperationImpl implements IMetierOperation{
 	}
 
 	@Override
-<<<<<<< HEAD
 	public List<Operation> virement(Long idCompte1, Long idCompte2, Long idEmploye,
 			double montant,Date dateOperation) {
 //		retrait(idCompte1, idEmploye, montant, dateOperation);
@@ -139,13 +131,6 @@ public class MetierOperationImpl implements IMetierOperation{
 		daoOperation.addOperation(op2);
 		logger.info("<------ Le virement entre le compte "+idCompte1+" et "+idCompte2+" a bien été effectué ------>");
 		return tabOp;
-=======
-	public void virement(Long idCompte1, Long idCompte2, Long idEmploye,
-			double montant,Date dateOperation) throws ExceptionPerso {
-		retrait(idCompte1, idEmploye, montant, dateOperation);
-		versement(idCompte2, idEmploye, montant, dateOperation);
-		
->>>>>>> origin/testMerge
 	}
 	
 
