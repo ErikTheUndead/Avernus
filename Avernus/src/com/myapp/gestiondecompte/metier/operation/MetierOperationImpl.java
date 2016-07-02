@@ -59,12 +59,11 @@ public class MetierOperationImpl implements IMetierOperation{
 		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
-		op = new Retrait(dateOperation, montant, e, c);
 		if (c == null || e == null){
 			ss.close();
 			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
 		}
-		op = new Operation(dateOperation, -montant, e, c);
+		op = new Retrait(dateOperation, -montant, e, c);
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde-montant);
 		ss.saveOrUpdate(c);
@@ -84,12 +83,11 @@ public class MetierOperationImpl implements IMetierOperation{
 		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
-		op = new Versement(dateOperation, montant, e, c);
 		if (c == null || e == null){
 			ss.close();
 			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
 		}
-		op = new Operation(dateOperation, montant, e, c);
+		op = new Versement(dateOperation, montant, e, c);
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde+montant);
 		ss.saveOrUpdate(c);
