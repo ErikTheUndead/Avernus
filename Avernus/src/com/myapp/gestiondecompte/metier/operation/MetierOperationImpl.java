@@ -64,15 +64,11 @@ public class MetierOperationImpl implements IMetierOperation{
 		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
-<<<<<<< HEAD
-=======
-		op = new Retrait(dateOperation, montant, e, c);
->>>>>>> AbbadonErik
 		if (c == null || e == null){
 			ss.close();
 			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
 		}
-		op = new Operation(dateOperation, -montant, e, c);
+		op = new Retrait(dateOperation, montant, e, c);
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde-montant);
 		ss.saveOrUpdate(c);
@@ -92,15 +88,11 @@ public class MetierOperationImpl implements IMetierOperation{
 		double solde = 0;
 		c = ss.get(Compte.class, idCompte);
 		e = ss.get(Employe.class, idEmploye);
-<<<<<<< HEAD
-=======
-		op = new Versement(dateOperation, montant, e, c);
->>>>>>> AbbadonErik
 		if (c == null || e == null){
 			ss.close();
-			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
+			throw new ExceptionPerso("retrait : Les identifiants rentré ne sont pas correctes");
 		}
-		op = new Operation(dateOperation, montant, e, c);
+		op = new Versement(dateOperation, montant, e, c);
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde+montant);
 		ss.saveOrUpdate(c);
@@ -112,13 +104,6 @@ public class MetierOperationImpl implements IMetierOperation{
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void virement(Long idCompte1, Long idCompte2, Long idEmploye,
-			double montant,Date dateOperation) throws ExceptionPerso {
-		retrait(idCompte1, idEmploye, montant, dateOperation);
-		versement(idCompte2, idEmploye, montant, dateOperation);
-		
-=======
 	public List<Operation> virement(Long idCompte1, Long idCompte2, Long idEmploye,
 			double montant,Date dateOperation) {
 //		retrait(idCompte1, idEmploye, montant, dateOperation);
@@ -149,7 +134,6 @@ public class MetierOperationImpl implements IMetierOperation{
 		daoOperation.addOperation(op2);
 		logger.info("<------ Le virement entre le compte "+idCompte1+" et "+idCompte2+" a bien été effectué ------>");
 		return tabOp;
->>>>>>> AbbadonErik
 	}
 	
 
