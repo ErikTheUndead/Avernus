@@ -8,12 +8,18 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Employe;
-
+/*
+ * AUTEUR : Erik DUHEM
+ * DATE : 30/06/2016
+ * version : 1.0.1
+ * log v1.0.1 02/07/2016 : ajout exception
+ */
 public class DaoCompteImpl implements IDaoCompte {
 
 	// ATTRIBUTS
@@ -27,7 +33,7 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 	
 	@Override
-	public Compte addCompte(Compte c, Long idClient, Long idEmploye, Long idBanque) {
+	public Compte addCompte(Compte c, Long idClient, Long idEmploye, Long idBanque) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		Employe e = null;
@@ -36,6 +42,10 @@ public class DaoCompteImpl implements IDaoCompte {
 		cl = ss.get(Client.class, idClient);
 		e = ss.get(Employe.class, idEmploye);
 		b = ss.get(Banque.class, idBanque);
+		if (cl==null || e==null || b == null){
+			ss.close();
+			throw new ExceptionPerso("addCompte : un ou plusieur identifiant n'est pas valide");
+		}
 		c.setBanque(b);
 		c.setClient(cl);
 		c.setEmploye(e);
@@ -53,15 +63,19 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 
 	@Override
-	public void deleteCompte(Long idCompte) {
+	public void deleteCompte(Long idCompte) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		Compte c = null;
 		c = ss.get(Compte.class, idCompte);
+		if(c == null){
+			ss.close();
+			throw new ExceptionPerso("deleteClient : il n'y a aucun client de cette identifiant");
+		}
 		ss.delete(c); 
 		ss.getTransaction().commit();
 		ss.close();
-		logger.info("le compte "+c.getIdCompte()+" a bien ete supprime");
+		logger.info("le compte "+c.getIdCompte()+" a bien été supprimé");
 	}
 	
 	/*
@@ -70,10 +84,14 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 
 	@Override
-	public Compte updateCompte(Compte c, Long idClient,double solde) {
+	public Compte updateCompte(Compte c, Long idClient,double solde) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		Client cl = ss.get(Client.class, idClient);
+		if(cl == null){
+			ss.close();
+			throw new ExceptionPerso("deleteClient : il n'y a aucun client de cette identifiant");
+		}
 		c.setClient(cl);
 		c.setSoldeCompte(solde);
 		ss.update(c); 
@@ -108,7 +126,7 @@ public class DaoCompteImpl implements IDaoCompte {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Compte> getCompteEmploye(Long idEmploye) {
+	public List<Compte> getCompteEmploye(Long idEmploye) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		List<Compte> tab = new ArrayList<>();
@@ -116,17 +134,23 @@ public class DaoCompteImpl implements IDaoCompte {
 		req.setParameter("l","%"+idEmploye+"%");
 		tab = req.list();
 		ss.close();
+		if (tab.size()==0)
+			throw new ExceptionPerso("il n'y a pas d'employe de cette identifiant : "+idEmploye);
 		logger.info("<------ Le nombre de compte trouve par idEmploye trouve :"+idEmploye+" est : "+tab.size()+" ------>");
 		return tab;
 	}
 
 	@Override
-	public Compte getCompteId(Long idCompte) {
+	public Compte getCompteId(Long idCompte) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		Compte c1 = null;
 		c1 = ss.get(Compte.class, idCompte);
+	
 		ss.close();
+		if(c1 == null)
+			throw new ExceptionPerso("getCompteId : il n'y a aucun compte de cette identifiant");
+		
 		logger.info("le compte "+c1.getIdCompte()+" a bien ete recuperé");
 		return c1;
 	}

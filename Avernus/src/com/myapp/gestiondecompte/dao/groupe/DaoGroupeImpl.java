@@ -8,6 +8,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Employe;
@@ -17,8 +18,8 @@ import com.myapp.gestiondecompte.entities.Groupe;
  *  author : BERNARD Thomas
  *   class : DaoGroupeImpl
  *    date : 30/06/2016
- * version : 1.0
- * 
+ * V 1.0.1
+ * log v1.0.1 02/07/2016 : ajout exception , ss.close() manquant ?
  */
 
 public class DaoGroupeImpl implements IDaoGroupe {
@@ -36,24 +37,28 @@ public class DaoGroupeImpl implements IDaoGroupe {
 		session.saveOrUpdate(g);
 		session.getTransaction().commit();
 		session.close();
-		logger.info("le groupe "+g.getNomGroupe()+ "  avec l'id "+g.getIdGroupe()+" a bien �t� enregistr�");
+		logger.info("le groupe "+g.getNomGroupe()+ "  avec l'id "+g.getIdGroupe()+" a bien été enregistré");
 		
 		return g;
 	}
 	
 	@Override
-	public void addEmployeGroupe(Long idG, Long idE) {
+	public void addEmployeGroupe(Long idG, Long idE) throws ExceptionPerso {
 		
 		Session session = sf.openSession();
 
 		session.beginTransaction();
 		Groupe g = session.get(Groupe.class, idG);
 		Employe e = session.get(Employe.class, idE);
+		if (g == null || e == null) {
+			session.close();
+			throw new ExceptionPerso("addEmployeGroupe : les identifiants rentré ne conviennent pas.");
+		}
 		e.getTabGroupe().add(g);
 		g.getTabEmploye().add(e);
 		session.update(e);
 		session.update(g);
-		logger.info("On ajoute l'employ� d'id : "+e.getIdEmploye() + " au groupe d'id : " + g.getIdGroupe());
+		logger.info("On ajoute l'employé d'id : "+e.getIdEmploye() + " au groupe d'id : " + g.getIdGroupe());
 
 		session.getTransaction().commit();
 		session.close();
@@ -63,7 +68,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 	public List<Groupe> getGroupe() {
 		
 		
-		logger.info("on recup�re la liste des groupes");
+		logger.info("on recupère la liste des groupes");
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
@@ -79,7 +84,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 	}
 	
 	@Override
-	public List<Employe> getEmployesGroupe(Long idG) {
+	public List<Employe> getEmployesGroupe(Long idG) throws ExceptionPerso {
 	
 		
 		Session session = sf.openSession();
@@ -93,6 +98,11 @@ public class DaoGroupeImpl implements IDaoGroupe {
 		
 		
 		Groupe g=session.get(Groupe.class, idG);
+		if (g == null){
+			session.close();
+			throw new ExceptionPerso("getEmployesGroupe : il n'y a aucun groupe ayant cet identifiant");
+		}
+		
 		List<Employe> tab= g.getTabEmploye();
 		session.getTransaction().commit();
 		
@@ -100,7 +110,7 @@ public class DaoGroupeImpl implements IDaoGroupe {
 		/*Query query =session.createQuery("from Employe e inner join e.tabGroupe f where f.idGroupe=:x");
 		query.setParameter("x", idG);*/
 		
-		logger.info("on recup�re une liste d'employe "+ tab.size()+ "du groupe d'id : "+idG);
+		logger.info("on recupère une liste d'employés "+ tab.size()+ "du groupe d'id : "+idG);
 		return tab;
 	}
 	

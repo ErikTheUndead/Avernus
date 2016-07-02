@@ -3,6 +3,7 @@ package com.myapp.gestiondecompte.metier.client;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.client.IDaoClient;
 import com.myapp.gestiondecompte.entities.Client;
 
@@ -37,7 +38,7 @@ public class MetierClientImpl implements IMetierClient{
 	}
 
 	@Override
-	public void deleteClient(Long idC) {
+	public void deleteClient(Long idC) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		idao.deleteClient(idC);
 	}
@@ -55,14 +56,14 @@ public class MetierClientImpl implements IMetierClient{
 	}
 
 	@Override
-	public List<Client> getClientsByMc(String mc) {
+	public List<Client> getClientsByMc(String mc) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		return idao.getClientsByMc(mc);
 	}
 
 
 	@Override
-	public Client getClientById(Long id) {
+	public Client getClientById(Long id) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		return idao.getClientById(id);
 	}

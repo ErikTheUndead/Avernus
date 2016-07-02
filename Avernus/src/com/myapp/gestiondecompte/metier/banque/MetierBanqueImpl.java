@@ -3,6 +3,7 @@ package com.myapp.gestiondecompte.metier.banque;
 import java.util.List;
 import java.util.logging.Logger;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.banque.IDaoBanque;
 import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
@@ -29,19 +30,19 @@ public class MetierBanqueImpl implements IMetierBanque{
 	}
 
 	@Override
-	public List<Employe> getEmployeBanque(Long idBanque) {
+	public List<Employe> getEmployeBanque(Long idBanque) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		return dao.getEmployeBanque(idBanque);
 	}
 
 	@Override
-	public List<Client> getClientBanque(Long idBanque) {
+	public List<Client> getClientBanque(Long idBanque) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		return dao.getClientBanque(idBanque);
 	}
 
 	@Override
-	public List<Compte> getCompteBanque(Long idBanque) {
+	public List<Compte> getCompteBanque(Long idBanque) throws ExceptionPerso {
 		// TODO Auto-generated method stub
 		return dao.getCompteBanque(idBanque);
 	}

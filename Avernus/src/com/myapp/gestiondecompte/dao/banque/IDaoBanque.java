@@ -2,6 +2,7 @@ package com.myapp.gestiondecompte.dao.banque;
 
 import java.util.List;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
@@ -15,8 +16,8 @@ public interface IDaoBanque {
 
 	
 	public Banque addBanque(Banque b);
-	public List<Employe> getEmployeBanque(Long idBanque);
-	public List<Client> getClientBanque(Long idBanque);
-	public List<Compte> getCompteBanque(Long idBanque);
+	public List<Employe> getEmployeBanque(Long idBanque) throws ExceptionPerso;
+	public List<Client> getClientBanque(Long idBanque) throws ExceptionPerso;
+	public List<Compte> getCompteBanque(Long idBanque) throws ExceptionPerso;
 	
 }
