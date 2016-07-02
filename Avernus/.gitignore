@@ -4,3 +4,4 @@
 app.xml
 hibernate.cfg.xml
 log4j.properties
+junit/Test*
