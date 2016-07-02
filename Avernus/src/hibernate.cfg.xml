@@ -46,6 +46,7 @@
 		<mapping class="com.myapp.gestiondecompte.entities.Retrait" />
 		<mapping class="com.myapp.gestiondecompte.entities.Versement" />
 		<mapping class="com.myapp.gestiondecompte.entities.Virement" />
+		<!--  -->
 		
 	</session-factory>
 

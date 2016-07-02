@@ -156,3 +156,27 @@
 2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 11 á bien été enregistré
 2016-07-02 20:55:44 INFO  DaoOperationImpl:37 - l'operation 12 á bien été enregistré
 2016-07-02 20:55:44 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 20:55:42 CEST 2016]; root of context hierarchy
+2016-07-02 22:08:14 INFO  ClassPathXmlApplicationContext:578 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 22:08:13 CEST 2016]; root of context hierarchy
+2016-07-02 22:08:14 INFO  XmlBeanDefinitionReader:317 - Loading XML bean definitions from class path resource [app.xml]
+2016-07-02 22:08:14 INFO  Version:37 - HHH000412: Hibernate Core {5.0.6.Final}
+2016-07-02 22:08:14 INFO  Environment:213 - HHH000206: hibernate.properties not found
+2016-07-02 22:08:14 INFO  Environment:317 - HHH000021: Bytecode provider name : javassist
+2016-07-02 22:08:14 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2016-07-02 22:08:14 WARN  connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2016-07-02 22:08:14 INFO  connections:127 - HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost/gestionCompte]
+2016-07-02 22:08:14 INFO  connections:136 - HHH10001001: Connection properties: {user=root, password=****}
+2016-07-02 22:08:14 INFO  connections:141 - HHH10001003: Autocommit mode: false
+2016-07-02 22:08:14 INFO  DriverManagerConnectionProviderImpl:39 - HHH000115: Hibernate connection pool size: 1 (min=1)
+2016-07-02 22:08:15 INFO  Dialect:154 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2016-07-02 22:08:15 INFO  LobCreatorBuilderImpl:98 - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-07-02 22:08:15 INFO  EnversServiceImpl:91 - Envers integration enabled? : true
+2016-07-02 22:08:15 INFO  SchemaUpdate:105 - HHH000228: Running hbm2ddl schema update
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 13 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 14 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 15 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 16 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 17 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 18 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 19 á bien été enregistré
+2016-07-02 22:08:16 INFO  DaoOperationImpl:37 - l'operation 20 á bien été enregistré
+2016-07-02 22:08:16 INFO  ClassPathXmlApplicationContext:960 - Closing org.springframework.context.support.ClassPathXmlApplicationContext@7c30a502: startup date [Sat Jul 02 22:08:13 CEST 2016]; root of context hierarchy
