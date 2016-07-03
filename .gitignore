@@ -1,1 +1,9 @@
-/.DS_Store
+Avernus/build/**
+Avernus/.classpath
+Avernus/.project
+Avernus/log4j.log
+Avernus/src/hibernate.cfg.xml
+Avernus/src/log4j.properties
+**/Test*
+**/.DS_Store
+*.class
