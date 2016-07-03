@@ -68,7 +68,7 @@ public class MetierOperationImpl implements IMetierOperation{
 			ss.close();
 			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
 		}
-		op = new Retrait(dateOperation, montant, e, c);
+		op = new Retrait(dateOperation, -montant, e, c);
 		solde = c.getSoldeCompte();
 		c.setSoldeCompte(solde-montant);
 		ss.saveOrUpdate(c);
