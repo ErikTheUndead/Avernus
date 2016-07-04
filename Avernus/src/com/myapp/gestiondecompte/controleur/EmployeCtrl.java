@@ -34,11 +34,11 @@ public class EmployeCtrl {
 		return "Employe";
 	}
 	
-	@RequestMapping(value="/supprimer")
+	@RequestMapping(value="/delete")
 	public String suprimmer(Model model, Long idEmploye) throws ExceptionPerso{
 		metier.deleteEmploye(idEmploye);
-		model.addAttribute("AttrClient", metier.getEmploye());
-		return "index";
+		model.addAttribute("AttrEmploye", metier.getEmploye());
+		return "Employe";
 	}
 	
 }

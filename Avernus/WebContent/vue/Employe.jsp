@@ -13,10 +13,10 @@
 		<form action="addEmploye" method="post">
 			<table>
 				<tr>
-					<td>nomEmploye: </td>
-					<td><input type="text" name="Nom de l'employe"></td>
+					<td>nomEmploye : </td>
+					<td><input type="text" name="nomEmploye"></td>
 					<td>codeEmploye: </td>
-					<td><input type="text" name="Code de l'employe"></td>
+					<td><input type="text" name="codeEmploye"></td>
 					<td><input type="submit" value="Enregistrer l'employé"></td>
 				</tr>
 			</table>
@@ -40,7 +40,7 @@
 	</div>  
 	
 	<div>
-		<form action="supprimer">
+		<form action="delete">
 			<select name="idEmploye">
 				<c:forEach items="${AttrEmploye}" var="e">
 					<option value="${e.idEmploye}">${e.nomEmploye}</option>
@@ -48,6 +48,6 @@
 			</select> <input type="submit" value="supprimer">
 		</form>
 	</div>
-	
+
 </body>
 </html>
