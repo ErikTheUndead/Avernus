@@ -22,7 +22,7 @@ public class BanqueCtrl {
 	@Autowired
     private IMetierBanque metier;
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/banque")
 	public String getBanques(Model model) {
 		model.addAttribute("AttrBanque",metier.getBanques());
 		return "Banque";
@@ -41,9 +41,4 @@ public class BanqueCtrl {
 		return "Banque";
 	}
 	
-	/*@RequestMapping(value="/getCompteBanque")
-	public String getCompteBanque(Model model, Long idBanque) throws ExceptionPerso{
-		
-		return "Banque";
-	}*/
 }

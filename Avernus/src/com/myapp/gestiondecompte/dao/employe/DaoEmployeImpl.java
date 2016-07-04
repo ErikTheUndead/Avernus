@@ -40,10 +40,10 @@ public class DaoEmployeImpl implements IDaoEmploye{
 		Session ss=sf.openSession();
 		ss.beginTransaction();
 		Query req=ss.createQuery("from Employe e");
+		List<Employe> tab = req.list();
 		ss.getTransaction().commit();
-		logger.info("ils existe"+req.list().size()+" employés");
-		List<Employe> list = req.list();
+		logger.info("ils existe"+ tab.size()+" employés");
 		ss.close();
-		return list;
+		return tab;
 	}
 }
