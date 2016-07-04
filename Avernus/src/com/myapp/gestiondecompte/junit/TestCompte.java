@@ -42,25 +42,25 @@ public class TestCompte {
 	// metier.
 	// }
 
-//	 @Test
-//	 public void testAddCompte() throws ParseException, ExceptionPerso {
-//	 SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-//	 Compte c1 = new CompteCourant(12314, 123, sdf.parse("12.01.1988"),-100);
-//	 metier.addCompte(c1, 2L, 1L, 1L);
-//	 Compte c2 = new CompteCourant(45678, 2000,
-//	 sdf.parse("14.01.2012"),-1000);
-//	 metier.addCompte(c2, 2L, 2L, 1L);
-//	 Compte c3 = new CompteEpargne(65678, 400, sdf.parse("14.01.2008"),1.89);
-//	 metier.addCompte(c3, 3L, 3L, 2L);
-//	
-//	 // assertNotNull(c1.getIdCompte());
-//	 assertNotNull(c2.getIdCompte());
-//	 assertNotNull(c2.getClient()); //probleme
-//	 assertNotNull(c2.getDateDeCreationCompte());
-//	 assertNotNull(c2.getEmploye());
-//	 assertNotNull(c2.getNumCompte());
-//	 assertNotNull(c2.getSoldeCompte());
-//	 }
+	 @Test
+	 public void testAddCompte() throws ParseException, ExceptionPerso {
+	 SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+	 Compte c1 = new CompteCourant(12314, 123, sdf.parse("12.01.1988"),-100);
+	 metier.addCompte(c1, 2L, 1L, 1L);
+	 Compte c2 = new CompteCourant(45678, 2000,
+	 sdf.parse("14.01.2012"),-1000);
+	 metier.addCompte(c2, 2L, 2L, 1L);
+	 Compte c3 = new CompteEpargne(65678, 400, sdf.parse("14.01.2008"),1.89);
+	 metier.addCompte(c3, 3L, 3L, 2L);
+	
+	 // assertNotNull(c1.getIdCompte());
+	 assertNotNull(c2.getIdCompte());
+	 assertNotNull(c2.getClient()); //probleme
+	 assertNotNull(c2.getDateDeCreationCompte());
+	 assertNotNull(c2.getEmploye());
+	 assertNotNull(c2.getNumCompte());
+	 assertNotNull(c2.getSoldeCompte());
+	 }
 
 	// @Test
 	// public void testDeleteCompte() {

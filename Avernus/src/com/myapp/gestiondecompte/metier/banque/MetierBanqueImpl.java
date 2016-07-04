@@ -54,5 +54,17 @@ public class MetierBanqueImpl implements IMetierBanque{
 		logger.info("<----------daoBanque injected-------->");
 	}
 
+	@Override
+	public Banque getBanque(Long idBanque) throws ExceptionPerso {
+		// TODO Auto-generated method stub
+		return dao.getBanque(idBanque);
+	}
+
+	@Override
+	public List<Banque> getBanques() {
+		// TODO Auto-generated method stub
+		return dao.getBanques();
+	}
+
 	
 }

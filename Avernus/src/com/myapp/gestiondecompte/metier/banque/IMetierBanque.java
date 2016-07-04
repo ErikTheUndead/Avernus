@@ -19,4 +19,7 @@ public interface IMetierBanque {
 	public List<Employe> getEmployeBanque(Long idBanque) throws ExceptionPerso;
 	public List<Client> getClientBanque(Long idBanque) throws ExceptionPerso;
 	public List<Compte> getCompteBanque(Long idBanque) throws ExceptionPerso;
+	public Banque getBanque(Long idBanque) throws ExceptionPerso;
+	public List<Banque> getBanques();
+	
 }

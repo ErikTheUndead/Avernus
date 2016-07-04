@@ -113,4 +113,36 @@ public class DaoBanqueImpl implements IDaoBanque{
 		logger.info("La liste de compte a é té chargée");
 		return list;
 	}
+
+	@Override
+	public Banque getBanque(Long idBanque) throws ExceptionPerso {
+
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		Banque b=session.get(Banque.class, idBanque);
+
+		session.getTransaction().commit();
+		session.close();
+		if (b == null)
+			throw new ExceptionPerso("il n'y a aucune banque attribuée à cet identifiant");
+		logger.info("on recupere la banque d'id : "+idBanque);
+		return b;	
+		
+	}
+
+	@Override
+	public List<Banque> getBanques() {
+		logger.info("on recupère la liste des banques");
+		Session session = sf.openSession();
+		session.beginTransaction();
+		String hql ="FROM Banque ";
+		Query rep = session.createQuery(hql);
+		List<Banque> list = new ArrayList<>();
+		list = rep.list();
+		session.getTransaction().commit();
+		session.close();	
+		return list;
+		
+	}
 }
