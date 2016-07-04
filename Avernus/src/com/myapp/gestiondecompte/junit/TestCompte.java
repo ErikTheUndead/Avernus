@@ -93,5 +93,4 @@ public class TestCompte {
 			logger.info(iteCo.next().toString());
 		}
 	}
-
 }
