@@ -18,7 +18,7 @@ public interface IDaoCompte {
 	
 	public void deleteCompte (Long idCompte) throws ExceptionPerso;
 	
-	public Compte updateCompte (Compte c, Long idClient,double solde) throws ExceptionPerso;
+	public Compte updateCompte (Compte c, Long idClient) throws ExceptionPerso;
 	
 	public Compte getCompteId(Long idCompte) throws ExceptionPerso;
 	

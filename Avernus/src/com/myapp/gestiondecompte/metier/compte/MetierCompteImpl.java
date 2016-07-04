@@ -47,8 +47,8 @@ public class MetierCompteImpl implements IMetierCompte {
 	}
 
 	@Override
-	public Compte updateCompte(Compte c,Long idClient,double solde) throws ExceptionPerso {
-		return daoCompte.updateCompte(c, idClient, solde);
+	public Compte updateCompte(Compte c,Long idClient) throws ExceptionPerso {
+		return daoCompte.updateCompte(c,idClient);
 	}
 
 	@Override

@@ -1,7 +1,10 @@
 package com.myapp.gestiondecompte.controleur;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,8 @@ public class CompteCtrl {
 	@Autowired
 	private IMetierCompte metier;
 	
+	Logger logger = Logger.getLogger("CompteCtrl");
+	
 	@RequestMapping(value="index")
 	public String index(Model model){
 		return "index";
@@ -34,14 +39,18 @@ public class CompteCtrl {
 	
 	@RequestMapping(value="/getCompte")
 	public String getCompte(Model model) {
-		model.addAttribute("AttrCompte", metier.getCompte());
+		List<Compte> tabC = new ArrayList<>();
+		tabC = metier.getCompte();
+		model.addAttribute("AttrCompte", tabC);
 		return "Compte";
 	}
 	
 	@RequestMapping(value="/getCompteId")
 	public String getCompteId(Model model, Long idCompte) throws ExceptionPerso {
+		List<Compte> tabC = new ArrayList<>();
+		tabC.add(metier.getCompteId(idCompte));
 		model.addAttribute("AttrCompte", metier.getCompte());
-		model.addAttribute("AttrUpdateCompte", metier.getCompteId(idCompte));
+		model.addAttribute("AttrCompteId", tabC);
 		return "Compte";
 	}
 	
@@ -52,13 +61,22 @@ public class CompteCtrl {
 		return "Compte";
 	}
 	
-	@RequestMapping(value="/update",method=RequestMethod.POST)
-	public String update(Model model, Long idCompte,
+	@RequestMapping(value="/updateCompte",method=RequestMethod.POST)
+	public String update(Model model, 
+			@RequestParam("idCompte") Long idCompte,
 			@RequestParam("num") int num,
-			@RequestParam("solde") double solde) throws ExceptionPerso{
-		Compte cp = new Compte(num, solde, new Date());
-		metier.updateCompte(cp, idCompte, solde);
-		model.addAttribute("UpdateCompte",metier.getCompte());
+			@RequestParam("solde") double solde,
+			@RequestParam("idClient") Long id) throws ExceptionPerso{
+		
+		Compte cp = metier.getCompteId(idCompte);
+		if(num!=0) cp.setNumCompte(num);
+		if(solde!=0) cp.setSoldeCompte(solde);
+		if(id==null) id = cp.getClient().getIdClient();
+		
+		metier.updateCompte(cp, id);
+		List<Compte> tabC = new ArrayList<>();
+		tabC.add(metier.getCompteId(idCompte));
+		model.addAttribute("AttrCompteId",tabC);
 		model.addAttribute("AttrCompte", metier.getCompte());
 		return "Compte";
 	}	

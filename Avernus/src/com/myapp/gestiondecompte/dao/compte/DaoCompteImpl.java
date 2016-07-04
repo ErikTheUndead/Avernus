@@ -84,7 +84,7 @@ public class DaoCompteImpl implements IDaoCompte {
 	 */
 
 	@Override
-	public Compte updateCompte(Compte c, Long idClient,double solde) throws ExceptionPerso {
+	public Compte updateCompte(Compte c, Long idClient) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		Client cl = ss.get(Client.class, idClient);
@@ -93,7 +93,6 @@ public class DaoCompteImpl implements IDaoCompte {
 			throw new ExceptionPerso("updateClient : il n'y a aucun client de cette identifiant");
 		}
 		c.setClient(cl);
-		c.setSoldeCompte(solde);
 		ss.update(c); 
 		ss.getTransaction().commit();
 		ss.close();
