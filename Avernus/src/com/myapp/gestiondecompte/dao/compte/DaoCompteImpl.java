@@ -130,14 +130,15 @@ public class DaoCompteImpl implements IDaoCompte {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		List<Compte> tab = new ArrayList<>();
-//		String hql = "from Compte c where idEmploye =:l";
-		String hql = "FROM Compte c INNER JOIN c.employe e WHERE e.idEmploye =:l";
+		String hql = "from Compte c where idEmploye =:l";
+//		String hql = "FROM Compte c INNER JOIN c.employe e WHERE e.idEmploye =:l";
 		Query req = ss.createQuery(hql);
-		req.setParameter("l","%"+idEmploye+"%");
+		req.setParameter("l",idEmploye);
 		tab = req.list();
 		ss.close();
-		if (tab.size()==0)
+		if (tab.size()==0) {
 			throw new ExceptionPerso("il n'y a pas d'employe de cette identifiant : "+idEmploye);
+		}
 		logger.info("<------ Le nombre de compte trouve par idEmploye trouve :"+idEmploye+" est : "+tab.size()+" ------>");
 		return tab;
 	}
