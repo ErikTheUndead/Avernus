@@ -34,7 +34,7 @@ public class EmployeCtrl {
 		return "Employe";
 	}
 	
-	@RequestMapping(value="/suprimer")
+	@RequestMapping(value="/supprimer")
 	public String suprimmer(Model model, Long idEmploye) throws ExceptionPerso{
 		metier.deleteEmploye(idEmploye);
 		model.addAttribute("AttrClient", metier.getEmploye());

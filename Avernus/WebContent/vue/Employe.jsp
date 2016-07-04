@@ -38,5 +38,16 @@
 			</c:forEach>
 		</table>
 	</div>  
+	
+	<div>
+		<form action="supprimer">
+			<select name="idEmploye">
+				<c:forEach items="${AttrEmploye}" var="e">
+					<option value="${e.idEmploye}">${e.nomEmploye}</option>
+				</c:forEach>
+			</select> <input type="submit" value="supprimer">
+		</form>
+	</div>
+	
 </body>
 </html>
