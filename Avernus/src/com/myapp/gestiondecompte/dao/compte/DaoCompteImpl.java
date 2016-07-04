@@ -90,7 +90,7 @@ public class DaoCompteImpl implements IDaoCompte {
 		Client cl = ss.get(Client.class, idClient);
 		if(cl == null){
 			ss.close();
-			throw new ExceptionPerso("deleteClient : il n'y a aucun client de cette identifiant");
+			throw new ExceptionPerso("updateClient : il n'y a aucun client de cette identifiant");
 		}
 		c.setClient(cl);
 		c.setSoldeCompte(solde);
@@ -130,7 +130,9 @@ public class DaoCompteImpl implements IDaoCompte {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		List<Compte> tab = new ArrayList<>();
-		Query req = ss.createQuery("from Compte c where c.idEmploye =:l");
+//		String hql = "from Compte c where idEmploye =:l";
+		String hql = "FROM Compte c INNER JOIN c.employe e WHERE e.idEmploye =:l";
+		Query req = ss.createQuery(hql);
 		req.setParameter("l","%"+idEmploye+"%");
 		tab = req.list();
 		ss.close();
@@ -139,6 +141,11 @@ public class DaoCompteImpl implements IDaoCompte {
 		logger.info("<------ Le nombre de compte trouve par idEmploye trouve :"+idEmploye+" est : "+tab.size()+" ------>");
 		return tab;
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * @see com.myapp.gestiondecompte.dao.compte.IDaoCompte#getCompteId(java.lang.Long)
+	 */
 
 	@Override
 	public Compte getCompteId(Long idCompte) throws ExceptionPerso {
