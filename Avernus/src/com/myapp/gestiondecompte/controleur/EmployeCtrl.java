@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Employe;
 import com.myapp.gestiondecompte.metier.employe.IMetierEmploye;
 
@@ -34,6 +34,11 @@ public class EmployeCtrl {
 		return "Employe";
 	}
 	
-	
+	@RequestMapping(value="/suprimer")
+	public String suprimmer(Model model, Long idEmploye) throws ExceptionPerso{
+		metier.deleteEmploye(idEmploye);
+		model.addAttribute("AttrClient", metier.getEmploye());
+		return "index";
+	}
 	
 }
