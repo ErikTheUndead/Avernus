@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
 import com.myapp.gestiondecompte.entities.Employe;
 /*
@@ -45,5 +46,24 @@ public class DaoEmployeImpl implements IDaoEmploye{
 		logger.info("ils existe"+ tab.size()+" employés");
 		ss.close();
 		return tab;
+	}
+
+	@Override
+	public void deleteEmploye(Long idEmploye) throws ExceptionPerso {
+		Session session = sf.openSession();
+
+		session.beginTransaction();
+		Employe e = session.get(Employe.class, idEmploye);
+		if (e==null){
+			session.close();
+			throw new ExceptionPerso("deleteEmploye : il n'y a aucun employe de cet identifiant");
+		}
+		session.delete(e);
+		logger.info("on supprime l'employet d'id : " + e.getIdEmploye());
+
+		session.getTransaction().commit();
+		session.close();
+	
+		
 	}
 }
