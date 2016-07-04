@@ -10,7 +10,7 @@
 
 
 <div>
-		<form action="getClients">
+		<form action="getClientsMc">
 			<table>
 				<tr>
 					<td>mot cle:</td>
@@ -40,7 +40,7 @@
 		</table>
 	</div>
 	<div>
-		<form action="supprimer">
+		<form action="supprimerClient">
 			<select name="idClient">
 				<c:forEach items="${AttrClient}" var="e">
 					<option value="${e.idClient}">${e.nomClient}</option>
@@ -48,17 +48,13 @@
 			</select> <input type="submit" value="supprimer">
 		</form>
 	</div>
-
-
 	<div>
 		<form action="saveClient" method="post">
-		   <table>
-		   
+		   <table> 
 		    <tr>
 				<td>Nom Client</td>
 				<td><input type="text" name="nom"></td>
 			</tr>
-
 			<tr>
 				<td>PreNom Client</td>
 				<td><input type="text" name="prenom"></td>

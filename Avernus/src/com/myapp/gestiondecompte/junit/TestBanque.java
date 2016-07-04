@@ -38,18 +38,18 @@ public class TestBanque {
 	
 	Logger logger=Logger.getLogger("TestBanque"); 
 	
-//	@Test
-//	public void testAddBanque() {
-//		Banque b1= new Bnp("2 rue des moines", 75013);
-//		metier.addBanque(b1);
-//		Banque b2= new Cic("17 rue de la cloche", 75002);
-//		metier.addBanque(b2);
-//		Banque b3= new Lcl("95 rue Napoleon Bonaparte", 75016);
-//		metier.addBanque(b3);
-//		assertNotNull(b1.getIdBanque());
-//	}
+	@Test
+	public void testAddBanque() {
+		Banque b1= new Bnp("2 rue des moines", 75013);
+		metier.addBanque(b1);
+		Banque b2= new Cic("17 rue de la cloche", 75002);
+		metier.addBanque(b2);
+		Banque b3= new Lcl("95 rue Napoleon Bonaparte", 75016);
+		metier.addBanque(b3);
+		assertNotNull(b1.getIdBanque());
+	}
 
-	
+	/*
 	@Test
 	public void testGetEmployeBanque() throws ExceptionPerso {
 		List<Employe> tab=metier.getEmployeBanque(7L);

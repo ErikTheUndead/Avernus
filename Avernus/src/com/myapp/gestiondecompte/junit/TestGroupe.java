@@ -32,7 +32,7 @@ public class TestGroupe {
 		context.close();
 	}
 	
-	/*@Test
+	@Test
 	public void testAddGroupe() {
 		Groupe g1=new Groupe("LeGroupe1");
 		metier.addGroupe(g1);
@@ -41,7 +41,7 @@ public class TestGroupe {
 		Groupe g3=new Groupe("LeGroupe3");
 		metier.addGroupe(g3);
 		assertNotNull(g1.getIdGroupe());
-	}*/
+	}
 	/*
 	@Test
 	public void testAddEmployeGroupe() {
@@ -56,10 +56,11 @@ public class TestGroupe {
 		List<Groupe> tab = metier.getGroupe();
 		assertTrue(tab.size()>0);
 	}*/
-
+/*
 	@Test
 	public void testGetEmployesGroupe() throws ExceptionPerso {
 		List<Employe> tab = metier.getEmployesGroupe(3L);
 		assertTrue(tab.size()>0);
 	}
+	*/
 }

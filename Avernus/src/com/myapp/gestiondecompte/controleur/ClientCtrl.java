@@ -36,17 +36,17 @@ public class ClientCtrl {
 		
 		return "Client";
 	}
-	@RequestMapping(value="/getClients")
+	@RequestMapping(value="/getClientsMc")
 	public String getClientByMc(Model model,String motCle) throws ExceptionPerso{
 		model.addAttribute("AttrClient",metier.getClientsByMc(motCle));
 		return "Client";
 	}
-	@RequestMapping(value="/")
+	@RequestMapping(value="/getClients")
 	public String getClient(Model model) throws ExceptionPerso{
 		model.addAttribute("AttrClient",metier.getClients());
 		return "Client";
 	}
-	@RequestMapping(value="/supprimer")
+	@RequestMapping(value="/supprimerClient")
 	public String supprimmer(Model model, Long idClient) throws ExceptionPerso{
 		metier.deleteClient(idClient);
 		model.addAttribute("AttrClient",metier.getClients());

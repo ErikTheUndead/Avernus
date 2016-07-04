@@ -41,11 +41,11 @@ public class TestEmploye {
 		metier.addEmploye(e4);
 		assertNotNull(e1.getIdEmploye());
 	}
-
+/*
 	@Test
 	public void testGetEmploye() {
 		List<Employe> tab = metier.getEmploye();
 		assertTrue(tab.size()>0);
 	}
-
+*/
 }
