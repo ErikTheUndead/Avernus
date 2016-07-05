@@ -1,4 +1,4 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,8 +16,10 @@
 					<td>mot cle:</td>
 					<td><input type="text" name="motCle"></td>
 					<td><input type="submit" value="envoyer"></td>
+				
 				</tr>
 			</table>
+				<p>${ClientModel.exceptionByMc}</p>
 		</form>
 	</div>
 	<div>
@@ -28,8 +30,9 @@
 				<th>PrenomClient</th>
 				<th>AgeClient</th>
 			</tr>
-			<c:forEach items="${AttrClient}" var="cl">
+			<c:forEach items="${ClientModel.listClientByMc}" var="cl">
 				<tr>
+				
 					<td>${cl.idClient}</td>
 					<td>${cl.nomClient}</td>
 					<td>${cl.prenomClient}</td>
@@ -42,7 +45,7 @@
 	<div>
 		<form action="supprimerClient">
 			<select name="idClient">
-				<c:forEach items="${AttrClient}" var="e">
+				<c:forEach items="${ClientModel.listClient}" var="e">
 					<option value="${e.idClient}">${e.nomClient}</option>
 				</c:forEach>
 			</select> <input type="submit" value="supprimer">
@@ -82,7 +85,7 @@
 		<form action="updateClient" method="post">
 		
 		<select name="idClient">
-				<c:forEach items="${AttrClient}" var="e">
+				<c:forEach items="${ClientModel.listClient}" var="e">
 					<option value="${e.idClient}">${e.nomClient}</option>
 				</c:forEach>
 			</select> 
@@ -115,7 +118,7 @@
 		   
 		   </table>
 		</form>
-	</div>	
+	</div>	 
 
 </body>
 </html>
