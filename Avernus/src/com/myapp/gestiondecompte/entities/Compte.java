@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,7 +42,7 @@ public class Compte {
 	@ManyToOne
 	@JoinColumn(name = "idClient")
 	private Client client;
-	@OneToMany(mappedBy="compte")
+	@OneToMany(mappedBy="compte",fetch = FetchType.EAGER)
 	private List<Operation> listOperation = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "idEmploye")

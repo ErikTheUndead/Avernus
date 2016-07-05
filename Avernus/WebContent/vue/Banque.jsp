@@ -13,7 +13,24 @@
 <body>
 
 
- <div>
+
+<c:forEach items="${BanqueModel.banques}" var="x">
+   
+   <c:out value="${x.idBanque}"></c:out>
+
+</c:forEach>
+
+
+<form action="getBanque">
+
+<input type="text" name="idBanque">
+<button>Aficher</button>
+</form>
+
+${BanqueModel.idBanque}
+
+${BanqueModel.exceptionGetBanueById}
+<div>
 		<form action="getBanque">
 		<p>Selectionner une banque </p>
 			<select name="idBanque">
@@ -21,9 +38,9 @@
 				<option value="2">CIC</option>
 				<option value="3">LCL</option>
 			</select>
-		<input type="submit" value="Consulter les attributs de la banque">
+		<input type="submit" value="Consulter les infos de la banque">
 		</form>
-	</div> </br></br>
+	</div> 
 	
 	<h3>Les attributs de la banque selectionnée sont les suivants</h3>
 	<div>
@@ -34,18 +51,17 @@
 				<th>adresseBanque</th>
 				<th>codePostalBanque</th>
 			</tr>
-			<c:forEach items="${AttrBanque}" var="cl">
-				<tr>
-					<td>${cl.idBanque}</td>
-					<%-- <td>${cl.nomBanque}</td> --%>
-					<td>${cl.adresseBanque}</td>
-					<td>${cl.codePostalBanque}</td>
-				</tr>
+			<c:forEach items="${BanqueModel.banques}" var="x">
+   
+   				<c:out value="${x.idBanque}"></c:out>
+   				<c:out value="${x.adresseBanque}"></c:out>
+   				<c:out value="${x.codePostalBanque}"></c:out>
+
 			</c:forEach>
 		</table>
 	</div>  </br></br>
 	
-	<h3>Les employés appartenant à la banque selectionnée sont les suivants</h3>
+	<%-- <h3>Les employés appartenant à la banque selectionnée sont les suivants</h3>
 	 <div>
 		<table class="table">
 			<tr>
@@ -81,6 +97,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<p name="execption"></p>
 	</div> </br></br>
 	
 	<h3>Les clients appartenant à la banque selectionnée sont les suivants</h3>
@@ -100,6 +117,6 @@
 			</c:forEach>
 		</table>
 	</div> 
-	  
+	   --%> --%>
 </body>
 </html>
