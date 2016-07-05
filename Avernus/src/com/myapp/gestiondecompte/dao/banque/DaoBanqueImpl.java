@@ -50,7 +50,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		Banque b=ss.get(Banque.class, idBanque);
 		if (b == null){
 			ss.close();
-			throw new ExceptionPerso("getEmployeBanque : Il n'y a pas de banque de cette identifiant.");
+			throw new ExceptionPerso("La banque selectionnée n'existe pas");
 		}
 		List<Compte> tab=b.getTabCompte();
 		for(Compte c:tab){
@@ -64,7 +64,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		ss.getTransaction().commit();
 		if (tab.size()==0){	
 			ss.close();
-			throw new ExceptionPerso("getEmployBanque : Cette Banque ne possède aucun employé");
+			throw new ExceptionPerso(" Cette Banque ne possède aucun employé");
 		}
 		ss.close();
 		logger.info("La liste de "+tab1.size() +"employ�s a �t� charg�e");
@@ -91,7 +91,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		ss.getTransaction().commit();
 		ss.close();
 		if (tab1.size()==0){	
-			throw new ExceptionPerso("getEmployBanque : Cette Banque ne possède aucun employé");
+			throw new ExceptionPerso("Cette Banque ne possède aucun client");
 		}
 		logger.info("La liste de "+tab1.size()+" clients a été chargée");
 		return tab1;
@@ -108,7 +108,7 @@ public class DaoBanqueImpl implements IDaoBanque{
 		ss.close();
 		if (list.size()==0){
 			
-			throw new ExceptionPerso(" getCompteBanque :Il n'y a pas de banque de ctte identifiant ou elle ne possede aucun compte");
+			throw new ExceptionPerso("Cette banque ne possède aucun compte");
 		}
 		logger.info("La liste de compte a é té chargée");
 		return list;

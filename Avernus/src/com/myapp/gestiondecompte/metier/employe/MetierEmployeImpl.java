@@ -45,4 +45,10 @@ public class MetierEmployeImpl implements IMetierEmploye{
 		dao.deleteEmploye(idEmploye);
 		
 	}
+
+	@Override
+	public Employe getEmployeParId(Long idEmploye) throws ExceptionPerso {
+		// TODO Auto-generated method stub
+		return dao.getEmployeParId(idEmploye);
+	}
 }

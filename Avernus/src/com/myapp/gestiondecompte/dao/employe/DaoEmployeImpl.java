@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 
 import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
+import com.myapp.gestiondecompte.entities.Banque;
 import com.myapp.gestiondecompte.entities.Employe;
 /*
  * Author: Julie Brouqu�
@@ -64,6 +65,22 @@ public class DaoEmployeImpl implements IDaoEmploye{
 		session.getTransaction().commit();
 		session.close();
 	
+		
+	}
+
+	@Override
+	public Employe getEmployeParId(Long idEmploye) throws ExceptionPerso {
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		Employe e=session.get(Employe.class, idEmploye);
+
+		session.getTransaction().commit();
+		session.close();
+		if (e == null)
+			throw new ExceptionPerso("Il n'y a aucun employé attribué à cet identifiant");
+		logger.info("on recupere l'employé d'id : "+idEmploye);
+		return e;	
 		
 	}
 }

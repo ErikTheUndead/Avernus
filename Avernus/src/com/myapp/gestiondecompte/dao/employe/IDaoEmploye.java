@@ -14,6 +14,7 @@ public interface IDaoEmploye {
 	public Employe addEmploye(Employe e);
 	public List<Employe> getEmploye();
 	public void deleteEmploye(Long idEmploye) throws ExceptionPerso;
+	public Employe getEmployeParId(Long idEmploye) throws ExceptionPerso;
 	
 
 }
