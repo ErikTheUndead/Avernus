@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
-import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.metier.compte.IMetierCompte;
+import com.myapp.gestiondecompte.metier.employe.IMetierEmploye;
 
 @Controller
 public class CompteCtrl {
@@ -23,17 +23,21 @@ public class CompteCtrl {
 	@Autowired
 	private IMetierCompte metier;
 	
+	@Autowired
+	private IMetierEmploye metier2;
+	
 	Logger logger = Logger.getLogger("CompteCtrl");
 	
-	@RequestMapping(value="index")
-	public String index(Model model){
-		return "index";
-	}
+//	@RequestMapping(value="index")
+//	public String index(Model model){
+//		return "index";
+//	}
 	
 	@RequestMapping(value="compte")
 	public String compte(Model model){
 		model.addAttribute("AttrCompte",metier.getCompte());
 		model.addAttribute("UpdateCompte",metier.getCompte());
+		model.addAttribute("AttrEmploye",metier2.getEmploye());
 		return "Compte";
 	}
 	
@@ -51,13 +55,16 @@ public class CompteCtrl {
 		tabC.add(metier.getCompteId(idCompte));
 		model.addAttribute("AttrCompte", metier.getCompte());
 		model.addAttribute("AttrCompteId", tabC);
+		model.addAttribute("AttrEmploye",metier2.getEmploye());
 		return "Compte";
 	}
 	
 	@RequestMapping(value="/supprimerCompte")
 	public String supprimer(Model model, Long idCompte) throws ExceptionPerso{
+		logger.info("idCompte "+idCompte);
 		metier.deleteCompte(idCompte);
 		model.addAttribute("AttrCompte",metier.getCompte());
+		model.addAttribute("AttrEmploye",metier2.getEmploye());
 		return "Compte";
 	}
 	
@@ -78,7 +85,39 @@ public class CompteCtrl {
 		tabC.add(metier.getCompteId(idCompte));
 		model.addAttribute("AttrCompteId",tabC);
 		model.addAttribute("AttrCompte", metier.getCompte());
+		model.addAttribute("AttrEmploye",metier2.getEmploye());
 		return "Compte";
 	}	
+	
+	@RequestMapping(value="/creationCompte",method=RequestMethod.POST)
+	public String creationCompte(Model model, 
+			@RequestParam("num") int num,
+			@RequestParam("solde") double solde,
+			@RequestParam("idClient") Long idC,
+			@RequestParam("idEmploye") Long idEm,
+			@RequestParam("idBanque") Long idB) throws ExceptionPerso{
+		
+		Compte cp = new Compte(num, solde, new Date());
+		if(num!=0) cp.setNumCompte(num);
+		if(solde!=0) cp.setSoldeCompte(solde);
+		if(idC==null) idC = cp.getClient().getIdClient();
+		
+		List<Compte> tabC = new ArrayList<>();
+		tabC.add(metier.addCompte(cp, idC, idEm, idB));
+		model.addAttribute("AttrCompteCreate",tabC);
+		model.addAttribute("AttrCompte", metier.getCompte());
+		model.addAttribute("AttrEmploye",metier2.getEmploye());
+		return "Compte";
+	}
+	
+	@RequestMapping(value="/getEmployeCompte")
+	public String getCompteEmploye(Model model,Long idEmploye) throws ExceptionPerso {
+//		List<Compte> tabC = new ArrayList<>();
+//		tabC = metier.getCompteEmploye(idEmploye);
+		model.addAttribute("AttrEmploye", metier2.getEmploye());
+		model.addAttribute("AttrCompte", metier.getCompte());
+		model.addAttribute("AttrCompteEmploye", metier.getCompteEmploye(idEmploye));
+		return "Compte";
+	}
 	
 }

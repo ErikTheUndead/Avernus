@@ -12,7 +12,7 @@
 		<form action="getCompte">
 			<table>
 				<tr>
-					<td>Liste des comptes</td>
+					<td><h3>Liste des comptes</h3></td>
 					<!-- <td><input type="text" name="motCle"></td> -->
 					<td><input type="submit" value="ok"></td>
 				</tr>
@@ -29,6 +29,7 @@
 				<th>Date de création</th>
 				<th>idClient</th>
 				<th>idEmploye</th>
+				<th>idBanque</th>
 			</tr>
 			<c:forEach items="${AttrCompte}" var="cp">
 				<tr>
@@ -38,13 +39,49 @@
 					<td>${cp.dateDeCreationCompte}</td>
 					<td>${cp.client.idClient}</td>
 					<td>${cp.employe.idEmploye}</td>
+					<td>${cp.banque.idBanque}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<h3>Update Compte</h3>
+
+	<h3>Création de compte</h3>
+
 	<div>
-		<form action="getCompteId">
+		<form action="creationCompte" method="post">
+			<table class="table">
+				<tr>
+					<th>Numero de compte</th>
+					<th>Solde</th>
+					<th>idClient</th>
+					<th>idEmploye</th>
+					<th>idBanque</th>
+				</tr>
+				<tr>
+					<td><input type="text" name="num"></td>
+					<td><input type="text" name="solde"></td>
+					<td><input type="text" name="idClient"></td>
+					<td><input type="text" name="idEmploye"></td>
+					<td><input type="text" name="idBanque"></td>
+					<td><input type="submit" value="Création"></td>
+					<c:forEach items="${AttrCompteCreate}" var="ucp">
+						<tr>
+							<td>${ucp.idCompte}</td>
+							<td>${ucp.numCompte}</td>
+							<td>${ucp.soldeCompte}</td>
+							<td>${ucp.dateDeCreationCompte}</td>
+							<td>${ucp.client.idClient}</td>
+						</tr>
+					</c:forEach>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<h3>Update compte</h3>
+
+	<div>
+		<form action="creationCompte">
 			<select name="idCompte">
 				<c:forEach items="${AttrCompte}" var="ucp">
 					<option value="${ucp.idCompte}">${ucp.idCompte}</option>
@@ -83,8 +120,8 @@
 					<th>Solde</th>
 					<th>idClient</th>
 				</tr>
-				<tr>	
-				
+				<tr>
+
 					<td><input type="text" name="idCompte"></td>
 					<td><input type="text" name="num"></td>
 					<td><input type="text" name="solde"></td>
@@ -93,14 +130,55 @@
 				</tr>
 			</table>
 		</form>
-		<%-- <c:catch var="ExceptionPerso"><% Long idCompte = null;%></c:catch>
-		<c:if test="${ExceptionPerso != null}">
-			<p>
-				The exception is : ${catchException} <br /> There is an exception:
-				${catchException.message}
-			</p>
-		</c:if> --%>
 	</div>
+
 	<h3>Supression Compte</h3>
+
+	<div>
+		<form action="supprimerCompte">
+			<select name="idCompte">
+				<c:forEach items="${AttrCompte}" var="ucp">
+					<option value="${ucp.idCompte}">${ucp.idCompte}</option>
+				</c:forEach>
+			</select> <input type="submit" value="supprimer">
+		</form>
+	</div>
+
+	<h3>Liste des comptes par employé</h3>
+
+	<div>
+		<form action="getEmployeCompte">
+			<select name="idEmploye">
+				<c:forEach items="${AttrEmploye}" var="ecp">
+					<option value="${ecp.idEmploye}">${ecp.nomEmploye}</option>
+				</c:forEach>
+			</select> <input type="submit" value="ok">
+		</form>
+	</div>
+
+	<div>
+		<table class="table">
+			<tr>
+				<th>Compte</th>
+				<th>Numero de compte</th>
+				<th>Solde</th>
+				<th>Date de Création</th>
+				<th>idClient</th>
+				<th>nom employé</th>
+			</tr>
+			<c:forEach items="${AttrCompteEmploye}" var="ecp">
+				<tr>
+					<td>${ecp.idCompte}</td>
+					<td>${ecp.numCompte}</td>
+					<td>${ecp.soldeCompte}</td>
+					<td>${ecp.dateDeCreationCompte}</td>
+					<td>${ecp.client.idClient}</td>
+					<td>${ecp.employe.nomEmploye}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	<%-- ${AttrCompteEmploye} --%>
+
 </body>
 </html>
