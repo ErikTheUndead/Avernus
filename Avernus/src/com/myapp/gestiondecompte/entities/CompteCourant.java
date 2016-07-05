@@ -20,19 +20,19 @@ public class CompteCourant extends Compte{
 	/*Contructors*/
 	public CompteCourant() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.setType("Compte Courant");
 	}
 
 	public CompteCourant(int numCompte, double soldeCompte,
 			Date dateDeCreationCompte) {
 		super(numCompte, soldeCompte, dateDeCreationCompte);
-		// TODO Auto-generated constructor stub
+		this.setType("Compte Courant");
 	}
 	public CompteCourant(int numCompte, double soldeCompte,
 			Date dateDeCreationCompte , double decouvert) {
 		super(numCompte, soldeCompte, dateDeCreationCompte);
 		this.decouvert=decouvert;
-		// TODO Auto-generated constructor stub
+		this.setType("Compte Courant");
 	}
 	/*Get and Set*/
 

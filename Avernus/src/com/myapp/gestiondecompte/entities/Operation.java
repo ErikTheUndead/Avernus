@@ -33,11 +33,18 @@ public class Operation {
 	private Long idOperation;
 	private Date dateOperation;
 	private double montantOperation;
+	private String type = "Operation";
 	
 	/*
 	 * ASSOCIATIONS
 	 */
 	
+	@Override
+	public String toString() {
+		return "Operation [idOperation=" + idOperation + ", dateOperation=" + dateOperation + ", montantOperation="
+				+ montantOperation + ", type=" + type + "]";
+	}
+
 	@ManyToOne
 	@JoinColumn(name="employe")
 	private Employe employe;
@@ -88,6 +95,14 @@ public class Operation {
 
 	public void setCompte(Compte compte) {
 		this.compte = compte;
+	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	/*

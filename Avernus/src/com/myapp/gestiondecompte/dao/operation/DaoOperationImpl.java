@@ -1,10 +1,15 @@
 package com.myapp.gestiondecompte.dao.operation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.myapp.gestiondecompte.dao.singleton.Singleton;
+import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.entities.Operation;
 
 /*
@@ -36,6 +41,19 @@ public class DaoOperationImpl implements IDaoOperation{
 		ss.close();
 		logger.info("l'operation "+op.getIdOperation()+" a bien été enregistré");
 		return op;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Operation> getOperation() {
+		Session ss = sf.openSession();
+		ss.beginTransaction();
+		List<Operation> tab = new ArrayList<>();
+		Query req = ss.createQuery("from Operation");
+		tab = req.list();
+		ss.close();
+		logger.info("<------ liste des opérations recuperée : "+tab.size()+" ------>");
+		return tab;
 	}
 
 	

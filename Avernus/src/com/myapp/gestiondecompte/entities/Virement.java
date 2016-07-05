@@ -19,12 +19,12 @@ public class Virement extends Operation{
 	
 	public Virement() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.setType("Virement");
 	}
 
 	public Virement(Date dateOperation, double montantOperation, Employe employe, Compte compte) {
 		super(dateOperation, montantOperation, employe, compte);
-		// TODO Auto-generated constructor stub
+		this.setType("Virement");
 	}
 	
 	/*

@@ -15,6 +15,7 @@ import com.myapp.gestiondecompte.entities.Operation;
 
 public interface IMetierOperation {
 	
+	public List<Operation> getOperation();
 	
 	public Operation retrait(Long idCompte, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 

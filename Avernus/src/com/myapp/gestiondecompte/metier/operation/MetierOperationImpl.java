@@ -130,6 +130,11 @@ public class MetierOperationImpl implements IMetierOperation{
 		logger.info("<------ Le virement entre le compte "+idCompte1+" et "+idCompte2+" a bien été effectué ------>");
 		return tabOp;
 	}
+
+	@Override
+	public List<Operation> getOperation() {
+		return this.daoOperation.getOperation();
+	}
 	
 
 }

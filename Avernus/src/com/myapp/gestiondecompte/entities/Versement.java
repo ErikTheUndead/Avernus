@@ -20,12 +20,12 @@ public class Versement extends Operation{
 
 	public Versement() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.setType("Versement");
 	}
 	
 	public Versement(Date dateOperation, double montantOperation, Employe employe, Compte compte) {
 		super(dateOperation, montantOperation, employe, compte);
-		// TODO Auto-generated constructor stub
+		this.setType("Versement");
 	}
 	
 	/*

@@ -1,5 +1,7 @@
 package com.myapp.gestiondecompte.dao.operation;
 
+import java.util.List;
+
 import com.myapp.gestiondecompte.entities.Operation;
 
 /*
@@ -10,6 +12,8 @@ import com.myapp.gestiondecompte.entities.Operation;
  */
 
 public interface IDaoOperation {
+	
+	public List<Operation> getOperation();
 	
 	public Operation addOperation(Operation op);
 	

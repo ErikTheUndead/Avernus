@@ -20,12 +20,12 @@ public class Retrait extends Operation{
 	
 	public Retrait() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.setType("Retrait");
 	}
 	
 	public Retrait(Date dateOperation, double montantOperation, Employe employe, Compte compte) {
 		super(dateOperation, montantOperation, employe, compte);
-		// TODO Auto-generated constructor stub
+		this.setType("Retrait");
 	}
 	
 	/*

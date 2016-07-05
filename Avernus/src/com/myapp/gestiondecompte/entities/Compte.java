@@ -37,6 +37,7 @@ public class Compte {
 	private int numCompte;
 	private double soldeCompte;
 	private Date dateDeCreationCompte;
+	private String type = "Compte";
 
 	/*~~~~~~~~~~~Association~~~~~~~~~~~*/
 	@ManyToOne
@@ -101,6 +102,12 @@ public class Compte {
 	public void setBanque(Banque banque) {
 		this.banque = banque;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	/*~~~~~~~Constructor~~~~~~~~~~~*/
 	
@@ -118,9 +125,8 @@ public class Compte {
 
 	@Override
 	public String toString() {
-		return "Compte [idCompte=" + idCompte + ", numCompte=" + numCompte
-				+ ", soldeCompte=" + soldeCompte + ", dateDeCreationCompte="
-				+ dateDeCreationCompte + "]";
+		return "Compte [idCompte=" + idCompte + ", numCompte=" + numCompte + ", soldeCompte=" + soldeCompte
+				+ ", dateDeCreationCompte=" + dateDeCreationCompte + ", type=" + type + "]";
 	}
 	
 }

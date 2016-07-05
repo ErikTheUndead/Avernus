@@ -21,19 +21,19 @@ public class CompteEpargne extends Compte{
 
 	public CompteEpargne() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.setType("Compte Epargne");
 	}
 
 	public CompteEpargne(int numCompte, double soldeCompte,
 			Date dateDeCreationCompte) {
 		super(numCompte, soldeCompte, dateDeCreationCompte);
-		// TODO Auto-generated constructor stub
+		this.setType("Compte Epargne");
 	}
 	public CompteEpargne(int numCompte, double soldeCompte,
 			Date dateDeCreationCompte, double tauxInteret) {
 		super(numCompte, soldeCompte, dateDeCreationCompte);
 		this.tauxInteret=tauxInteret;
-		// TODO Auto-generated constructor stub
+		this.setType("Compte Epargne");
 	}
 	/*get and set */
 
