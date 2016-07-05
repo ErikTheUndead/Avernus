@@ -39,14 +39,34 @@ public class BanqueCtrl {
 	
 	@RequestMapping(value = "/getBanque",method =RequestMethod.GET)
 	
-	public String getBanque(BanqueModel bm,Model model){
+	public String getBanque(BanqueModel bm,Model model, Long idBanque){
 		try {
 			metier.getBanque(bm.getIdBanque());
+			List<Banque> list=new ArrayList<Banque> ();
+			list.add(metier.getBanque(bm.getIdBanque()));
+			bm.setTabBanque(list);
 		} catch (ExceptionPerso e) {
 			bm.setExceptionGetBanueById(e.getMessage());
 		}
+		try {
+			List<Compte> tab1=metier.getCompteBanque(bm.getIdBanque());
+			bm.setTabCompte(tab1);
+		} catch (Exception e) {
+			bm.setExceptionGetCompteBanque(e.getMessage());
+		}
+		try {
+			List<Employe> tab2=metier.getEmployeBanque(bm.getIdBanque());
+			bm.setTabEmploye(tab2);
+		} catch (Exception e) {
+			bm.setExceptionGetEmployebanque(e.getMessage());
+		}
+		try {
+			List<Client> tab3=metier.getClientBanque(bm.getIdBanque());
+			bm.setTabClient(tab3);
+		} catch (Exception e) {
+			bm.setExceptionGetClientBanque(e.getMessage());
+		}
 		model.addAttribute("BanqueModel", bm);
-		
 		return "Banque";
 	}
 	

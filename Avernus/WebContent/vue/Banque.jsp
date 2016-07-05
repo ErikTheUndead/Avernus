@@ -13,24 +13,25 @@
 <body>
 
 
-
+<%-- 
 <c:forEach items="${BanqueModel.banques}" var="x">
    
    <c:out value="${x.idBanque}"></c:out>
 
-</c:forEach>
+</c:forEach> --%>
 
 
-<form action="getBanque">
+<!-- <form action="getBanque">
 
 <input type="text" name="idBanque">
 <button>Aficher</button>
-</form>
+</form> -->
 
-${BanqueModel.idBanque}
+<%-- ${BanqueModel.idBanque} --%>
 
 ${BanqueModel.exceptionGetBanueById}
-<div>
+	</div>  </br></br>
+ <div>
 		<form action="getBanque">
 		<p>Selectionner une banque </p>
 			<select name="idBanque">
@@ -51,35 +52,16 @@ ${BanqueModel.exceptionGetBanueById}
 				<th>adresseBanque</th>
 				<th>codePostalBanque</th>
 			</tr>
-			<c:forEach items="${BanqueModel.banques}" var="x">
-   
-   				<c:out value="${x.idBanque}"></c:out>
-   				<c:out value="${x.adresseBanque}"></c:out>
-   				<c:out value="${x.codePostalBanque}"></c:out>
-
-			</c:forEach>
-		</table>
-	</div>  </br></br>
-	
-	<%-- <h3>Les employés appartenant à la banque selectionnée sont les suivants</h3>
-	 <div>
-		<table class="table">
-			<tr>
-				<th>idEmploye</th>
-				<th>nomEmploye</th>
-				<th>codeEmploye</th>
-			</tr>
-			<c:forEach items="${AttrEmploye}" var="cl">
-				<tr>
-					<td>${cl.idEmploye}</td>
-					<td>${cl.nomEmploye}</td>
-					<td>${cl.codeEmploye}</td>
+			<c:forEach items="${BanqueModel.tabBanque}" var="x">
+  				 <tr>
+   				<td><c:out value="${x.idBanque}"></c:out></td>
+   				<td><c:out value="${x.adresseBanque}"></c:out></td>
+   				<td><c:out value="${x.codePostalBanque}"></c:out></td>
 				</tr>
 			</c:forEach>
 		</table>
-	</div> </br></br>
-	
-	<h3>Les comptes appartenants à la banque selectionnée sont les suivants</h3>
+		
+		<h3>Les comptes appartenants à la banque selectionnée sont les suivants</h3>
 <div>
 		<table class="table1">
 			<tr>
@@ -88,7 +70,7 @@ ${BanqueModel.exceptionGetBanueById}
 				<th>SoldeCompte</th>
 				<th>dateDecreationCompte</th>
 			</tr>
-			<c:forEach items="${AttrCompte}" var="cl">
+			<c:forEach items="${BanqueModel.tabCompte}" var="cl">
 				<tr>
 					<td>${cl.idCompte}</td>
 					<td>${cl.numCompte}</td> 
@@ -97,8 +79,29 @@ ${BanqueModel.exceptionGetBanueById}
 				</tr>
 			</c:forEach>
 		</table>
-		<p name="execption"></p>
+		${BanqueModel.exceptionGetCompteBanque}
 	</div> </br></br>
+	
+	<h3>Les employés appartenant à la banque selectionnée sont les suivants</h3>
+	 <div>
+		<table class="table">
+			<tr>
+				<th>idEmploye</th>
+				<th>nomEmploye</th>
+				<th>codeEmploye</th>
+			</tr>
+			<c:forEach items="${BanqueModel.tabEmploye}" var="cl">
+				<tr>
+					<td>${cl.idEmploye}</td>
+					<td>${cl.nomEmploye}</td>
+					<td>${cl.codeEmploye}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		${BanqueModel.exceptionGetEmployebanque}
+	</div> </br></br> 
+	
+
 	
 	<h3>Les clients appartenant à la banque selectionnée sont les suivants</h3>
 	<div>
@@ -108,7 +111,7 @@ ${BanqueModel.exceptionGetBanueById}
 				 <th>nomClient</th> 
 				<th>prenomClient</th>
 			</tr>
-			<c:forEach items="${AttrClient}" var="cl">
+			<c:forEach items="${BanqueModel.tabClient}" var="cl">
 				<tr>
 					<td>${cl.idClient}</td>
 					<td>${cl.nomClient}</td> 
@@ -116,7 +119,8 @@ ${BanqueModel.exceptionGetBanueById}
 				</tr>
 			</c:forEach>
 		</table>
+		${BanqueModel.exceptionGetClientBanque}
 	</div> 
-	   --%> --%>
+	   
 </body>
 </html>
