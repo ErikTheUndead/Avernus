@@ -39,12 +39,6 @@ public class Operation {
 	 * ASSOCIATIONS
 	 */
 	
-	@Override
-	public String toString() {
-		return "Operation [idOperation=" + idOperation + ", dateOperation=" + dateOperation + ", montantOperation="
-				+ montantOperation + ", type=" + type + "]";
-	}
-
 	@ManyToOne
 	@JoinColumn(name="employe")
 	private Employe employe;
@@ -121,5 +115,15 @@ public class Operation {
 		this.compte = compte;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	
+	@Override
+	public String toString() {
+		return "Operation [idOperation=" + idOperation + ", dateOperation=" + dateOperation + ", montantOperation="
+				+ montantOperation + ", type=" + type + "]";
+	}
 
 }

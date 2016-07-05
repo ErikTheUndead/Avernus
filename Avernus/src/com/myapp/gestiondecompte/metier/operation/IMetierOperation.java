@@ -21,6 +21,6 @@ public interface IMetierOperation {
 
 	public Operation versement(Long idCompte, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 	
-	public List<Operation> virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation);
+	public List<Operation> virement(Long idCompte1,Long idCompte2, Long idEmploye, double montant,Date dateOperation) throws ExceptionPerso;
 	
 }

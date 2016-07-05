@@ -16,6 +16,7 @@ import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Compte;
 import com.myapp.gestiondecompte.metier.compte.IMetierCompte;
 import com.myapp.gestiondecompte.metier.employe.IMetierEmploye;
+import com.myapp.gestiondecompte.model.CompteModel;
 
 @Controller
 public class CompteCtrl {
@@ -28,11 +29,6 @@ public class CompteCtrl {
 	
 	Logger logger = Logger.getLogger("CompteCtrl");
 	
-//	@RequestMapping(value="index")
-//	public String index(Model model){
-//		return "index";
-//	}
-	
 	@RequestMapping(value="compte")
 	public String compte(Model model){
 		model.addAttribute("AttrCompte",metier.getCompte());
@@ -43,18 +39,21 @@ public class CompteCtrl {
 	
 	@RequestMapping(value="/getCompte")
 	public String getCompte(Model model) {
-		List<Compte> tabC = new ArrayList<>();
-		tabC = metier.getCompte();
-		model.addAttribute("AttrCompte", tabC);
+		model.addAttribute("AttrCompte", metier.getCompte());
 		return "Compte";
 	}
 	
 	@RequestMapping(value="/getCompteId")
-	public String getCompteId(Model model, Long idCompte) throws ExceptionPerso {
-		List<Compte> tabC = new ArrayList<>();
-		tabC.add(metier.getCompteId(idCompte));
+	public String getCompteId(CompteModel cm, Model model) throws ExceptionPerso {
+		
+		try {
+			cm.setCompte(metier.getCompteId(cm.getIdCompte()));
+		} catch (Exception e) {
+			cm.setExceptionGetCompteId(e.getMessage());
+		}
+		
 		model.addAttribute("AttrCompte", metier.getCompte());
-		model.addAttribute("AttrCompteId", tabC);
+		model.addAttribute("AttrCompteId", cm);
 		model.addAttribute("AttrEmploye",metier2.getEmploye());
 		return "Compte";
 	}
@@ -112,8 +111,6 @@ public class CompteCtrl {
 	
 	@RequestMapping(value="/getEmployeCompte")
 	public String getCompteEmploye(Model model,Long idEmploye) throws ExceptionPerso {
-//		List<Compte> tabC = new ArrayList<>();
-//		tabC = metier.getCompteEmploye(idEmploye);
 		model.addAttribute("AttrEmploye", metier2.getEmploye());
 		model.addAttribute("AttrCompte", metier.getCompte());
 		model.addAttribute("AttrCompteEmploye", metier.getCompteEmploye(idEmploye));

@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,9 +62,9 @@
 				<tr>
 					<td><input type="text" name="num"></td>
 					<td><input type="text" name="solde"></td>
-					<td><input type="text" name="idClient"></td>
-					<td><input type="text" name="idEmploye"></td>
-					<td><input type="text" name="idBanque"></td>
+					<td><input type="number" name="idClient"></td>
+					<td><input type="number" name="idEmploye"></td>
+					<td><input type="number" name="idBanque"></td>
 					<td><input type="submit" value="Création"></td>
 					<c:forEach items="${AttrCompteCreate}" var="ucp">
 						<tr>
@@ -83,7 +84,7 @@
 	<h3>Update compte</h3>
 
 	<div>
-		<form action="creationCompte">
+		<form action="getCompteId">
 			<select name="idCompte">
 				<c:forEach items="${AttrCompte}" var="ucp">
 					<option value="${ucp.idCompte}">${ucp.idCompte}</option>
@@ -101,15 +102,13 @@
 				<th>Date de Création</th>
 				<th>idClient</th>
 			</tr>
-			<c:forEach items="${AttrCompteId}" var="ucp">
-				<tr>
-					<td>${ucp.idCompte}</td>
-					<td>${ucp.numCompte}</td>
-					<td>${ucp.soldeCompte}</td>
-					<td>${ucp.dateDeCreationCompte}</td>
-					<td>${ucp.client.idClient}</td>
-				</tr>
-			</c:forEach>
+			<tr>
+				<td>${AttrCompteId.compte.idCompte}</td>
+				<td>${AttrCompteId.compte.numCompte}</td>
+				<td>${AttrCompteId.compte.soldeCompte}</td>
+				<td>${AttrCompteId.compte.dateDeCreationCompte}</td>
+				<td>${AttrCompteId.compte.client.idClient}</td>
+			</tr>
 		</table>
 	</div>
 
@@ -124,10 +123,10 @@
 				</tr>
 				<tr>
 
-					<td><input type="text" name="idCompte"></td>
+					<td><input type="number" name="idCompte"></td>
 					<td><input type="text" name="num"></td>
 					<td><input type="text" name="solde"></td>
-					<td><input type="text" name="idClient"></td>
+					<td><input type="number" name="idClient"></td>
 					<td><input type="submit" value="mis a jour"></td>
 				</tr>
 			</table>

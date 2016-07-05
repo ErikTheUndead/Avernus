@@ -100,9 +100,7 @@ public class MetierOperationImpl implements IMetierOperation{
 
 	@Override
 	public List<Operation> virement(Long idCompte1, Long idCompte2, Long idEmploye,
-			double montant,Date dateOperation) {
-//		retrait(idCompte1, idEmploye, montant, dateOperation);
-//		versement(idCompte2, idEmploye, montant, dateOperation);
+			double montant,Date dateOperation) throws ExceptionPerso {
 		Session ss = sf.openSession();
 		ss.beginTransaction();
 		List<Operation> tabOp = new ArrayList<>();
@@ -113,6 +111,10 @@ public class MetierOperationImpl implements IMetierOperation{
 		c1 = ss.get(Compte.class, idCompte1);
 		c2 = ss.get(Compte.class, idCompte2);
 		e = ss.get(Employe.class, idEmploye);
+		if (c1 == null || c2 == null || e == null){
+			ss.close();
+			throw new ExceptionPerso("virement : Les identifiants rentré ne sont pas correctes");
+		}
 		op1 = new Virement(dateOperation, -montant, e, c1);
 		op2 = new Virement(dateOperation, montant, e, c2);
 		solde1 = c1.getSoldeCompte();
