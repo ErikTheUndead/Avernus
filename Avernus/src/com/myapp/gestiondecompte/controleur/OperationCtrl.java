@@ -11,13 +11,27 @@ import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.metier.operation.IMetierOperation;
 import com.myapp.gestiondecompte.model.OperationModel;
 
+/*
+ * AUTEUR : ERIK DUHEM
+ * DATE : 05.07.2016
+ * VERSION : 1.0
+ */
+
 @Controller
 public class OperationCtrl {
+
+	/*
+	 * ATTRIBUTS
+	 */
 
 	@Autowired
 	private IMetierOperation metierOperation;
 
 	Logger logger = Logger.getLogger("OperationCtrl");
+
+	/*
+	 * METHODES
+	 */
 
 	@RequestMapping(value = "/operation")
 	public String compte(Model model) {
@@ -53,7 +67,8 @@ public class OperationCtrl {
 	public String operationVersement(OperationModel om, Model model) throws ExceptionPerso {
 
 		try {
-			om.setOperation(metierOperation.versement(om.getIdCompte1(), om.getIdEmploye(), om.getMontant(), new Date()));
+			om.setOperation(
+					metierOperation.versement(om.getIdCompte1(), om.getIdEmploye(), om.getMontant(), new Date()));
 		} catch (ExceptionPerso e) {
 			om.setExceptionVersement(e.getMessage());
 		}

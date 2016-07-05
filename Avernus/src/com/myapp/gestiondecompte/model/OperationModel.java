@@ -11,11 +11,11 @@ import com.myapp.gestiondecompte.entities.Operation;
  */
 
 public class OperationModel {
-	
+
 	/*
 	 * ATTRIBUTS
 	 */
-	
+
 	private String exceptionRetrait;
 	private String exceptionVersement;
 	private String exceptionVirement;
@@ -25,7 +25,7 @@ public class OperationModel {
 	private Long idCompte2;
 	private Long idEmploye;
 	private double montant;
-	
+
 	/*
 	 * GETTERS ET SETTERS
 	 */
@@ -61,7 +61,7 @@ public class OperationModel {
 	public void setListeOperations(List<Operation> listeOperations) {
 		this.listeOperations = listeOperations;
 	}
-	
+
 	public Long getIdCompte1() {
 		return idCompte1;
 	}
@@ -101,5 +101,5 @@ public class OperationModel {
 	public void setOperation(Operation operation) {
 		this.operation = operation;
 	}
-	
+
 }

@@ -60,20 +60,20 @@
 					<th>idBanque</th>
 				</tr>
 				<tr>
-					<td><input type="text" name="num"></td>
+					<td><input type="number" name="num" min="1"></td>
 					<td><input type="text" name="solde"></td>
-					<td><input type="number" name="idClient"></td>
-					<td><input type="number" name="idEmploye"></td>
-					<td><input type="number" name="idBanque"></td>
+					<td><input type="number" name="idClient" min="1" value="1"></td>
+					<td><input type="number" name="idEmploye" min="1" value="1"></td>
+					<td><input type="number" name="idBanque" min="1" value="1"></td>
 					<td><input type="submit" value="Création"></td>
-					<c:forEach items="${AttrCompteCreate}" var="ucp">
+					<c:forEach items="${AttrCompteCreate.listeComptes}" var="ccp">
 						<tr>
-							<td>${ucp.idCompte}</td>
-							<td>${ucp.numCompte}</td>
-							<td>${ucp.soldeCompte}</td>
-							<td>${ucp.type}</td>
-							<td>${ucp.dateDeCreationCompte}</td>
-							<td>${ucp.client.idClient}</td>
+							<td>${ccp.idCompte}</td>
+							<td>${ccp.numCompte}</td>
+							<td>${ccp.soldeCompte}</td>
+							<td>${ccp.type}</td>
+							<td>${ccp.dateDeCreationCompte}</td>
+							<td>${ccp.client.idClient}</td>
 						</tr>
 					</c:forEach>
 				</tr>
@@ -167,19 +167,19 @@
 				<th>idClient</th>
 				<th>nom employé</th>
 			</tr>
-			<c:forEach items="${AttrCompteEmploye}" var="ecp">
+			<c:forEach items="${AttrCompteEmploye.listeComptes}" var="lcp">
 				<tr>
-					<td>${ecp.idCompte}</td>
-					<td>${ecp.numCompte}</td>
-					<td>${ecp.soldeCompte}</td>
-					<td>${ecp.dateDeCreationCompte}</td>
-					<td>${ecp.client.idClient}</td>
-					<td>${ecp.employe.nomEmploye}</td>
+					<td>${lcp.idCompte}</td>
+					<td>${lcp.numCompte}</td>
+					<td>${lcp.soldeCompte}</td>
+					<td>${lcp.dateDeCreationCompte}</td>
+					<td>${lcp.client.idClient}</td>
+					<td>${lcp.employe.nomEmploye}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<%-- ${AttrCompteEmploye} --%>
+
 
 </body>
 </html>
