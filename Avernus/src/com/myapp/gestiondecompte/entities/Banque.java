@@ -1,11 +1,13 @@
 package com.myapp.gestiondecompte.entities;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,8 +34,8 @@ public class Banque {
 	
 	//Association
 	
-	@OneToMany(mappedBy="banque")
-	private List<Compte> tabCompte=new ArrayList<Compte>();
+	@OneToMany(mappedBy="banque",fetch = FetchType.EAGER)
+	private List<Compte> tabCompte= new ArrayList<>();
 	
 	//Constructors
 
@@ -78,12 +80,18 @@ public class Banque {
 		this.codePostalBanque = codePostalBanque;
 	}
 
+
 	public List<Compte> getTabCompte() {
 		return tabCompte;
 	}
 
+
 	public void setTabCompte(List<Compte> tabCompte) {
 		this.tabCompte = tabCompte;
 	}
+
+
+	
+	
 	
 }
