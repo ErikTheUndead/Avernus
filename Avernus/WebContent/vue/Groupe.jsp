@@ -14,7 +14,7 @@
 				<th>IdGroupe</th>
 				<th>nomGroupe</th>
 			</tr>
-			<c:forEach items="${AttrGroupe}" var="cl">
+			<c:forEach items="${GroupeModel.listGroupe}" var="cl">
 				<tr>
 					<td>${cl.idGroupe}</td>
 					<td>${cl.nomGroupe}</td>
@@ -25,7 +25,7 @@
 		<div>
 		<form action="getEmploye" method="post">
 			<select name="idGroupe">
-				<c:forEach items="${AttrGroupe}" var="e">
+				<c:forEach items="${GroupeModel.listGroupe}" var="e">
 					<option value="${e.idGroupe}">${e.nomGroupe}</option>
 				</c:forEach>
 			</select> <input type="submit" value="afficher">
@@ -39,7 +39,7 @@
 				<th>Code</th>
 				
 			</tr>
-			<c:forEach items="${AttrEmployeG}" var="em">
+			<c:forEach items="${GroupeModel.listEmployeG}" var="em">
 				<tr>
 					<td>${em.idEmploye}</td>
 					<td>${em.nomEmploye}</td>
@@ -52,12 +52,12 @@
 	<div>
 	<form action="addEmployeGroupe" method="post">
 	<select name="idEmploye">
-				<c:forEach items="${AttrEmploye}" var="f">
+				<c:forEach items="${GroupeModel.listEmploye}" var="f">
 					<option value="${f.idEmploye}">${f.nomEmploye}</option>
 				</c:forEach>
 			</select> 
 			<select name="idGroupe">
-				<c:forEach items="${AttrGroupe}" var="d">
+				<c:forEach items="${GroupeModel.listGroupe}" var="d">
 					<option value="${d.idGroupe}">${d.nomGroupe}</option>
 				</c:forEach>
 			</select>

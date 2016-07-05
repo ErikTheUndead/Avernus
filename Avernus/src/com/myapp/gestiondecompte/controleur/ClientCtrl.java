@@ -1,6 +1,7 @@
 package com.myapp.gestiondecompte.controleur;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Client;
 import com.myapp.gestiondecompte.metier.client.IMetierClient;
+import com.myapp.gestiondecompte.model.ClientModel;
 
 /*
  *  author : BERNARD Thomas
@@ -23,41 +25,71 @@ import com.myapp.gestiondecompte.metier.client.IMetierClient;
 public class ClientCtrl {
 	@Autowired
     private IMetierClient metier;
+	
+	@RequestMapping(value = "/indexClient")
+	public String index(Model model, ClientModel cm){
+		cm.setListClient(metier.getClients());
+		model.addAttribute("ClientModel",cm);
+		return "Client";
+	}
+	
 
 	@RequestMapping(value="/saveClient",method=RequestMethod.POST)
-	public String save(Model model,
+	public String save(Model model, ClientModel cm,
 		@RequestParam("nom")   String nomClient,
 		@RequestParam("prenom")   String prenomClient,
 		@RequestParam("dateN")   Date DateNClient,
 		@RequestParam("adresseClient") String addresseClient) {
 		Client c = new Client(nomClient, prenomClient, DateNClient ,addresseClient );
 		metier.addClient(c);
-		model.addAttribute("AttrClient",metier.getClients());
+		List<Client> list = metier.getClients();
+		cm.setListClient(list);
+		model.addAttribute("ClientModel",cm);
 		
 		return "Client";
 	}
+	
 	@RequestMapping(value="/getClientsMc")
-	public String getClientByMc(Model model,String motCle) throws ExceptionPerso{
-		model.addAttribute("AttrClient",metier.getClientsByMc(motCle));
+	public String getClientByMc(Model model,ClientModel cm,String motCle) {
+		try {
+			List<Client> list = metier.getClientsByMc(cm.getMotCle());
+			cm.setListClientByMc(list);
+		} catch (ExceptionPerso e) {
+			// TODO Auto-generated catch block
+			cm.setExceptionByMc(e.getMessage());
+		}
+		cm.setListClient(metier.getClients());
+		model.addAttribute("ClientModel",cm);
 		return "Client";
 	}
+	
 	@RequestMapping(value="/getClients")
-	public String getClient(Model model) throws ExceptionPerso{
-		model.addAttribute("AttrClient",metier.getClients());
+	public String getClient(Model model, ClientModel cm) {
+		List<Client> list = metier.getClients();
+		cm.setListClient(list);
+		model.addAttribute("ClientModel",cm);
 		return "Client";
 	}
+	
 	@RequestMapping(value="/supprimerClient")
-	public String supprimmer(Model model, Long idClient) throws ExceptionPerso{
-		metier.deleteClient(idClient);
-		model.addAttribute("AttrClient",metier.getClients());
-		return "Client";
+	public String supprimmer(Model model, ClientModel cm, Long idClient) {
+		
+		try {
+			metier.deleteClient(cm.getIdClient());
+		} catch (ExceptionPerso e) {
+			// TODO Auto-generated catch block
+			cm.setExceptionByMc(e.getMessage());
+		}
+		
+		return "redirect:indexClient";
 	}
+
 	@RequestMapping(value="/updateClient", method=RequestMethod.POST)
-	public String update(Model model, Long idClient,
+	public String update(Model model, ClientModel cm , Long idClient,
 			@RequestParam("nom")   String nomClient,
 			@RequestParam("prenom")   String prenomClient,
 			@RequestParam("dateN")   Date dateNClient,
-			@RequestParam("adresseClient") String adresseClient) throws ExceptionPerso{
+			@RequestParam("adresseClient") String adresseClient) throws ExceptionPerso {
 		
 		
 		Client c1 = metier.getClientById(idClient);
@@ -71,7 +103,9 @@ public class ClientCtrl {
 			c1.setAdresseClient(adresseClient);
 		
 		metier.updateClient(c1);
-		model.addAttribute("AttrClient",metier.getClients());
-		return "Client";
+		cm.setListClient(metier.getClients());
+		model.addAttribute("ClientModel",cm);
+		return "redirect:indexClient";
 	}
+	
 }

@@ -11,6 +11,7 @@ import com.myapp.gestiondecompte.dao.Exception.ExceptionPerso;
 import com.myapp.gestiondecompte.entities.Groupe;
 import com.myapp.gestiondecompte.metier.employe.IMetierEmploye;
 import com.myapp.gestiondecompte.metier.groupe.IMetierGroupe;
+import com.myapp.gestiondecompte.model.GroupeModel;
 
 @Controller
 public class GroupeCtrl {
@@ -21,37 +22,36 @@ public class GroupeCtrl {
 	@Autowired
 	private IMetierEmploye metier2;
 	
-	@RequestMapping(value="/")
-	public String getGroupesEmployes(Model model) throws ExceptionPerso{
-		model.addAttribute("AttrGroupe",metier.getGroupe());
-		model.addAttribute("AttrEmploye", metier2.getEmploye());
+	@RequestMapping(value="/indexGroupe")
+	public String getGroupesEmployes(Model model, GroupeModel gm) throws ExceptionPerso{
+		gm.setListGroupe(metier.getGroupe());
+		gm.setListEmploye(metier2.getEmploye());
+		model.addAttribute("GroupeModel",gm);
 		return "Groupe";
 	}
 
 	@RequestMapping(value="/getEmploye", method=RequestMethod.POST)
-	public String getCompte(Model model, Long idGroupe) throws ExceptionPerso{
-		model.addAttribute("AttrEmployeG",metier.getEmployesGroupe(idGroupe));
-		model.addAttribute("AttrGroupe",metier.getGroupe());
-		model.addAttribute("AttrEmploye", metier2.getEmploye());
+	public String getCompte(Model model, GroupeModel gm) throws ExceptionPerso{
+		gm.setListEmployeG(metier.getEmployesGroupe(gm.getIdGroupe()));
+		gm.setListGroupe(metier.getGroupe());
+		gm.setListEmploye(metier2.getEmploye());
+		model.addAttribute("GroupeModel", gm);
 		return "Groupe";
 	}
 	@RequestMapping(value="/addEmployeGroupe", method=RequestMethod.POST)
-	public String addEmployeGroupe(Model model, Long idGroupe , Long idEmploye) throws ExceptionPerso{
-		metier.addEmployeGroupe(idGroupe, idEmploye);
-		model.addAttribute("AttrEmployeG",metier.getEmployesGroupe(idGroupe));
-		model.addAttribute("AttrGroupe",metier.getGroupe());
-		model.addAttribute("AttrEmploye", metier2.getEmploye());
-		return "Groupe";
+	public String addEmployeGroupe(Model model , GroupeModel gm) throws ExceptionPerso{
+		metier.addEmployeGroupe(gm.getIdGroupe(), gm.getIdEmploye());
+		model.addAttribute("GroupeModel", gm);
+		return "redirect:indexGroupe";
 	}
 	
 	@RequestMapping(value="/addGroupe", method=RequestMethod.POST)
-	public String saveGroupe(Model model,@RequestParam("nomGroupe")   String nomG) throws ExceptionPerso{
-		Groupe g = new Groupe(nomG);
+	public String saveGroupe(Model model, GroupeModel gm) throws ExceptionPerso{
+		
+		Groupe g = new Groupe(gm.getNomGroupe());
 		metier.addGroupe(g);
-		model.addAttribute("AttrEmployeG",metier.getEmployesGroupe(g.getIdGroupe()));
-		model.addAttribute("AttrGroupe",metier.getGroupe());
-		model.addAttribute("AttrEmploye", metier2.getEmploye());
-		return "Groupe";
+		model.addAttribute("GroupeModel", gm);
+		return "redirect:indexGroupe";
 	}
 	
 }
