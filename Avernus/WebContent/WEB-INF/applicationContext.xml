@@ -37,6 +37,7 @@
 		cache-period="10000"></mvc:resources> 
 	<mvc:resources mapping="/js/**" location="/js/"
 	cache-period="10000"></mvc:resources> 
+
 	<mvc:annotation-driven />
 </beans>
 
