@@ -40,6 +40,37 @@
 	href="<%=request.getContextPath()%>/css/style.css">
 </head>
 <body>
+	<!-- BARRE DE NAVIGATION -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-main-collapse">
+				Menu <i class="fa fa-bars"></i>
+			</button>
+			<a class="navbar-brand page-scroll" href="/Avernus/vue/index.jsp">
+				<i class="fa fa-play-circle"></i> <span class="light">GESTION</span>
+				BANQUE
+			</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div
+			class="collapse navbar-collapse navbar-right navbar-main-collapse">
+			<ul class="nav navbar-nav">
+				<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+				<li class="hidden"><a href="/Avernus/vue/index.jsp"></a></li>
+				<li><a class="page-scroll" href="/Avernus/indexClient">Clients</a></li>
+				<li><a class="page-scroll" href="/Avernus/compte">Comptes</a></li>
+				<li><a class="page-scroll" href="/Avernus/operation">Opérations</a></li>
+				<li><a class="page-scroll" href="/Avernus/indexEmploye">Employés</a></li>
+				<li><a class="page-scroll" href="/Avernus/indexGroupe">Groupes</a></li>
+				<li><a class="page-scroll" href="/Avernus/indexBanque">Banques</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container --> </nav>
 
 	<!-- EN TETE -->
 	<header class="intro">
@@ -48,10 +79,7 @@
 		<h1 class="brand-heading">COMPTES</h1>
 		<p class="intro-text">Bienvenue sur la page de gestion des
 			comptes.</p>
-
 	</div>
-	</br>
-	</br>
 	</header>
 
 	<!--  SECTION LISTE COMPTE-->
@@ -98,9 +126,8 @@
 	<section id="creationCompte"
 		class="container content-section text-center">
 	<div class="row">
-		<h3>Création de compte</h3>
 		<div class="col-lg-8 col-lg-offset-2">
-
+			<h3>Création de compte</h3>
 			<form action="creationCompte" method="post"
 				onsubmit="return validationCreation();">
 				<table class="table">
@@ -144,8 +171,8 @@
 	<section id="updateCompte"
 		class="container content-section text-center">
 	<div class="row">
-		<h3>Update de compte</h3>
 		<div class="col-lg-8 col-lg-offset-2">
+			<h3>Update de compte</h3>
 			<form action="getCompteId" onsubmit="return validationUpdate();">
 				<select name="idCompte" id="upd1">
 					<option value="0">Choisir un Id</option>
@@ -196,22 +223,21 @@
 	<!-- SECTION SUPRESSION DE COMPTE -->
 	<section id="supprCompte" class="container content-section text-center">
 	<div class="row">
-		<h3>Supression de compte</h3>
-		<div class="col-lg-8 col-lg-offset-2"></div>
+		<div class="col-lg-8 col-lg-offset-2">
+			<h3>Supression de compte</h3>
+			<form action="supprimerCompte" onsubmit="return validationSuppr();">
+				<select name="idCompte" id="suppr1">
+					<option value="0">Choisir un Id</option>
+					<c:forEach items="${AttrCompte}" var="ucp">
+						<option value="${ucp.idCompte}">${ucp.idCompte}</option>
+					</c:forEach>
+				</select>
+				<button type="submit" class="btn btn-primary">Supprimer</button>
+				<span id="errsuppr1"></span>
+			</form>
+		</div>
 	</div>
 	</section>
-	<div>
-		<form action="supprimerCompte" onsubmit="return validationSuppr();">
-			<select name="idCompte" id="suppr1">
-				<option value="0">Choisir un Id</option>
-				<c:forEach items="${AttrCompte}" var="ucp">
-					<option value="${ucp.idCompte}">${ucp.idCompte}</option>
-				</c:forEach>
-			</select>
-			<button type="submit" class="btn btn-primary">Supprimer</button>
-			<span id="errsuppr1"></span>
-		</form>
-	</div>
 
 	<!-- SECTION SELECTION DES COMPTES PAR EMPLOYE -->
 	<section id="supprCompte" class="container content-section text-center">

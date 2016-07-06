@@ -60,7 +60,7 @@ public class OperationCtrl {
 
 		model.addAttribute("AttrOperationRetrait", om);
 		model.addAttribute("AttrOperation", metierOperation.getOperation());
-		return "Operation";
+		return "redirect:operation";
 	}
 
 	@RequestMapping(value = "/operationVersement", method = RequestMethod.POST)
@@ -75,7 +75,7 @@ public class OperationCtrl {
 
 		model.addAttribute("AttrOperationVersement", om);
 		model.addAttribute("AttrOperation", metierOperation.getOperation());
-		return "Operation";
+		return "redirect:operation";
 	}
 
 	@RequestMapping(value = "/operationVirement", method = RequestMethod.POST)
@@ -90,6 +90,6 @@ public class OperationCtrl {
 
 		model.addAttribute("AttrOperationVirement", om);
 		model.addAttribute("AttrOperation", metierOperation.getOperation());
-		return "Operation";
+		return "redirect:operation";
 	}
 }
