@@ -3,54 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link
-	href="<%=request.getContextPath()%>/ressources/theme1/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" />
-
-<!-- Custom Fonts -->
-<link
-	href="<%=request.getContextPath()%>/ressources/theme1/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css" />
-
-<!-- Theme CSS -->
-<link
-	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.min.css"
-	rel="stylesheet" />
-<link
-	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
-	rel="stylesheet" type="text/css" />
-<script src="<%=request.getContextPath()%>/js/client.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script type="text/javascript">
-myFunction(){
-	
-	var fieldNumber1 = document.getElementById("c1").value;	
-	var fieldNumber2 = document.getElementById("c2").value;	
-	var fieldNumber3 = document.getElementById("c3").value;	
-	var fieldNumber4 = document.getElementById("c4").value;	
-	var error01 = document.getElementById("error1");
-	
-	var valid = true;
-
-	if(fieldNumber1.length==0 || fieldNumber2.length==0 || fieldNumber3.length==0 ||fieldNumber4.length==0)
-	{
-		error01.innerHTML ="il faut remplir tous les champs";
-		error01.style.color="red"
-		valid=false;
-	}
-	return valid;
-}
-
-</script>
 </head>
-
 <body>
+
 
 <div>
 		<form action="getClientsMc">
@@ -95,29 +52,29 @@ myFunction(){
 		</form>
 	</div>
 	<div>
-		<form action="saveClient" method="post" onsubmit="return myFunction();">
+		<form action="saveClient" method="post">
 		   <table> 
 		    <tr>
 				<td>Nom Client</td>
-				<td><input type="text" name="nom" id="c1"></td>
+				<td><input type="text" name="nom"></td>
 			</tr>
 			<tr>
 				<td>PreNom Client</td>
-				<td><input type="text" name="prenom" id="c2"></td>
+				<td><input type="text" name="prenom"></td>
 			</tr>
 
 			<tr>
 				<td>Date de naissance Client</td>
-				<td><input type="date" name="dateN" id="c3" ></td>
+				<td><input type="date" name="dateN" ></td>
 			</tr>
 
 			<tr>
 				<td>Adresse Client</td>
-				<td><input type="text" name="adresseClient" id="c4"></td>
+				<td><input type="text" name="adresseClient" ></td>
 			</tr>
 			
 			<tr>
-				<td><input type="submit" value="saveClient" /> <span id="error1"></span></td>
+				<td><input type="submit" value="saveClient" /></td>
 			</tr>
 		   
 		   </table>

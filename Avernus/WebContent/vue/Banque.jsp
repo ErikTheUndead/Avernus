@@ -72,8 +72,8 @@
 			<tr>
 				<th>Identifiant de la banque</th>
 				<!-- <th>nomBanque</th> -->
-				<th>Adresse de la banque</th>
-				<th>Code postal de la banque</th>
+				<th>adresseBanque</th>
+				<th>co dePostalBanque</th>
 			</tr>
 			<c:forEach items="${BanqueModel.tabBanque}" var="x">
   				 <tr>

@@ -32,6 +32,8 @@
 <link
 	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
 	rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/style.css"
+	rel="stylesheet" type="text/css" />
 <script src="<%=request.getContextPath()%>/js/compte.js"></script>
 
 <title>Pages des comptes</title>
@@ -79,7 +81,8 @@
 	<h3>Création de compte</h3>
 
 	<div>
-		<form action="creationCompte" method="post" onclick="validationCreation()">
+		<form action="creationCompte" method="post"
+			onsubmit="validationCreation()">
 			<table class="table">
 				<tr>
 					<th>Numero de compte</th>
@@ -89,11 +92,16 @@
 					<th>idBanque</th>
 				</tr>
 				<tr>
-					<td><input type="number" name="num" min="1" id="crea1"><span id="errcrea1"></td>
-					<td><input type="text" name="solde" id="crea2"><span id="errcrea2"></td>
-					<td><input type="number" name="idClient" min="1" value="1" id="crea3"><span id="errcrea3"></td>
-					<td><input type="number" name="idEmploye" min="1" value="1" id="crea4"><span id="errcrea4"></td>
-					<td><input type="number" name="idBanque" min="1" value="1" id="crea5"><span id="errcrea5"></td>
+					<td><input type="number" name="num" min="1" id="crea1"><span
+						id="errcrea1"></span></td>
+					<td><input type="text" name="solde" id="crea2"><span
+						id="errcrea2"></span></td>
+					<td><input type="number" name="idClient" min="1" value="1"
+						id="crea3"><span id="errcrea3"></span></td>
+					<td><input type="number" name="idEmploye" min="1" value="1"
+						id="crea4"><span id="errcrea4"></span></td>
+					<td><input type="number" name="idBanque" min="1" value="1"
+						id="crea5"><span id="errcrea5"></span></td>
 					<td><input type="submit" value="Création"></td>
 					<c:forEach items="${AttrCompteCreate.listeComptes}" var="ccp">
 						<tr>
@@ -208,7 +216,5 @@
 			</c:forEach>
 		</table>
 	</div>
-
-
 </body>
 </html>

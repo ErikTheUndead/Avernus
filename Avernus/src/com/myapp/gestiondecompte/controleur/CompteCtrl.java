@@ -79,7 +79,13 @@ public class CompteCtrl {
 
 	@RequestMapping(value = "/supprimerCompte")
 	public String supprimer(CompteModel cm, Model model) throws ExceptionPerso {
-		metierCompte.deleteCompte(cm.getIdCompte());
+		
+		try {
+			metierCompte.deleteCompte(cm.getIdCompte());
+		} catch (ExceptionPerso e) {
+			cm.setExceptionDeleteCompte(e.getMessage());
+		}
+		
 		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "Compte";
@@ -89,15 +95,20 @@ public class CompteCtrl {
 	public String update(CompteModel cm, Model model) throws ExceptionPerso {
 
 		Compte cp = metierCompte.getCompteId(cm.getIdCompte());
-		if (cm.getNum() != 0)
-			cp.setNumCompte(cm.getNum());
-		if (cm.getSolde() != 0)
-			cp.setSoldeCompte(cm.getSolde());
-		if (cm.getIdEmploye() == null)
-			cm.setIdEmploye(cp.getClient().getIdClient());
-
-		metierCompte.updateCompte(cp, cm.getIdEmploye());
-		cm.setCompte(metierCompte.getCompteId(cm.getIdCompte()));
+		
+		try {
+			if (cm.getNum() != 0)
+				cp.setNumCompte(cm.getNum());
+			if (cm.getSolde() != 0)
+				cp.setSoldeCompte(cm.getSolde());
+			if (cm.getIdEmploye() == null)
+				cm.setIdEmploye(cp.getClient().getIdClient());
+			metierCompte.updateCompte(cp, cm.getIdEmploye());
+			cm.setCompte(metierCompte.getCompteId(cm.getIdCompte()));
+		} catch (ExceptionPerso e) {
+			cm.setExceptionUpdateCompte(e.getMessage());
+		}
+		
 		model.addAttribute("AttrCompteId", cm);
 		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
@@ -108,14 +119,19 @@ public class CompteCtrl {
 	public String creationCompte(CompteModel cm, Model model) throws ExceptionPerso {
 
 		Compte cp = new Compte(cm.getNum(), cm.getSolde(), new Date());
-		if (cm.getNum() != 0)
-			cp.setNumCompte(cm.getNum());
-		if (cm.getSolde() != 0)
-			cp.setSoldeCompte(cm.getSolde());
-		if (cm.getIdClient() != null)
-			cp.setClient(metierClient.getClientById(cm.getIdClient()));
-
-		cm.setCompte(metierCompte.addCompte(cp, cm.getIdClient(), cm.getIdEmploye(), cm.getIdBanque()));
+		
+		try {
+			if (cm.getNum() != 0)
+				cp.setNumCompte(cm.getNum());
+			if (cm.getSolde() != 0)
+				cp.setSoldeCompte(cm.getSolde());
+			if (cm.getIdClient() != null)
+				cp.setClient(metierClient.getClientById(cm.getIdClient()));
+			cm.setCompte(metierCompte.addCompte(cp, cm.getIdClient(), cm.getIdEmploye(), cm.getIdBanque()));
+		} catch (ExceptionPerso e) {
+			cm.setExceptionCreateCompte(e.getMessage());
+		}
+		
 		model.addAttribute("AttrCompteCreate", cm);
 		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
