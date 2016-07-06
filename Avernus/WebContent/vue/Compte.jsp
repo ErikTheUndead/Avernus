@@ -9,21 +9,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="vue de la page compte">
 <meta name="author" content="Erik DUHEM">
+
 <!-- Bootstrap Core CSS -->
-<link href="<%=request.getContextPath() %>ressources/theme1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
 
 <!-- Custom Fonts -->
-<link href="<%=request.getContextPath() %>ressources/theme1/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
 <link
 	href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+	rel="stylesheet" type="text/css" />
 <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
+	rel="stylesheet" type="text/css" />
 
 <!-- Theme CSS -->
-<link href="<%=request.getContextPath() %>ressources/theme1/css/grayscale.css" rel="stylesheet">
-<script src="../js/compte.js"></script>
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.min.css"
+	rel="stylesheet" />
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
+	rel="stylesheet" type="text/css" />
+<script src="<%=request.getContextPath()%>/js/compte.js"></script>
 
 <title>Pages des comptes</title>
 </head>
@@ -70,7 +79,7 @@
 	<h3>Création de compte</h3>
 
 	<div>
-		<form action="creationCompte" method="post" onsubmit="myFunction()">
+		<form action="creationCompte" method="post" onclick="myFunction()">
 			<table class="table">
 				<tr>
 					<th>Numero de compte</th>

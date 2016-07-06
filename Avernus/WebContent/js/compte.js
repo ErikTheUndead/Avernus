@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 function myFunction(){
 	var val1=document.getElementById("nom1").value;
 	var val2=document.getElementById("nom2").value;

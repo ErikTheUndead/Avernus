@@ -35,7 +35,7 @@
 	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.min.css"
 	rel="stylesheet" />
 <link
-	href="<%=request.getContextPath()%>/ressources/theme1/css/greyscale.css"
+	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
 	rel="stylesheet" type="text/css" />
 
 <%-- <link href="<c:url value="${pageContext.request.contextPath}/ressources/theme1/css/grayscale.min.css" />"
