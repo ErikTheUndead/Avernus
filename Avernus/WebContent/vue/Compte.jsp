@@ -60,13 +60,10 @@
 		<div class="col-lg-8 col-lg-offset-2">
 			<h3>Liste de tout les comptes</h3>
 			<form action="getCompte">
-				<table>
-					<tr>
-						<td><h3>Liste des comptes</h3></td>
-						<td><button type="submit" class="btn btn-primary">OK</button></td>
-					</tr>
-				</table>
+				<button type="submit" class="btn btn-primary">Chercher la
+					liste des comptes</button>
 			</form>
+			<br>
 			<table class="table">
 				<tr>
 					<th>Id</th>
@@ -125,7 +122,6 @@
 							id="crea4"><span id="errcrea4"></span></td>
 						<td><input type="number" name="idBanque" min="1" value="1"
 							id="crea5"><span id="errcrea5"></span></td>
-						<td><button type="submit" class="btn btn-primary">Création</button></td>
 						<c:forEach items="${AttrCompteCreate.listeComptes}" var="ccp">
 							<tr>
 								<td>${ccp.idCompte}</td>
@@ -138,6 +134,7 @@
 						</c:forEach>
 					</tr>
 				</table>
+				<button type="submit" class="btn btn-primary">Création</button>
 			</form>
 		</div>
 	</div>
@@ -188,10 +185,9 @@
 						<td><input type="text" name="num"></td>
 						<td><input type="text" name="solde"></td>
 						<td><input type="number" name="idClient"></td>
-						<td><button type="submit" class="btn btn-primary">Mis
-								a jour</button></td>
 					</tr>
 				</table>
+				<button type="submit" class="btn btn-primary">Mis a jour</button>
 			</form>
 		</div>
 	</div>
@@ -222,7 +218,8 @@
 	<div class="row">
 		<h3>Selection des comptes par employés</h3>
 		<div class="col-lg-8 col-lg-offset-2">
-			<form action="getEmployeCompte" onsubmit="return validationEmployeCompte();">
+			<form action="getEmployeCompte"
+				onsubmit="return validationEmployeCompte();">
 				<select name="idEmploye" id="ce1">
 					<option value="0">Selectionner un employé</option>
 					<c:forEach items="${AttrEmploye}" var="ecp">
@@ -254,7 +251,9 @@
 			</table>
 		</div>
 	</div>
-	</section><br><br>	
+	</section>
+	<br>
+	<br>
 
 </body>
 </html>

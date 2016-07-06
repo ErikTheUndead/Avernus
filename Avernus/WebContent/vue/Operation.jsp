@@ -44,9 +44,9 @@
 	<header class="intro">
 
 	<div class="intro-body">
-		<h1 class="brand-heading">COMPTES</h1>
+		<h1 class="brand-heading">OPERATIONS</h1>
 		<p class="intro-text">Bienvenue sur la page de gestion des
-			comptes.</p>
+			opérations.</p>
 
 	</div>
 	</br>
