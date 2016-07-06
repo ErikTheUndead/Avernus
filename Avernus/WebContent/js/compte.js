@@ -1,3 +1,9 @@
+/*
+ * AUTEUR : ERIK DUHEM
+ * DATE : 06.07.2016
+ * VERSION : 1.0
+ */
+
 function validationCreation(){
 	var val1=document.getElementById("crea1").value;
 	var val2=document.getElementById("crea2").value;
@@ -32,4 +38,16 @@ function validationCreation(){
 			valid=false;
 		}
 		return valid;
+}
+
+function validationSuppr(){
+	var val1=document.getElementById("suppr1").value;
+	var er1=document.getElementById("errsuppr1");
+	var valid=true;
+	if (val1.selectedIndex() =="0") {
+		er1.innerHTML = "Selectionner un IdCompte !";
+		er1.style.color = "red";
+		valid=false;
+	}
+	return valid;
 }

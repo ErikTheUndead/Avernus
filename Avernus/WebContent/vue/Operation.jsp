@@ -26,14 +26,14 @@
 	rel="stylesheet" type="text/css" />
 
 <!-- Theme CSS -->
-<%-- <link
+<link
 	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.min.css"
 	rel="stylesheet" />
 <link
 	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
 	rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/css/style.css"
-	rel="stylesheet" type="text/css" /> --%>
+	rel="stylesheet" type="text/css" />
 <script src="<%=request.getContextPath()%>/js/operation.js"></script>
 
 <title>Liste des opérations</title>
@@ -45,7 +45,7 @@
 				<tr>
 					<td><h3>Liste des opérations</h3></td>
 					<!-- <td><input type="text" name="motCle"></td> -->
-					<td><input type="submit" value="ok"></td>
+					<td><button type="submit" class="btn btn-primary">OK</button></td>
 				</tr>
 			</table>
 		</form>
@@ -93,7 +93,7 @@
 					<td><input type="number" name="idEmploye" min="1" value="1"></td>
 					<td><input type="text" name="montant" id="retrait2"><span
 						id="errRetrait2"></span></td>
-					<td><input type="submit" value="Retrait"></td>
+					<td><button type="submit" class="btn btn-primary">Retrait</button></td>
 				</tr>
 			</table>
 		</form>
@@ -133,7 +133,7 @@
 					<td><input type="number" name="idCompte1" min="1"></td>
 					<td><input type="number" name="idEmploye" min="1" value="1"></td>
 					<td><input type="text" name="montant"></td>
-					<td><input type="submit" value="Versement"></td>
+					<td><button type="submit" class="btn btn-primary">Versement</button></td>
 				</tr>
 			</table>
 		</form>
@@ -159,6 +159,13 @@
 	</div>
 
 	<h3>Virement</h3>
+	
+	<section>
+	
+	
+	</section>
+	
+	
 
 	<div>
 		<form action="operationVirement" method="post">
@@ -175,7 +182,7 @@
 					<td><input type="number" name="idCompte2" min="1"></td>
 					<td><input type="number" name="idEmploye" min="1" value="1"></td>
 					<td><input type="text" name="montant"></td>
-					<td><input type="submit" value="Virement"></td>
+					<td><button type="submit" class="btn btn-primary">Virement</button></td>
 				</tr>
 			</table>
 		</form>

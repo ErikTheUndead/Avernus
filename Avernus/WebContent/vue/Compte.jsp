@@ -4,10 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="vue de la page compte">
+<meta name="description" content="vue compte">
 <meta name="author" content="Erik DUHEM">
 
 <!-- Bootstrap Core CSS -->
@@ -32,55 +32,62 @@
 <link
 	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
 	rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/css/style.css"
-	rel="stylesheet" type="text/css" />
+<%-- <link href="<%=request.getContextPath()%>/css/style.css"
+	rel="stylesheet" type="text/css" /> --%>
 <script src="<%=request.getContextPath()%>/js/compte.js"></script>
 
 <title>Pages des comptes</title>
 </head>
 <body>
-	<div>
-		<form action="getCompte">
-			<table>
+
+	<!--  SECTION LISTE COMPTE-->
+	<section id="listecompte" class="container content-section text-center">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<h3>Liste de tout les comptes</h3>
+			<form action="getCompte">
+				<table>
+					<tr>
+						<td><h3>Liste des comptes</h3></td>
+						<td><button type="submit" class="btn btn-primary">OK</button></td>
+					</tr>
+				</table>
+			</form>
+			<table class="table">
 				<tr>
-					<td><h3>Liste des comptes</h3></td>
-					<!-- <td><input type="text" name="motCle"></td> -->
-					<td><input type="submit" value="ok"></td>
+					<th>Id</th>
+					<th>num</th>
+					<th>solde</th>
+					<th>type</th>
+					<th>Date de création</th>
+					<th>idClient</th>
+					<th>idEmploye</th>
+					<th>idBanque</th>
 				</tr>
+				<c:forEach items="${AttrCompte}" var="cp">
+					<tr>
+						<td>${cp.idCompte}</td>
+						<td>${cp.numCompte}</td>
+						<td>${cp.soldeCompte}</td>
+						<td>${cp.type}</td>
+						<td>${cp.dateDeCreationCompte}</td>
+						<td>${cp.client.idClient}</td>
+						<td>${cp.employe.idEmploye}</td>
+						<td>${cp.banque.idBanque}</td>
+					</tr>
+				</c:forEach>
 			</table>
-		</form>
+
+
+		</div>
 	</div>
+	</section>
 
-	<div>
-		<table class="table">
-			<tr>
-				<th>Id</th>
-				<th>num</th>
-				<th>solde</th>
-				<th>type</th>
-				<th>Date de création</th>
-				<th>idClient</th>
-				<th>idEmploye</th>
-				<th>idBanque</th>
-			</tr>
-			<c:forEach items="${AttrCompte}" var="cp">
-				<tr>
-					<td>${cp.idCompte}</td>
-					<td>${cp.numCompte}</td>
-					<td>${cp.soldeCompte}</td>
-					<td>${cp.type}</td>
-					<td>${cp.dateDeCreationCompte}</td>
-					<td>${cp.client.idClient}</td>
-					<td>${cp.employe.idEmploye}</td>
-					<td>${cp.banque.idBanque}</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
-	<h3>Création de compte</h3>
-
-	<div>
+	<!--  SECTION CREATION COMPTE-->
+	<section id="creationCompte" class="container content-section text-center">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2"></div>
+		<h3>Création de compte</h3>
 		<form action="creationCompte" method="post"
 			onsubmit="validationCreation()">
 			<table class="table">
@@ -102,7 +109,7 @@
 						id="crea4"><span id="errcrea4"></span></td>
 					<td><input type="number" name="idBanque" min="1" value="1"
 						id="crea5"><span id="errcrea5"></span></td>
-					<td><input type="submit" value="Création"></td>
+					<td><button type="submit" class="btn btn-primary">Création</button></td>
 					<c:forEach items="${AttrCompteCreate.listeComptes}" var="ccp">
 						<tr>
 							<td>${ccp.idCompte}</td>
@@ -116,18 +123,53 @@
 				</tr>
 			</table>
 		</form>
+
 	</div>
+	</section>
 
 	<h3>Update compte</h3>
 
+	<!-- SECTION UPDATE COMPTE -->
+
+	<%-- 	<div class="btn-group">
+		<button class="btn btn-primary btn-lg dropdown-toggle" type="button"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+			name="idCompte">
+			Comptes <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<option value="0">Choisir un IdCompte</option>
+			<c:forEach items="${AttrCompte}" var="ucp">
+				<li><option value="${ucp.idCompte}">${ucp.idCompte}</option></li>
+			</c:forEach>
+		</ul>
+	</div> --%>
+
+	<!-- 	<section id="listecompte" class="container content-section text-center">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<h2>About Grayscale</h2>
+		</div>
+	</div>
+	</section> -->
+
+	<section id="listecompte" class="container content-section text-center">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2"></div>
+	</div>
+	</section>
+
 	<div>
 		<form action="getCompteId">
-			<select name="idCompte">
+			<select name="idCompte" id="suppr1">
+				<option value="">Choisir un Id</option>
 				<c:forEach items="${AttrCompte}" var="ucp">
 					<option value="${ucp.idCompte}">${ucp.idCompte}</option>
 				</c:forEach>
-			</select> <input type="submit" value="ok">
+			</select>
+			<button type="submit" class="btn btn-primary">OK</button>
 		</form>
+		<span id="errsuppr1"></span>
 	</div>
 
 	<div>
@@ -164,7 +206,8 @@
 					<td><input type="text" name="num"></td>
 					<td><input type="text" name="solde"></td>
 					<td><input type="number" name="idClient"></td>
-					<td><input type="submit" value="mis a jour"></td>
+					<td><button type="submit" class="btn btn-primary">Mis
+							a jour</button></td>
 				</tr>
 			</table>
 		</form>
@@ -174,11 +217,14 @@
 
 	<div>
 		<form action="supprimerCompte">
+
 			<select name="idCompte">
+				<option value="">Choisir un Id</option>
 				<c:forEach items="${AttrCompte}" var="ucp">
 					<option value="${ucp.idCompte}">${ucp.idCompte}</option>
 				</c:forEach>
-			</select> <input type="submit" value="supprimer">
+			</select>
+			<button type="submit" class="btn btn-primary">Supprimer</button>
 		</form>
 	</div>
 
@@ -190,7 +236,8 @@
 				<c:forEach items="${AttrEmploye}" var="ecp">
 					<option value="${ecp.idEmploye}">${ecp.nomEmploye}</option>
 				</c:forEach>
-			</select> <input type="submit" value="ok">
+			</select>
+			<button type="submit" class="btn btn-primary">Chercher</button>
 		</form>
 	</div>
 
