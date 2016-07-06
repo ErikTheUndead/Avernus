@@ -1,5 +1,71 @@
-body {
-	background-color: red;
+table {
+	text-align: center;
+	border: 1px solid;
+	padding: 10px;
+	margin: 50px;
+	position: relative;
+	left: 390px; 
+}
+table th{
+	border: 1px solid;
+	padding: 10px;
+	margin: 50px;
+}
 
-	}
+table td{
+	border: 1px solid;
+	padding: 10px;
+	margin: 50px;
+}
+
+form{
+	text-align: center;
+}
+
+h4{
+	text-align: center;
+}
+
+h3{
+	text-align: center;
+}
+
+.perso h1{
+	text-align: center;
+	position: relative;
+	bottom: -30px;
+	font-style: italic;
+	font-family: cursive; 
+	color: black;
+}
+
+.perso{
+	background:  rgba(300,300,300,0.8);
+	border-bottom: 1px solid;
+}
+
+.monBouton{
+	background:  rgba(300,300,300,0.8);
+	color: black;
+}
+
+.Exception{
+	font-size: 16px;
+	text-align: center;
+	color: red;
+}
+
+.table1{
+	position: relative;
+	left: 350px;
 	
+}
+.table2 {
+	position: relative;
+	left: 320px; 
+}
+
+.table4{
+	position: relative;
+	left: 420px; 
+}

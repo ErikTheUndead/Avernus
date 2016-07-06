@@ -5,52 +5,75 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<!--  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-   <!-- Theme CSS -->
-    <!-- <link href="../css/grayscale.min.css" rel="stylesheet"> -->
-<title>Banque</title>
-</head>
-<body>
 
+<title>Banque</title>
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css"> 
+
+<!-- Bootstrap Core CSS -->
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom Fonts -->
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css" />
+
+<!-- Theme CSS -->
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.min.css"
+	rel="stylesheet" />
+<link
+	href="<%=request.getContextPath()%>/ressources/theme1/css/grayscale.css"
+	rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
 
 <%-- 
 <c:forEach items="${BanqueModel.banques}" var="x">
-   
-   <c:out value="${x.idBanque}"></c:out>
-
+  <c:out value="${x.idBanque}"></c:out>
 </c:forEach> --%>
-
-
 <!-- <form action="getBanque">
-
 <input type="text" name="idBanque">
 <button>Aficher</button>
 </form> -->
-
 <%-- ${BanqueModel.idBanque} --%>
+<%-- ${BanqueModel.exceptionGetBanueById} --%>
 
-${BanqueModel.exceptionGetBanueById}
-	</div>  </br></br>
+<div class="perso">
+
+<h1>Bienvenue sur la page Banque</h1></br></br>
+
+</div></br></br>
+
  <div>
 		<form action="getBanque">
-		<p>Selectionner une banque </p>
+		<h3>Selectionner une banque </h3>
 			<select name="idBanque">
 				<option value="1">BNP</option>
 				<option value="2">CIC</option>
 				<option value="3">LCL</option>
 			</select>
-		<input type="submit" value="Consulter les infos de la banque">
+		<input class="monBouton" type="submit" value="Consulter les infos de la banque">
 		</form>
-	</div> 
+	</div></br></br>
 	
-	<h3>Les attributs de la banque selectionnée sont les suivants</h3>
+	<h4>Les attributs de la banque selectionnée sont donnés dans le tableau suivant :</h4>
 	<div>
-		<table class="table">
+		<table class="table1">
 			<tr>
-				<th>idBanque</th>
+				<th>Identifiant de la banque</th>
 				<!-- <th>nomBanque</th> -->
-				<th>adresseBanque</th>
-				<th>codePostalBanque</th>
+				<th>Adresse de la banque</th>
+				<th>Code postal de la banque</th>
 			</tr>
 			<c:forEach items="${BanqueModel.tabBanque}" var="x">
   				 <tr>
@@ -60,15 +83,15 @@ ${BanqueModel.exceptionGetBanueById}
 				</tr>
 			</c:forEach>
 		</table>
-		
-		<h3>Les comptes appartenants à la banque selectionnée sont les suivants</h3>
+		</div> 
+		<h4>Les comptes appartenants à la banque selectionnée sont donnés dans le tableau suivant :</h4>
 <div>
-		<table class="table1">
+		<table class="table2">
 			<tr>
-				<th>idCompte</th>
-				 <th>nomCompte</th> 
-				<th>SoldeCompte</th>
-				<th>dateDecreationCompte</th>
+				<th>Identifiant du compte</th>
+				 <th>Nom du compte</th> 
+				<th>Solde du compte</th>
+				<th>Date de création du compte</th>
 			</tr>
 			<c:forEach items="${BanqueModel.tabCompte}" var="cl">
 				<tr>
@@ -79,16 +102,16 @@ ${BanqueModel.exceptionGetBanueById}
 				</tr>
 			</c:forEach>
 		</table>
-		${BanqueModel.exceptionGetCompteBanque}
+		<p class="Exception">${BanqueModel.exceptionGetCompteBanque}</p>
 	</div> </br></br>
 	
-	<h3>Les employés appartenant à la banque selectionnée sont les suivants</h3>
+	<h4>Les employés appartenant à la banque selectionnée sont donnés dans le tableau suivant :</h4>
 	 <div>
-		<table class="table">
+		<table class="table3">
 			<tr>
-				<th>idEmploye</th>
-				<th>nomEmploye</th>
-				<th>codeEmploye</th>
+				<th>Identifiant de l'employé</th>
+				<th>Nom de l'employé</th>
+				<th>Code de l'employé</th>
 			</tr>
 			<c:forEach items="${BanqueModel.tabEmploye}" var="cl">
 				<tr>
@@ -98,18 +121,18 @@ ${BanqueModel.exceptionGetBanueById}
 				</tr>
 			</c:forEach>
 		</table>
-		${BanqueModel.exceptionGetEmployebanque}
+		<p class="Exception">${BanqueModel.exceptionGetEmployebanque}</p>
 	</div> </br></br> 
 	
 
 	
-	<h3>Les clients appartenant à la banque selectionnée sont les suivants</h3>
+	<h4>Les clients appartenant à la banque selectionnée sont donnés dans le tableau suivant :</h4>
 	<div>
-		<table class="table3">
+		<table class="table4">
 			<tr>
-				<th>idClient</th>
-				 <th>nomClient</th> 
-				<th>prenomClient</th>
+				<th>Identifiant du client</th>
+				 <th>Nom du client</th> 
+				<th>Prénom du client</th>
 			</tr>
 			<c:forEach items="${BanqueModel.tabClient}" var="cl">
 				<tr>
@@ -119,7 +142,7 @@ ${BanqueModel.exceptionGetBanueById}
 				</tr>
 			</c:forEach>
 		</table>
-		${BanqueModel.exceptionGetClientBanque}
+		<p class="Exception">${BanqueModel.exceptionGetClientBanque}</p>
 	</div> 
 	   
 </body>
