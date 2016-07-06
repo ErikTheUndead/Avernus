@@ -182,8 +182,8 @@
 						<td><input type="number" name="idCompte1" min="1" id="ver1"></br>
 							<span id="errver1"></span></td>
 						<td><input type="number" name="idEmploye" min="1" value="1"></td>
-						<td><input type="text" name="montant" id="ver2"></br>
-							<span id="errver2"></span></td>
+						<td><input type="text" name="montant" id="ver2"></br> <span
+							id="errver2"></span></td>
 
 					</tr>
 				</table>
@@ -262,6 +262,12 @@
 	</section>
 	</br>
 	</br>
+
+	<!-- FIN DE PAGE -->
+	<section class="download-section">
+	<h5>Nous vous remercions de votre visite</h5>
+	</section>
+	
 
 </body>
 </html>

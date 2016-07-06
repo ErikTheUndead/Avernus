@@ -137,5 +137,6 @@ public class CompteModel {
 	public void setListeComptes(List<Compte> listeComptes) {
 		this.listeComptes = listeComptes;
 	}
+	
 
 }

@@ -163,6 +163,7 @@
 				</table>
 				<button type="submit" class="btn btn-primary">Création</button>
 			</form>
+			<p class="Exception">${CompteModel.exceptionCreateCompte}</p>
 		</div>
 	</div>
 	</section>
@@ -216,6 +217,7 @@
 				</table>
 				<button type="submit" class="btn btn-primary">Mis a jour</button>
 			</form>
+			<p class="Exception">${CompteModel.exceptionUpdateCompte}</p>
 		</div>
 	</div>
 	</section>
@@ -235,6 +237,7 @@
 				<button type="submit" class="btn btn-primary">Supprimer</button>
 				<span id="errsuppr1"></span>
 			</form>
+			<p class="Exception">${CompteModel.exceptionSupressionCompte}</p>
 		</div>
 	</div>
 	</section>
@@ -275,11 +278,18 @@
 					</tr>
 				</c:forEach>
 			</table>
+			<p class="Exception">${CompteModel.exceptionCompteEmploye}</p>
 		</div>
 	</div>
 	</section>
 	<br>
 	<br>
+	
+	<!-- FIN DE PAGE -->
+	<section class="download-section">
+	<h5>Nous vous remercions de votre visite</h5>
+	</section>
+	
 
 </body>
 </html>
