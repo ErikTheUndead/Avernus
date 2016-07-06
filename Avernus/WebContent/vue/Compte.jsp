@@ -5,6 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="vue de la page compte">
+<meta name="author" content="Erik DUHEM">
+<!-- Bootstrap Core CSS -->
+<link href="<%=request.getContextPath() %>ressources/theme1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="<%=request.getContextPath() %>ressources/theme1/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+
+<!-- Theme CSS -->
+<link href="<%=request.getContextPath() %>ressources/theme1/css/grayscale.css" rel="stylesheet">
+<script src="../js/compte.js"></script>
+
 <title>Pages des comptes</title>
 </head>
 <body>
@@ -50,7 +70,7 @@
 	<h3>Création de compte</h3>
 
 	<div>
-		<form action="creationCompte" method="post">
+		<form action="creationCompte" method="post" onsubmit="myFunction()">
 			<table class="table">
 				<tr>
 					<th>Numero de compte</th>
@@ -60,8 +80,8 @@
 					<th>idBanque</th>
 				</tr>
 				<tr>
-					<td><input type="number" name="num" min="1"></td>
-					<td><input type="text" name="solde"></td>
+					<td><input type="number" name="num" min="1" id="nom1"><span id="error1"></td>
+					<td><input type="text" name="solde" id="nom2"><span id="error2"></td>
 					<td><input type="number" name="idClient" min="1" value="1"></td>
 					<td><input type="number" name="idEmploye" min="1" value="1"></td>
 					<td><input type="number" name="idBanque" min="1" value="1"></td>
