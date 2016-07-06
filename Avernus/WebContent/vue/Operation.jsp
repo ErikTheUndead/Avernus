@@ -39,6 +39,22 @@
 <title>Liste des opérations</title>
 </head>
 <body>
+
+	<!-- EN TETE -->
+	<header class="intro">
+
+	<div class="intro-body">
+		<h1 class="brand-heading">COMPTES</h1>
+		<p class="intro-text">Bienvenue sur la page de gestion des
+			comptes.</p>
+
+	</div>
+	</br>
+	</br>
+	</header>
+	
+	<!-- SECTION  -->
+	
 	<div>
 		<form action="getOperation">
 			<table>
@@ -88,8 +104,8 @@
 					<th>montant</th>
 				</tr>
 				<tr>
-					<td><input type="number" name="idCompte1" min="1" id="retrait1"><span
-						id="errRetrait2"></span></td>
+					<td><input type="number" name="idCompte1" min="1"
+						id="retrait1"><span id="errRetrait2"></span></td>
 					<td><input type="number" name="idEmploye" min="1" value="1"></td>
 					<td><input type="text" name="montant" id="retrait2"><span
 						id="errRetrait2"></span></td>
@@ -159,13 +175,10 @@
 	</div>
 
 	<h3>Virement</h3>
-	
-	<section>
-	
-	
-	</section>
-	
-	
+
+	<section> </section>
+
+
 
 	<div>
 		<form action="operationVirement" method="post">
