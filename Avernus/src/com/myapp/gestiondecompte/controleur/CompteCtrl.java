@@ -156,7 +156,14 @@ public class CompteCtrl {
 
 	@RequestMapping(value = "/getEmployeCompte")
 	public String getCompteEmploye(CompteModel cm, Model model) throws ExceptionPerso {
-		cm.setListeComptes(metierCompte.getCompteEmploye(cm.getIdEmploye()));
+		
+		try {
+			cm.setListeComptes(metierCompte.getCompteEmploye(cm.getIdEmploye()));
+		} catch (Exception e) {
+			cm.setExceptionCompteEmploye(e.getMessage());
+		}
+		
+		model.addAttribute("CompteModel", cm);
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 //		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrCompteEmploye", cm);
