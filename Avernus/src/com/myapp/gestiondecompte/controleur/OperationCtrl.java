@@ -54,13 +54,16 @@ public class OperationCtrl {
 
 		try {
 			om.setOperation(metierOperation.retrait(om.getIdCompte1(), om.getIdEmploye(), om.getMontant(), new Date()));
+			om.setMessageOperation("Retrait ok!");
 		} catch (ExceptionPerso e) {
 			om.setExceptionRetrait(e.getMessage());
 		}
 
+		model.addAttribute("OperationModel", om);
+		model.addAttribute("OperationModelRetrait", om);
 		model.addAttribute("AttrOperationRetrait", om);
 		model.addAttribute("AttrOperation", metierOperation.getOperation());
-		return "redirect:operation";
+		return "Operation";
 	}
 
 	@RequestMapping(value = "/operationVersement", method = RequestMethod.POST)
@@ -69,13 +72,16 @@ public class OperationCtrl {
 		try {
 			om.setOperation(
 					metierOperation.versement(om.getIdCompte1(), om.getIdEmploye(), om.getMontant(), new Date()));
+			om.setMessageOperation("Versement ok!");
 		} catch (ExceptionPerso e) {
 			om.setExceptionVersement(e.getMessage());
 		}
 
+		model.addAttribute("OperationModel", om);
+		model.addAttribute("OperationModelVersement", om);
 		model.addAttribute("AttrOperationVersement", om);
 		model.addAttribute("AttrOperation", metierOperation.getOperation());
-		return "redirect:operation";
+		return "Operation";
 	}
 
 	@RequestMapping(value = "/operationVirement", method = RequestMethod.POST)
@@ -84,12 +90,15 @@ public class OperationCtrl {
 		try {
 			om.setListeOperations(metierOperation.virement(om.getIdCompte1(), om.getIdCompte2(), om.getIdEmploye(),
 					om.getMontant(), new Date()));
+			om.setMessageOperation("Virement ok!");
 		} catch (Exception e) {
 			om.setExceptionVirement(e.getMessage());
 		}
-
+		
+		model.addAttribute("OperationModel", om);
+		model.addAttribute("OperationModelVirement", om);
 		model.addAttribute("AttrOperationVirement", om);
 		model.addAttribute("AttrOperation", metierOperation.getOperation());
-		return "redirect:operation";
+		return "Operation";
 	}
 }

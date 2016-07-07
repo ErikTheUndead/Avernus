@@ -19,6 +19,7 @@ public class OperationModel {
 	private String exceptionRetrait;
 	private String exceptionVersement;
 	private String exceptionVirement;
+	private String messageOperation;
 	private List<Operation> listeOperations;
 	private Operation operation;
 	private Long idCompte1;
@@ -100,6 +101,14 @@ public class OperationModel {
 
 	public void setOperation(Operation operation) {
 		this.operation = operation;
+	}
+
+	public String getMessageOperation() {
+		return messageOperation;
+	}
+
+	public void setMessageOperation(String messageOperation) {
+		this.messageOperation = messageOperation;
 	}
 
 }

@@ -61,7 +61,7 @@ public class MetierOperationImpl implements IMetierOperation{
 		e = ss.get(Employe.class, idEmploye);
 		if (c == null || e == null){
 			ss.close();
-			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
+			throw new ExceptionPerso("retrait : Les identifiants compte ou employé saisis ne sont pas correctes");
 		}
 		op = new Retrait(dateOperation, -montant, e, c);
 		solde = c.getSoldeCompte();
@@ -85,7 +85,7 @@ public class MetierOperationImpl implements IMetierOperation{
 		e = ss.get(Employe.class, idEmploye);
 		if (c == null || e == null){
 			ss.close();
-			throw new ExceptionPerso("retrait : Les identifiants rentré ne sonnt pas correctes");
+			throw new ExceptionPerso("retrait : Les identifiants compte ou employé saisis ne sont pas correctes");
 		}
 		op = new Versement(dateOperation, montant, e, c);
 		solde = c.getSoldeCompte();
@@ -113,7 +113,7 @@ public class MetierOperationImpl implements IMetierOperation{
 		e = ss.get(Employe.class, idEmploye);
 		if (c1 == null || c2 == null || e == null){
 			ss.close();
-			throw new ExceptionPerso("virement : Les identifiants rentré ne sont pas correctes");
+			throw new ExceptionPerso("virement : Les identifiants compte ou employé saisis ne sont pas correctes");
 		}
 		op1 = new Virement(dateOperation, -montant, e, c1);
 		op2 = new Virement(dateOperation, montant, e, c2);

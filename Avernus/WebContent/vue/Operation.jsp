@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="vue de la page compte">
+<meta name="description" content="vue de la page opération">
 <meta name="author" content="Erik DUHEM">
 
 <!-- Bootstrap Core CSS -->
@@ -92,6 +92,7 @@
 				<button type="submit" class="btn btn-primary">CHERCHER LA
 					LISTE DES OPERATIONS</button>
 			</form>
+			<p style="color:green;">${OperationModel.messageOperation}</p>
 			</br>
 			<table class="table">
 				<tr>
@@ -143,6 +144,7 @@
 				</table>
 				<button type="submit" class="btn btn-primary">Retrait</button>
 			</form>
+			<p class="Exception">${OperationModelRetrait.exceptionRetrait}</p>
 			</br>
 			<table class="table">
 				<tr>
@@ -184,11 +186,11 @@
 						<td><input type="number" name="idEmploye" min="1" value="1"></td>
 						<td><input type="text" name="montant" id="ver2"></br> <span
 							id="errver2"></span></td>
-
 					</tr>
 				</table>
 				<td><button type="submit" class="btn btn-primary">Versement</button></td>
 			</form>
+			<p class="Exception">${OperationModelVersement.exceptionVersement}</p>
 			</br>
 			<table class="table">
 				<tr>
@@ -237,6 +239,7 @@
 				</table>
 				<button type="submit" class="btn btn-primary">Virement</button>
 			</form>
+			<p class="Exception">${OperationModelRetrait.exceptionVirement}</p>
 			</br>
 			<table class="table">
 				<tr>
