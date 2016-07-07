@@ -228,7 +228,7 @@
 				<button type="submit" class="btn btn-primary">Supprimer</button>
 				<span id="errsuppr1"></span>
 			</form>
-			<p class="Exception">${CompteModel.exceptionSupressionCompte}</p>
+			<p class="Exception">${CompteModel.exceptionDeleteCompte}</p>
 		</div>
 	</div>
 	</section>
