@@ -214,10 +214,10 @@
 						<th>idClient</th>
 					</tr>
 					<tr>
-						<td><input type="number" name="idCompte"></td>
-						<td><input type="text" name="num"></td>
-						<td><input type="text" name="solde"></td>
-						<td><input type="number" name="idClient"></td>
+						<td><input type="number" name="idCompte" value="${AttrCompteId.compte.idCompte}"></td>
+						<td><input type="text" name="num" value="${AttrCompteId.compte.numCompte}"></td>
+						<td><input type="text" name="solde" value="${AttrCompteId.compte.soldeCompte}"></td>
+						<td><input type="number" name="idClient" value="${AttrCompteId.compte.client.idClient}"></td>
 					</tr>
 				</table>
 				<button type="submit" class="btn btn-primary">Mis a jour</button>
