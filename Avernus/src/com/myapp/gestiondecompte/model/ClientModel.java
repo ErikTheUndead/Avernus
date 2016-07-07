@@ -1,6 +1,7 @@
 package com.myapp.gestiondecompte.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.myapp.gestiondecompte.entities.Client;
@@ -9,6 +10,11 @@ public class ClientModel {
 
 	
 	private Long idClient;
+	private String nomClient;
+	private String prenomClient;
+	private Date dateDeNaissance;
+	private String adresseClient;
+	
 	public Long getIdClient() {
 		return idClient;
 	}
@@ -26,6 +32,7 @@ public class ClientModel {
 	}
 	private List<Client> listClient= new ArrayList<>();
 	private List<Client> listClientByMc= new ArrayList<>();
+	private List<Client> listClientById=new ArrayList<>();
 	private String ExceptionByMc;
 	public String getExceptionByMc() {
 		return ExceptionByMc;
@@ -68,6 +75,46 @@ public class ClientModel {
 
 	public void setExceptionPersoById(String exceptionPersoById) {
 		ExceptionPersoById = exceptionPersoById;
+	}
+
+	public List<Client> getListClientById() {
+		return listClientById;
+	}
+
+	public void setListClientById(List<Client> listClientById) {
+		this.listClientById = listClientById;
+	}
+
+	public String getNomClient() {
+		return nomClient;
+	}
+
+	public void setNomClient(String nomClient) {
+		this.nomClient = nomClient;
+	}
+
+	public String getPrenomClient() {
+		return prenomClient;
+	}
+
+	public void setPrenomClient(String prenomClient) {
+		this.prenomClient = prenomClient;
+	}
+
+	public Date getDateDeNaissance() {
+		return dateDeNaissance;
+	}
+
+	public void setDateDeNaissance(Date dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
+	}
+
+	public String getAdresseClient() {
+		return adresseClient;
+	}
+
+	public void setAdresseClient(String adresseClient) {
+		this.adresseClient = adresseClient;
 	}
 	
 }

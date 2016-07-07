@@ -3,6 +3,7 @@ package com.myapp.gestiondecompte.controleur;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.type.descriptor.sql.DateTypeDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +27,13 @@ public class ClientCtrl {
 	@Autowired
     private IMetierClient metier;
 	
+	@RequestMapping(value="/")
+	public String index(Model model){
+		return "index";
+	}
 	@RequestMapping(value = "/indexClient")
-	public String index(Model model, ClientModel cm){
+	public String index(Model model, ClientModel cm) throws ExceptionPerso{
+		cm.setListClientByMc(metier.getClientsByMc(""));
 		cm.setListClient(metier.getClients());
 		model.addAttribute("ClientModel",cm);
 		return "Client";
@@ -83,26 +89,28 @@ public class ClientCtrl {
 		
 		return "redirect:indexClient";
 	}
+	
+	@RequestMapping(value="/selectionner",method=RequestMethod.POST)
+	public String selectionner(Model model, ClientModel cm , Long idClient) throws ExceptionPerso{
+		cm.setClient(metier.getClientById(cm.getIdClient()));
+		model.addAttribute("ClientModel",cm);
+		return "Client";
+	}
 
 	@RequestMapping(value="/updateClient", method=RequestMethod.POST)
-	public String update(Model model, ClientModel cm , Long idClient,
+	public String update(Model model, ClientModel cm, 
 			@RequestParam("nom")   String nomClient,
 			@RequestParam("prenom")   String prenomClient,
-			@RequestParam("dateN")   Date dateNClient,
-			@RequestParam("adresseClient") String adresseClient) throws ExceptionPerso {
-		
-		
-		Client c1 = metier.getClientById(idClient);
-		if(nomClient!="")
+			@RequestParam("dateN")   Date DateNClient,
+			@RequestParam("adresseClient") String addresseClient) throws ExceptionPerso {
+		Client c1=metier.getClientById(cm.getIdClient());
+		cm.setClient(c1);
 			c1.setNomClient(nomClient);
-		if(prenomClient!="")
 			c1.setPrenomClient(prenomClient);
-		if(dateNClient != null)
-			c1.setDateDeNaissance(dateNClient);
-		if(adresseClient!="")
-			c1.setAdresseClient(adresseClient);
-		
+			c1.setDateDeNaissance(DateNClient);
+			c1.setAdresseClient(addresseClient);
 		metier.updateClient(c1);
+		cm.setClient(c1);
 		cm.setListClient(metier.getClients());
 		model.addAttribute("ClientModel",cm);
 		return "redirect:indexClient";

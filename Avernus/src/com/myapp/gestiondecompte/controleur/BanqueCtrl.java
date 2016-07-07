@@ -41,7 +41,7 @@ public class BanqueCtrl {
 	
 	public String getBanque(BanqueModel bm,Model model, Long idBanque){
 		try {
-			metier.getBanque(bm.getIdBanque());
+			/*metier.getBanque(bm.getIdBanque());*/
 			List<Banque> list=new ArrayList<Banque> ();
 			list.add(metier.getBanque(bm.getIdBanque()));
 			bm.setTabBanque(list);

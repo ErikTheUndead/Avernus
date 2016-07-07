@@ -8,7 +8,7 @@
 
 <title>Banque</title>
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css"> 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css">  
 
 <!-- Bootstrap Core CSS -->
 <link
@@ -36,7 +36,19 @@
 </head>
 
 <body>
+<script type="text/javascript">
 
+function mafonction(){
+	var val1=document.getElementById("variable").value;
+	var er1=document.getElementById("error1");
+	var valid=true;
+		if(val1==0){
+			er1.innerHTML="  Vous n'avez pas selectionné de banque !";
+			valid=false;
+		}
+	return valid;
+}
+</script>
 <%-- 
 <c:forEach items="${BanqueModel.banques}" var="x">
   <c:out value="${x.idBanque}"></c:out>
@@ -47,33 +59,72 @@
 </form> -->
 <%-- ${BanqueModel.idBanque} --%>
 <%-- ${BanqueModel.exceptionGetBanueById} --%>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="/Avernus/vue/index.jsp"> <i
+					class="fa fa-play-circle"></i> <span class="light">GESTION</span>
+					BANQUE
+				</a>
+			</div>
 
-<div class="perso">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<li class="hidden"><a href="/Avernus/vue/index.jsp"></a></li>
+					<li><a class="page-scroll" href="/Avernus/indexClient">Clients</a></li>
+					<li><a class="page-scroll" href="/Avernus/compte">Comptes</a></li>
+					<li><a class="page-scroll" href="/Avernus/operation">Opérations</a></li>
+					<li><a class="page-scroll" href="/Avernus/indexEmploye">Employés</a></li>
+					<li><a class="page-scroll" href="/Avernus/indexGroupe">Groupes</a></li>
+					<li><a class="page-scroll" href="/Avernus/indexBanque">Banques</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+<header class="intro">
 
-<h1>Bienvenue sur la page Banque</h1></br></br>
+		<div class="intro-body">
+		<h1 class="brand-heading">Banque</h1>
+						<p class="intro-text">
+							Bienvenue sur la page de gestion des banques.
+						</p>
 
 </div></br></br>
 
+</header>
+
  <div>
-		<form action="getBanque">
+		<form action="getBanque"  onsubmit="return mafonction();">
 		<h3>Selectionner une banque </h3>
-			<select name="idBanque">
+			<select name="idBanque" id="variable">
+				<option value="0">Selectionner</option>
 				<option value="1">BNP</option>
 				<option value="2">CIC</option>
 				<option value="3">LCL</option>
-			</select>
-		<input class="monBouton" type="submit" value="Consulter les infos de la banque">
+			</select>  &nbsp; &nbsp; &nbsp;
+		<button class="btn btn-primary" >Consulter les infos de la banque</button><p> </p>
+		<span class="Exception" id="error1"></span>
 		</form>
-	</div></br></br>
-	
+</div><br/><br/>
+
+<c:if test="${not empty BanqueModel.tabBanque}">
 	<h4>Les attributs de la banque selectionnée sont donnés dans le tableau suivant :</h4>
 	<div>
 		<table class="table1">
 			<tr>
 				<th>Identifiant de la banque</th>
 				<!-- <th>nomBanque</th> -->
-				<th>adresseBanque</th>
-				<th>co dePostalBanque</th>
+				<th>Adresse de la banque</th>
+				<th>Code postal de la banque</th>
 			</tr>
 			<c:forEach items="${BanqueModel.tabBanque}" var="x">
   				 <tr>
@@ -83,9 +134,13 @@
 				</tr>
 			</c:forEach>
 		</table>
-		</div> 
+		</div > 
+		</c:if>
+		
+		<div >
+		<c:if test="${not empty BanqueModel.tabCompte}">
 		<h4>Les comptes appartenants à la banque selectionnée sont donnés dans le tableau suivant :</h4>
-<div>
+
 		<table class="table2">
 			<tr>
 				<th>Identifiant du compte</th>
@@ -102,11 +157,15 @@
 				</tr>
 			</c:forEach>
 		</table>
+		</c:if>
 		<p class="Exception">${BanqueModel.exceptionGetCompteBanque}</p>
-	</div> </br></br>
+		
+	</div> <br/><br/>
 	
-	<h4>Les employés appartenant à la banque selectionnée sont donnés dans le tableau suivant :</h4>
 	 <div>
+	 <c:if test="${not empty BanqueModel.tabEmploye}">
+	<h4>Les employés appartenant à la banque selectionnée sont donnés dans le tableau suivant :</h4>
+	
 		<table class="table3">
 			<tr>
 				<th>Identifiant de l'employé</th>
@@ -121,13 +180,14 @@
 				</tr>
 			</c:forEach>
 		</table>
+		</c:if>
 		<p class="Exception">${BanqueModel.exceptionGetEmployebanque}</p>
-	</div> </br></br> 
+	</div> <br/><br/>
 	
-
-	
+<div>
+	 <c:if test="${not empty BanqueModel.tabClient}">
 	<h4>Les clients appartenant à la banque selectionnée sont donnés dans le tableau suivant :</h4>
-	<div>
+	
 		<table class="table4">
 			<tr>
 				<th>Identifiant du client</th>
@@ -142,8 +202,14 @@
 				</tr>
 			</c:forEach>
 		</table>
+		</c:if>
 		<p class="Exception">${BanqueModel.exceptionGetClientBanque}</p>
 	</div> 
+	
+	<div class="download-section">
+		<h5> Nous vous remercions de votre visite</h5>
+	
+	</div>
 	   
 </body>
 </html>

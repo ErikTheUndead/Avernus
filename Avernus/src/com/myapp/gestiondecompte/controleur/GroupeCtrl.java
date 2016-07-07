@@ -32,9 +32,13 @@ public class GroupeCtrl {
 
 	@RequestMapping(value="/getEmploye", method=RequestMethod.POST)
 	public String getCompte(Model model, GroupeModel gm) throws ExceptionPerso{
-		gm.setListEmployeG(metier.getEmployesGroupe(gm.getIdGroupe()));
-		gm.setListGroupe(metier.getGroupe());
-		gm.setListEmploye(metier2.getEmploye());
+		try {
+			gm.setListEmployeG(metier.getEmployesGroupe(gm.getIdGroupe()));
+			gm.setListGroupe(metier.getGroupe());
+			gm.setListEmploye(metier2.getEmploye());
+		} catch (Exception e) {
+			gm.setExceptionGetGroupe(e.getMessage());
+		}
 		model.addAttribute("GroupeModel", gm);
 		return "Groupe";
 	}

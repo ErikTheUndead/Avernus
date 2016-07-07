@@ -86,7 +86,6 @@ public class DaoGroupeImpl implements IDaoGroupe {
 	@Override
 	public List<Employe> getEmployesGroupe(Long idG) throws ExceptionPerso {
 	
-		
 		Session session = sf.openSession();
 		session.beginTransaction();
 		
@@ -105,7 +104,10 @@ public class DaoGroupeImpl implements IDaoGroupe {
 		
 		List<Employe> tab= g.getTabEmploye();
 		session.getTransaction().commit();
-		
+		if (tab.size()==0){
+			
+			throw new ExceptionPerso("Ce groupe ne possède aucun membre");
+		}
 		
 		/*Query query =session.createQuery("from Employe e inner join e.tabGroupe f where f.idGroupe=:x");
 		query.setParameter("x", idG);*/

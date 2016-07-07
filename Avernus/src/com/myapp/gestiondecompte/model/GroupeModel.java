@@ -8,16 +8,24 @@ import com.myapp.gestiondecompte.entities.Groupe;
 
 public class GroupeModel {
 
+	//Attributs exception
+	
+		private String exceptionGetGroupe;
+		
+	
 	private String nomGroupe;
+	
 	public String getNomGroupe() {
 		return nomGroupe;
 	}
 	public void setNomGroupe(String nomGroupe) {
 		this.nomGroupe = nomGroupe;
 	}
+	
 	private List<Groupe> listGroupe = new ArrayList<>();
 	private List<Employe> listEmploye = new ArrayList<>();
 	private List<Employe> listEmployeG = new ArrayList<>();
+	
 	public List<Employe> getListEmployeG() {
 		return listEmployeG;
 	}
@@ -50,6 +58,12 @@ public class GroupeModel {
 	}
 	public void setListEmploye(List<Employe> listEmploye) {
 		this.listEmploye = listEmploye;
+	}
+	public String getExceptionGetGroupe() {
+		return exceptionGetGroupe;
+	}
+	public void setExceptionGetGroupe(String exceptionGetGroupe) {
+		this.exceptionGetGroupe = exceptionGetGroupe;
 	}
 
 	

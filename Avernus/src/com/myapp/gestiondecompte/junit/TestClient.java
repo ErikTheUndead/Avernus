@@ -29,24 +29,24 @@ public class TestClient {
 	public static void tearDownAfterClass() throws Exception {
 		context.close();
 	}
-//	@Test
-//	public void testAddClient() {
-//		System.out.println("ezfafeaeafzafzaefaazfafa");
-//		Client c = new Client("Thomas", "Bernard", new Date(),"5 avenue de la liberté" );
-//		metier.addClient(c);
-//		Client c2 = new Client("Erik", "Duhem", new Date(), "25 division leclerc");
-//		metier.addClient(c2);
-//		Client c3 = new Client("Julie", "Brouque", new Date(),"25 rue victorien Sardoue");
-//		metier.addClient(c3);
-//		Client c4 = new Client("Marie", "Delatour", new Date(),"25 rue victorien Sardoue");
-//		metier.addClient(c4);
-//		Client c5 = new Client("Joel", "Eden", new Date(),"25 rue victorien Sardoue");
-//		metier.addClient(c5);
-//		assertNotNull(c.getIdClient());
-//		
-//		
-//		
-//	}
+	@Test
+	public void testAddClient() {
+		System.out.println("ezfafeaeafzafzaefaazfafa");
+		Client c = new Client("Thomas", "Bernard", new Date(),"5 avenue de la liberté" );
+		metier.addClient(c);
+		Client c2 = new Client("Erik", "Duhem", new Date(), "25 division leclerc");
+		metier.addClient(c2);
+		Client c3 = new Client("Julie", "Brouque", new Date(),"25 rue victorien Sardoue");
+		metier.addClient(c3);
+		Client c4 = new Client("Marie", "Delatour", new Date(),"25 rue victorien Sardoue");
+		metier.addClient(c4);
+		Client c5 = new Client("Joel", "Eden", new Date(),"25 rue victorien Sardoue");
+		metier.addClient(c5);
+		assertNotNull(c.getIdClient());
+		
+		
+		
+	}
 
 //	@Test
 //	public void testGetClientById(){

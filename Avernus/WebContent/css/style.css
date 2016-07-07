@@ -1,5 +1,68 @@
-body {
-	background-color: red;
-
-	}
+table {
+	text-align: center;
+	margin: auto;
+	margin-bottom: 20px;
+	border: 1px solid;
 	
+}
+table th{
+	border: 1px solid;
+	padding: 10px;
+	margin: 50px;
+}
+
+table td{
+	border: 1px solid;
+	padding: 10px;
+	margin: 50px;
+}
+
+form{
+	text-align: center;
+}
+
+h4{
+	text-align: center;
+}
+
+h3{
+	text-align: center;
+}
+
+.perso h1{
+	text-align: center;
+	position: relative;
+	bottom: -30px;
+	font-style: italic;
+	font-family: cursive; 
+	color: black;
+}
+
+.perso{
+	background:  rgba(300,300,300,0.8);
+	border-bottom: 1px solid;
+}
+
+.monBouton{
+	background:  rgba(300,300,300,0.8);
+	color: black;
+}
+
+.Exception{
+	font-size: 16px;
+	text-align: center;
+	color: red;
+}
+
+select option{
+	color: black;
+	font-size: 15px;
+	margin:5px;
+}
+
+h5{
+	text-align: center;
+	color: black !important;
+	background-color: rgba(500,500,500,0.5);
+}
+
