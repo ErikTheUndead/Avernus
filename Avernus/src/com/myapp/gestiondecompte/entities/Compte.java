@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -43,7 +44,7 @@ public class Compte {
 	@ManyToOne
 	@JoinColumn(name = "idClient")
 	private Client client;
-	@OneToMany(mappedBy="compte",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="compte",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private List<Operation> listOperation = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name = "idEmploye")

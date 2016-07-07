@@ -4,10 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="vue compte">
+<meta name="description" content="vue de la page compte">
 <meta name="author" content="Erik DUHEM">
 
 <!-- Bootstrap Core CSS -->
@@ -38,6 +38,13 @@
 <title>Pages des comptes</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/style.css">
+<style type="text/css">
+.hidden {
+	/* display: none; */
+	/* align: center; */
+	
+}
+</style>
 </head>
 <body>
 	<!-- BARRE DE NAVIGATION -->
@@ -116,8 +123,6 @@
 					</tr>
 				</c:forEach>
 			</table>
-
-
 		</div>
 	</div>
 	</section>
@@ -177,7 +182,7 @@
 			<form action="getCompteId" onsubmit="return validationUpdate();">
 				<select name="idCompte" id="upd1">
 					<option value="0">Choisir un Id</option>
-					<c:forEach items="${AttrCompte}" var="ucp">
+					<c:forEach items="${AttrCompteUpdate}" var="ucp">
 						<option value="${ucp.idCompte}">${ucp.idCompte}</option>
 					</c:forEach>
 				</select>
@@ -230,7 +235,7 @@
 			<form action="supprimerCompte" onsubmit="return validationSuppr();">
 				<select name="idCompte" id="suppr1">
 					<option value="0">Choisir un Id</option>
-					<c:forEach items="${AttrCompte}" var="ucp">
+					<c:forEach items="${AttrCompteUpdate}" var="ucp">
 						<option value="${ucp.idCompte}">${ucp.idCompte}</option>
 					</c:forEach>
 				</select>
@@ -284,12 +289,12 @@
 	</section>
 	<br>
 	<br>
-	
+
 	<!-- FIN DE PAGE -->
 	<section class="download-section">
 	<h5>Nous vous remercions de votre visite</h5>
 	</section>
-	
+
 
 </body>
 </html>

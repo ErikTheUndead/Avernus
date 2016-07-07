@@ -92,6 +92,10 @@ public class DaoCompteImpl implements IDaoCompte {
 			ss.close();
 			throw new ExceptionPerso("updateClient : il n'y a aucun client de cette identifiant");
 		}
+		if(c == null){
+			ss.close();
+			throw new ExceptionPerso("updateClient : il n'y a aucun compte de cette identifiant");
+		}
 		c.setClient(cl);
 		ss.update(c); 
 		ss.getTransaction().commit();

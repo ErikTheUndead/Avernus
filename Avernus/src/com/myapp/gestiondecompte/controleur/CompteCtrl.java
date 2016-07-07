@@ -50,7 +50,7 @@ public class CompteCtrl {
 
 	@RequestMapping(value = "compte")
 	public String compte(Model model) {
-		model.addAttribute("AttrCompte", metierCompte.getCompte());
+		model.addAttribute("AttrCompteUpdate", metierCompte.getCompte());
 		model.addAttribute("UpdateCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "Compte";
@@ -58,6 +58,7 @@ public class CompteCtrl {
 
 	@RequestMapping(value = "/getCompte")
 	public String getCompte(Model model) {
+		model.addAttribute("AttrCompteUpdate", metierCompte.getCompte());
 		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		return "Compte";
 	}
@@ -71,7 +72,7 @@ public class CompteCtrl {
 			cm.setExceptionGetCompteId(e.getMessage());
 		}
 
-		model.addAttribute("AttrCompte", metierCompte.getCompte());
+//		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrCompteId", cm);
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "Compte";
@@ -86,7 +87,7 @@ public class CompteCtrl {
 			cm.setExceptionDeleteCompte(e.getMessage());
 		}
 		
-		model.addAttribute("AttrCompte", metierCompte.getCompte());
+//		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "redirect:compte";
 	}
@@ -94,23 +95,28 @@ public class CompteCtrl {
 	@RequestMapping(value = "/updateCompte", method = RequestMethod.POST)
 	public String update(CompteModel cm, Model model) throws ExceptionPerso {
 
-		Compte cp = metierCompte.getCompteId(cm.getIdCompte());
-		
 		try {
+			Compte cp = metierCompte.getCompteId(cm.getIdCompte());
+			cm.setCompte(cp);
 			if (cm.getNum() != 0)
 				cp.setNumCompte(cm.getNum());
 			if (cm.getSolde() != 0)
 				cp.setSoldeCompte(cm.getSolde());
 			if (cm.getIdEmploye() == null)
 				cm.setIdEmploye(cp.getClient().getIdClient());
-			metierCompte.updateCompte(cp, cm.getIdEmploye());
+		} catch (ExceptionPerso e) {
+			cm.setExceptionGetCompteId(e.getMessage());
+		}
+		
+		try {
+			metierCompte.updateCompte(cm.getCompte(), cm.getIdEmploye());
 			cm.setCompte(metierCompte.getCompteId(cm.getIdCompte()));
 		} catch (ExceptionPerso e) {
 			cm.setExceptionUpdateCompte(e.getMessage());
 		}
 		
 		model.addAttribute("AttrCompteId", cm);
-		model.addAttribute("AttrCompte", metierCompte.getCompte());
+//		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "redirect:compte";
 	}
@@ -118,22 +124,27 @@ public class CompteCtrl {
 	@RequestMapping(value = "/creationCompte", method = RequestMethod.POST)
 	public String creationCompte(CompteModel cm, Model model) throws ExceptionPerso {
 
-		Compte cp = new Compte(cm.getNum(), cm.getSolde(), new Date());
-		
 		try {
+			Compte cp = new Compte(cm.getNum(), cm.getSolde(), new Date());
+			cm.setCompte(cp);
 			if (cm.getNum() != 0)
 				cp.setNumCompte(cm.getNum());
 			if (cm.getSolde() != 0)
 				cp.setSoldeCompte(cm.getSolde());
 			if (cm.getIdClient() != null)
 				cp.setClient(metierClient.getClientById(cm.getIdClient()));
-			cm.setCompte(metierCompte.addCompte(cp, cm.getIdClient(), cm.getIdEmploye(), cm.getIdBanque()));
+		} catch (ExceptionPerso e) {
+			cm.setExceptionGetCompteId(e.getMessage());
+		}
+		
+		try {
+			cm.setCompte(metierCompte.addCompte(cm.getCompte(), cm.getIdClient(), cm.getIdEmploye(), cm.getIdBanque()));
 		} catch (ExceptionPerso e) {
 			cm.setExceptionCreateCompte(e.getMessage());
 		}
 		
 		model.addAttribute("AttrCompteCreate", cm);
-		model.addAttribute("AttrCompte", metierCompte.getCompte());
+//		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "redirect:compte";
 	}
@@ -142,7 +153,7 @@ public class CompteCtrl {
 	public String getCompteEmploye(CompteModel cm, Model model) throws ExceptionPerso {
 		cm.setListeComptes(metierCompte.getCompteEmploye(cm.getIdEmploye()));
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
-		model.addAttribute("AttrCompte", metierCompte.getCompte());
+//		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrCompteEmploye", cm);
 		return "Compte";
 	}
