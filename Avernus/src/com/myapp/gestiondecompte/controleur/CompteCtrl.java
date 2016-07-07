@@ -60,6 +60,7 @@ public class CompteCtrl {
 	public String getCompte(Model model) {
 		model.addAttribute("AttrCompteUpdate", metierCompte.getCompte());
 		model.addAttribute("AttrCompte", metierCompte.getCompte());
+		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
 		return "Compte";
 	}
 
@@ -118,7 +119,9 @@ public class CompteCtrl {
 		model.addAttribute("AttrCompteId", cm);
 //		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
-		return "redirect:compte";
+		model.addAttribute("CompteModelUpdate", cm);
+		model.addAttribute("CompteModelGetCompteIdUpdate", cm);
+		return "Compte";
 	}
 
 	@RequestMapping(value = "/creationCompte", method = RequestMethod.POST)
@@ -146,7 +149,9 @@ public class CompteCtrl {
 		model.addAttribute("AttrCompteCreate", cm);
 //		model.addAttribute("AttrCompte", metierCompte.getCompte());
 		model.addAttribute("AttrEmploye", metierEmploye.getEmploye());
-		return "redirect:compte";
+		model.addAttribute("CompteModelCreate", cm);
+		model.addAttribute("CompteModelGetCompteIdCreate", cm);
+		return "Compte";
 	}
 
 	@RequestMapping(value = "/getEmployeCompte")

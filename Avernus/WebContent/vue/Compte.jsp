@@ -168,7 +168,8 @@
 				</table>
 				<button type="submit" class="btn btn-primary">Création</button>
 			</form>
-			<p class="Exception">${CompteModel.exceptionCreateCompte}</p>
+			<p class="Exception">${CompteModelCreate.exceptionCreateCompte}</p>
+			<p class="Exception">${CompteModelGetCompteIdCreate.exceptionGetCompteId}</p>
 		</div>
 	</div>
 	</section>
@@ -189,22 +190,6 @@
 				<button type="submit" class="btn btn-primary">OK</button>
 				<span id="errupd1"></span>
 			</form>
-			<table class="table">
-				<tr>
-					<th>Compte</th>
-					<th>Numero de compte</th>
-					<th>Solde</th>
-					<th>Date de Création</th>
-					<th>idClient</th>
-				</tr>
-				<tr>
-					<td>${AttrCompteId.compte.idCompte}</td>
-					<td>${AttrCompteId.compte.numCompte}</td>
-					<td>${AttrCompteId.compte.soldeCompte}</td>
-					<td>${AttrCompteId.compte.dateDeCreationCompte}</td>
-					<td>${AttrCompteId.compte.client.idClient}</td>
-				</tr>
-			</table>
 			<form action="updateCompte" method="post">
 				<table class="table">
 					<tr>
@@ -222,7 +207,8 @@
 				</table>
 				<button type="submit" class="btn btn-primary">Mis a jour</button>
 			</form>
-			<p class="Exception">${CompteModel.exceptionUpdateCompte}</p>
+			<p class="Exception">${CompteModelUpdate.exceptionUpdateCompte}</p>
+			<p class="Exception">${CompteModelGetCompteIdUpdate.exceptionGetCompteId}</p>
 		</div>
 	</div>
 	</section>
